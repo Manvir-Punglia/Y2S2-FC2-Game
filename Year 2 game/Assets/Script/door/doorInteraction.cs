@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class doorInteraction : MonoBehaviour
+{
+    public LayerMask door;
+    public LayerMask shopkeeper;
+    public LayerMask interactable;
+ 
+    public Transform camera;
+    PlayerInput playerInput;
+    public GameObject E;
+
+    private void Start()
+    {
+        playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        //E = GameObject.FindGameObjectWithTag("E");
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
+        Ray look = new Ray(camera.position, camera.forward);
+        RaycastHit lookingAt;
+        
+        if (Physics.Raycast(look, out lookingAt, 20, door))
+        {
+            if (playerInput.actions["Interact"].triggered)
+            {
+                //Debug.LogError("Door");
+                lookingAt.collider.gameObject.GetComponent<door>().open();
+            }
+
+            
+        }
+
+        if (Physics.Raycast(look, out lookingAt, 20, shopkeeper))
+        {
+            if (playerInput.actions["Interact"].triggered)
+            {
+                lookingAt.collider.gameObject.GetComponent<LittleMen>().talk();
+            }
+
+            
+        }
+        if(Physics.Raycast(look, out lookingAt, 20, interactable))
+        {
+            E.SetActive(true);
+        }
+        else
+        {
+            E.SetActive(false);
+        }
+    }
+}
