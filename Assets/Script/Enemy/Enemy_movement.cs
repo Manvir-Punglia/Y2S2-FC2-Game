@@ -40,6 +40,7 @@ public class Enemy_movement : MonoBehaviour
     public float wanderRadius;
     float timer = 0;
     public float wanderingTimer;
+    public float speed;
 
     public bool canShoot;
     public float bulletSpeed;
@@ -60,7 +61,8 @@ public class Enemy_movement : MonoBehaviour
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
         animator = GetComponent<Animator>();
         hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
-        
+        agent = GetComponent<NavMeshAgent>();
+
     }
     private void Awake()
     {
@@ -68,6 +70,7 @@ public class Enemy_movement : MonoBehaviour
     }
     private void Update()
     {
+        agent.speed = speed;
         animator.SetFloat("Movement", 0);
         Die();
         if (canSeeTarget)

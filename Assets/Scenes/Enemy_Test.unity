@@ -259,6 +259,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387568647, guid: 4a788ff2b29989b4089731f97b905809, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 387568647, guid: 4a788ff2b29989b4089731f97b905809, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2831505889984931111, guid: 4a788ff2b29989b4089731f97b905809, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -620,6 +628,7 @@ MonoBehaviour:
   bullet: {fileID: 6937317632471841382, guid: a265736224021ec4daca1baddaaaa004, type: 3}
   gunObject: {fileID: 189376814}
   animator: {fileID: 0}
+  gunSound: {fileID: 0}
 --- !u!65 &703404959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -813,6 +822,8 @@ MonoBehaviour:
   spawn: {fileID: 0}
   destination: {fileID: 1102026071}
   type: 1
+  hubMusic: {fileID: 0}
+  levelMusic: {fileID: 0}
 --- !u!54 &831255878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -966,7 +977,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579d87424cb0d984da307455e825ce8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn: {fileID: 0}
+  player: {fileID: 0}
+  keyText: {fileID: 0}
   keyCount: 0
+  hubMusic: {fileID: 0}
+  levelMusic: {fileID: 0}
 --- !u!114 &889726939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,7 +998,14 @@ MonoBehaviour:
   door:
     serializedVersion: 2
     m_Bits: 8
+  shopkeeper:
+    serializedVersion: 2
+    m_Bits: 0
+  interactable:
+    serializedVersion: 2
+    m_Bits: 0
   camera: {fileID: 591427618}
+  E: {fileID: 0}
 --- !u!114 &889726940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,6 +1409,8 @@ MonoBehaviour:
   spawn: {fileID: 2054839577}
   destination: {fileID: 1102026071}
   type: 0
+  hubMusic: {fileID: 0}
+  levelMusic: {fileID: 0}
 --- !u!136 &1359044493
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1550,6 +1575,7 @@ MonoBehaviour:
   bullet: {fileID: 6937317632471841382, guid: 5df81fc53e9040940a1ae6d29ed5ef61, type: 3}
   gunObject: {fileID: 189376814}
   animator: {fileID: 0}
+  gunSound: {fileID: 0}
 --- !u!65 &1589972614
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1663,6 +1689,7 @@ MonoBehaviour:
   bullet: {fileID: 6937317632471841382, guid: ca2e76878b5bf694d92ff26019cdeb0d, type: 3}
   gunObject: {fileID: 189376814}
   animator: {fileID: 0}
+  gunSound: {fileID: 0}
 --- !u!65 &1596628948
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2127,6 +2154,7 @@ MonoBehaviour:
   bullet: {fileID: 6937317632471841382, guid: 9e5a445048d5a8f44b85261bac8308d6, type: 3}
   gunObject: {fileID: 189376814}
   animator: {fileID: 0}
+  gunSound: {fileID: 0}
 --- !u!65 &2139844980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5050,6 +5078,7 @@ MonoBehaviour:
   bullet: {fileID: 1661705576419134674, guid: 835193d6a5986aa469f657a67ff0d2c0, type: 3}
   shootingPos: {fileID: 3519871486558328595}
   player: {fileID: 0}
+  fireballParticles: {fileID: 0}
   canSeeTarget: 0
   hit: 1
   runDistance: 5
@@ -5059,6 +5088,7 @@ MonoBehaviour:
   bounty: 30
   wanderRadius: 4
   wanderingTimer: 6
+  speed: 0
   canShoot: 0
   bulletSpeed: 1000
   shootTimer: 3
