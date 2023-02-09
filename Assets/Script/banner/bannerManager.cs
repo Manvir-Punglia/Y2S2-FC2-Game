@@ -4,78 +4,52 @@ using UnityEngine;
 
 public class bannerManager : MonoBehaviour
 {
-    public int bannerAmount = 0;
-    int enemyCount = 0;
-    int damageIncrease;
-    int healthIncrease;
-    int moveSpeedIncrease;
-    float fireRateIncrease;
+
+    int enemyCountF = 0;
+    int enemyCountW = 0;
+    int enemyCountL = 0;
+    int enemyCountP = 0;
+
+    public banner fireBanner;
+    public banner waterBanner;
+    public banner poisonBanner;
+    public banner lightningBanner;
+    
 
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
-        switch (enemyCount)
-        {
-            case 15:
-                bannerAmount = 1;
-                break;
-
-            case 30:
-                bannerAmount = 2;
-                break;
-
-            case 45:
-                bannerAmount = 3;
-                break;
-
-        }
-
-        switch (bannerAmount)
-        {
-            case 0:
-                statChange(0, 0, 0, 0);
-                break;
-            case 1:
-                statChange(1, 0, 2, 0.05f);
-                break;
-            case 2:
-                statChange(2, 0, 4, 0.15f);
-                break;
-            case 3:
-                statChange(3, 0, 6, 0.2f);
-                break;
-        }
-    }
-
-    public void statChange(int dmg, int hp, int moveSpeed, float fireRate)
-    {
-        damageIncrease = dmg;
-        healthIncrease = hp;
-        moveSpeedIncrease = moveSpeed;
-        fireRateIncrease = fireRate;
+        fireBanner.bannerUpgrade(enemyCountF);
+        waterBanner.bannerUpgrade(enemyCountW);
+        poisonBanner.bannerUpgrade(enemyCountP);
+        lightningBanner.bannerUpgrade(enemyCountL);
     }
 
     public float getStats(int stat)
     {
-        if(stat <= 0)
+        if (stat <= 0)
         {
+            float damageIncrease = fireBanner.getStats(0) + waterBanner.getStats(0) + poisonBanner.getStats(0) + lightningBanner.getStats(0);
             return damageIncrease;
         }
         else if (stat == 1)
         {
+            float healthIncrease = fireBanner.getStats(1) + waterBanner.getStats(1) + poisonBanner.getStats(1) + lightningBanner.getStats(1);
             return healthIncrease;
         }
         else if (stat == 2)
         {
+            float moveSpeedIncrease = fireBanner.getStats(2) + waterBanner.getStats(2) + poisonBanner.getStats(2) + lightningBanner.getStats(2);
             return moveSpeedIncrease;
         }
         else if (stat >= 3)
         {
+            float fireRateIncrease = fireBanner.getStats(3) + waterBanner.getStats(3) + poisonBanner.getStats(3) + lightningBanner.getStats(3);
             return fireRateIncrease;
         }
         else
@@ -83,28 +57,14 @@ public class bannerManager : MonoBehaviour
             return 0;
         }
     }
-    public void increaseBannerAmount()
-    {
-        bannerAmount++;
-    }
-
-    public void decreaseBannerAmount()
-    {
-        if (bannerAmount > 0)
-        {
-            bannerAmount--;
-        }
-
-        
-    }
     public void increaseKillCount()
     {
-        enemyCount++;
+        enemyCountF++;
     }
 
     public int getKillCount()
     {
-        return enemyCount;
+        return enemyCountF;
     }
 
 }

@@ -85,13 +85,13 @@ public class PlayerManager : MonoBehaviour
             StartCoroutine(diedText());
             StopCoroutine(diedText());
         }
-        banner.decreaseBannerAmount();
+        //banner.decreaseBannerAmount();
         GetComponent<CharacterController>().enabled = false;
         player.transform.position = spawn.transform.position;
         //GetComponent<CharacterController>().enabled = true;
         _health = 3;
         
-        Debug.Log("DED");
+        //Debug.Log("DED");
 
     }
 

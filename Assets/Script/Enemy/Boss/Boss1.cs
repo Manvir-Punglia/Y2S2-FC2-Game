@@ -11,6 +11,12 @@ public class Boss1 : MonoBehaviour
     NavMeshAgent agent;
 
     bool canHit = false;
+    bool canShoot = true;
+    float canShootTimer = 0f;
+    float shootTimer = 0f;
+    float bulletSpeed = 0f;
+
+    GameObject fireballParticles;
     public float hitTime;
     float time = 0;
 
