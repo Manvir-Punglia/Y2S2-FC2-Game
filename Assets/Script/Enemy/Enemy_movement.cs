@@ -61,7 +61,6 @@ public class Enemy_movement : MonoBehaviour
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
         animator = GetComponent<Animator>();
         hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
-        agent = GetComponent<NavMeshAgent>();
 
     }
     private void Awake()
