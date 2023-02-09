@@ -11,6 +11,8 @@ public class banner : MonoBehaviour
     int healthIncrease = 0;
     float fireRateIncrease = 0;
 
+    public bannerManager manager;
+
     public void bannerUpgrade(int enemyCount)
     {
         switch (bannerAmount)
@@ -19,7 +21,7 @@ public class banner : MonoBehaviour
                 if(enemyCount == 15)
                 {
                     bannerAmount = 1;
-                    enemyCount = 0;
+                    manager.resetKillCount("Fire");
                 }
                 break;
                 
@@ -106,5 +108,11 @@ public class banner : MonoBehaviour
         }
 
 
+    }
+
+    private void Update()
+    {
+
+        //Debug.Log(bannerAmount);
     }
 }

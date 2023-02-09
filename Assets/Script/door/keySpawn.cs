@@ -22,7 +22,7 @@ public class keySpawn : MonoBehaviour
         //Debug.LogError(_banner.getKillCount());
         if (canSpawn)
         {
-            if (_banner.getKillCount() == _spawn.getPosCount())
+            if (_banner.getKillCount("Fire") == _spawn.getPosCount())
             {
                 Instantiate(key, keySpawner.transform.position, keySpawner.transform.rotation);
                 keyText.SetActive(true);
