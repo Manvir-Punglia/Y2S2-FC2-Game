@@ -12,15 +12,14 @@ public class Boss1 : MonoBehaviour
 
     bool canHit = false;
     bool canShoot = true;
-    float canShootTimer = 0f;
     float shootTimer = 0f;
     float bulletSpeed = 0f;
 
     GameObject fireballParticles;
     public float hitTime;
-    float time = 0;
 
-    public float health;
+    public float maxHealth;
+    float health;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +30,14 @@ public class Boss1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shooting();
+        if (health > (maxHealth / 2))
+        {
+            phase1();
+        }
+        else if (health <= (maxHealth / 2))
+        {
+            phase2();
+        }
     }
     void Shooting()
     {
@@ -43,11 +49,50 @@ public class Boss1 : MonoBehaviour
             canShoot = false;
             BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
         }
-        canShootTimer += Time.deltaTime;
+        shootTimer += Time.deltaTime;
         if (canShootTimer >= shootTimer)
         {
             canShoot = true;
             canShootTimer = 0;
         }
+    }
+    void phase1()
+    {
+        Shooting();
+    }
+    void phase2()
+    {
+        float time = 0;
+        if (!hit)
+        {
+            agent.destination = player.transform.position;
+            //animator.SetBool("ATK_Melee", true);
+        }
+        else
+        {
+            if (time < hitTime)
+            {
+                //animator.SetBool("ATK_Melee", false);
+                Vector3 runTo = transform.position + ((transform.position - player.transform.position));
+                float distance = Vector3.Distance(transform.position, player.transform.position);
+                transform.LookAt(player.transform.position);
+                if (distance < runDistance)
+                {
+                    agent.SetDestination(runTo);
+                }
+
+                else
+                {
+                    agent.destination = player.transform.position;
+                }
+                time += Time.deltaTime;
+            }
+            else
+            {
+                hit = false;
+                time = 0;
+            }
+        }
+           
     }
 }
