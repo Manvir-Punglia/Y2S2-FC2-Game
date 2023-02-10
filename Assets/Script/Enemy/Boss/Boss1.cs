@@ -58,6 +58,7 @@ public class Boss1 : MonoBehaviour
     }
     void phase1()
     {
+
         Shooting();
     }
     void phase2()
