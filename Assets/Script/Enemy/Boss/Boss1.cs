@@ -15,6 +15,10 @@ public class Boss1 : MonoBehaviour
     float shootTimer = 0f;
     float bulletSpeed = 0f;
 
+    float canShootTimer;
+    bool hit;
+    float runDistance;
+
     GameObject fireballParticles;
     public float hitTime;
 

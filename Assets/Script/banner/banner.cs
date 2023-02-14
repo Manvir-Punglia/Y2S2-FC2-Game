@@ -13,7 +13,12 @@ public class banner : MonoBehaviour
 
     public bannerManager manager;
 
-    public void bannerUpgrade(int enemyCount)
+    public float getLevel()
+    {
+        return bannerAmount;
+    }
+
+    public void bannerUpgrade(int enemyCount, string resetType)
     {
         switch (bannerAmount)
         {
@@ -21,7 +26,7 @@ public class banner : MonoBehaviour
                 if(enemyCount == 15)
                 {
                     bannerAmount = 1;
-                    manager.resetKillCount("Fire");
+                    manager.resetKillCount(resetType);
                 }
                 break;
                 
@@ -30,14 +35,14 @@ public class banner : MonoBehaviour
                 if(enemyCount == 15)
                 {
                     bannerAmount = 2;
-                    enemyCount = 0;
+                    manager.resetKillCount(resetType);
                 }
                 break;
 
             case 2:
                 if(enemyCount == 15)
                 {
-                    bannerAmount = 3;
+                    manager.resetKillCount(resetType);
                 }
                 break;
 

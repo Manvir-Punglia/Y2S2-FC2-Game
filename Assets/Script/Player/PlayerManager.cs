@@ -6,6 +6,9 @@ using Cinemachine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public GameObject bannerSacrifice;
+    public PauseGame pause;
+
     int _health = 3;
     int _money = 0;
     int _newMoney = 0;
@@ -78,17 +81,17 @@ public class PlayerManager : MonoBehaviour
 
     private void Die()
     {
-        hubMusic.SetActive(true);
+        //hubMusic.SetActive(true);
         levelMusic.SetActive(false);
-        if (canDedText)
-        {
-            StartCoroutine(diedText());
-            StopCoroutine(diedText());
-        }
-        //banner.decreaseBannerAmount();
+        _mainCamera.SetActive(false);
+        _lockedCamera.SetActive(true);
+        //Time.timeScale = 0;
+        GetComponent<PlayerController>().setNoLooking(false);
+        bannerSacrifice.SetActive(true);
         GetComponent<CharacterController>().enabled = false;
+        
         player.transform.position = spawn.transform.position;
-        //GetComponent<CharacterController>().enabled = true;
+        
         _health = 3;
         
         //Debug.Log("DED");
@@ -143,14 +146,11 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    
     IEnumerator diedText()
     {
         canDedText = false;
-        _mainCamera.SetActive(false);
-        _lockedCamera.SetActive(true);
-
-        playerDiedText.SetActive(true);
-        GetComponent<CharacterController>().enabled = false;
+        
         yield return new WaitForSeconds(5);
         playerDiedText.SetActive(false);
         GetComponent<CharacterController>().enabled = true;

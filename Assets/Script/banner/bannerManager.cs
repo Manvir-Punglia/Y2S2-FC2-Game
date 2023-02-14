@@ -24,10 +24,10 @@ public class bannerManager : MonoBehaviour
 
     void Update()
     {
-        fireBanner.bannerUpgrade(enemyCountF);
-        waterBanner.bannerUpgrade(enemyCountW);
-        poisonBanner.bannerUpgrade(enemyCountP);
-        lightningBanner.bannerUpgrade(enemyCountL);
+        fireBanner.bannerUpgrade(enemyCountF, "Fire");
+        waterBanner.bannerUpgrade(enemyCountW, "Water");
+        poisonBanner.bannerUpgrade(enemyCountP, "Poison");
+        lightningBanner.bannerUpgrade(enemyCountL, "Lightning");
 
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -36,6 +36,42 @@ public class bannerManager : MonoBehaviour
         }
     }
 
+    public float getAmount(string bannerType)
+    {
+        switch (bannerType)
+        {
+            case "Fire":
+                return fireBanner.getLevel();
+            case "Water":
+                return waterBanner.getLevel();
+            case "Poison":
+                return poisonBanner.getLevel();
+            case "Lightning":
+                return lightningBanner.getLevel();
+        }
+
+        return 0;  
+    }
+
+    public void decrease(string type)
+    {
+        switch (type)
+        {
+            case "Fire":
+                fireBanner.decreaseBannerAmount();
+                break;
+            case "Water":
+                waterBanner.decreaseBannerAmount();
+                break;
+            case "Poison":
+                poisonBanner.decreaseBannerAmount();
+                break;
+            case "Lightning":
+                lightningBanner.decreaseBannerAmount();
+                break;
+        }
+
+    }
     public float getStats(int stat)
     {
         if (stat <= 0)
