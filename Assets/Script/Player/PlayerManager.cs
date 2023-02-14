@@ -53,7 +53,12 @@ public class PlayerManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            AddMoney(5);
+            //AddMoney(5);
+            _mainCamera.SetActive(true);
+            _lockedCamera.SetActive(false);
+            GetComponent<PlayerController>().setNoLooking(true);
+            bannerSacrifice.SetActive(false);
+            GetComponent<CharacterController>().enabled = true;
         }
         DisplayMoney();
 
