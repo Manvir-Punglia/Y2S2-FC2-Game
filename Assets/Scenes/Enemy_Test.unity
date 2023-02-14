@@ -268,8 +268,16 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 387568647, guid: 4a788ff2b29989b4089731f97b905809, type: 3}
+      propertyPath: health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 387568647, guid: 4a788ff2b29989b4089731f97b905809, type: 3}
       propertyPath: player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 387568647, guid: 4a788ff2b29989b4089731f97b905809, type: 3}
+      propertyPath: maxHealth
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2831505889984931111, guid: 4a788ff2b29989b4089731f97b905809, type: 3}
       propertyPath: m_RootOrder
@@ -5088,6 +5096,7 @@ MonoBehaviour:
   runDistance: 5
   shootingDistance: 10
   hitTime: 5
+  maxHealth: 0
   health: 2
   bounty: 30
   wanderRadius: 4

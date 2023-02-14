@@ -32,6 +32,7 @@ public class Enemy_movement : MonoBehaviour
     public float hitTime;
     float time = 0;
 
+    public float maxHealth;
     public float health;
 
     public int bounty;
@@ -61,6 +62,7 @@ public class Enemy_movement : MonoBehaviour
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
         animator = GetComponent<Animator>();
         hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
+        health = maxHealth;
 
     }
     private void Awake()
