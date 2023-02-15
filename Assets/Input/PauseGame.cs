@@ -34,7 +34,7 @@ public class PauseGame : MonoBehaviour
     private void Start()
     {
         pauseButton.performed += _ => Pause();
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        //playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
     }
 

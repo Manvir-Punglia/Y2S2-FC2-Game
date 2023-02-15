@@ -56,6 +56,6 @@ public class LittleMen : MonoBehaviour
     public void setCanInteract(bool newCaninteract)
     {
         _canInteract = newCaninteract;
-        animator.SetBool("Purchase", false);
+        //animator.SetBool("Purchase", false);
     }
 }

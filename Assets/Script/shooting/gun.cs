@@ -35,7 +35,7 @@ public class gun : MonoBehaviour
 
     bool canShootAnim = true;
 
-    LittleMen playingGod;
+    public LittleMen playingGod;
 
     RecoilShake recoil;
 
@@ -45,7 +45,7 @@ public class gun : MonoBehaviour
     {
         banner = GetComponentInParent<bannerManager>();
         playerInput = GetComponentInParent<PlayerInput>();
-        playingGod = GameObject.FindGameObjectWithTag("ShopKeeper").GetComponent<LittleMen>();
+        //playingGod = GameObject.FindGameObjectWithTag("ShopKeeper").GetComponent<LittleMen>();
     }
     // Update is called once per frame
     void Update()

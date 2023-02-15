@@ -9,13 +9,13 @@ public class HealthHud : MonoBehaviour
     public GameObject Health1of3;
     public GameObject Health0of3;
 
-    PlayerManager player;
+    public PlayerManager player;
 
     public int playerHealth;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+       //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
