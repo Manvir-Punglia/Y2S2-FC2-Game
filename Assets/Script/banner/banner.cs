@@ -56,7 +56,7 @@ public class banner : MonoBehaviour
                 statChange(0, 0, 0, 0);
                 break;
             case 1:
-                statChange(1, 0, 2, 0.05f);
+                statChange(1, 0, 100, 0.05f);
                 break;
             case 2:
                 statChange(2, 0, 4, 0.15f);

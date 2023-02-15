@@ -6,6 +6,7 @@ public class bannerDeath : MonoBehaviour
 {
 
     public bannerManager manager;
+    public PlayerManager player;
     public GameObject chooseAnotherText;
     bool canErrorText = true;
     bool isDead = false;
@@ -16,7 +17,7 @@ public class bannerDeath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
@@ -42,6 +43,7 @@ public class bannerDeath : MonoBehaviour
     {
         if(manager.getAmount(bannerType) <= 0)
         {
+            //Debug.Log(manager.getAmount(bannerType));
             StartCoroutine(errorText());
             StopCoroutine(errorText());
         }
@@ -51,6 +53,7 @@ public class bannerDeath : MonoBehaviour
             isDead = false;
             hasChosen = false;
             whichBanner = "";
+            player.Alive();
         }
     }
 

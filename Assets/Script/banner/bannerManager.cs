@@ -21,7 +21,7 @@ public class bannerManager : MonoBehaviour
 
     }
 
-
+    
     void Update()
     {
         fireBanner.bannerUpgrade(enemyCountF, "Fire");
@@ -31,8 +31,20 @@ public class bannerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            enemyCountF++;
-            Debug.Log(enemyCountF);
+            enemyCountW+=15;
+            //Debug.Log(enemyCountW);
+        }
+    }
+
+    public bool getHasAnyBanners()
+    {
+        if(fireBanner.getLevel() != 0 && waterBanner.getLevel() != 0 && poisonBanner.getLevel() != 0 && lightningBanner.getLevel() != 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 

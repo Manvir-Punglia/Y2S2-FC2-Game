@@ -63,6 +63,11 @@ public class PlayerManager : MonoBehaviour
         DisplayMoney();
 
         CheckIfDead();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _health--;
+        }
         
     }
 
@@ -84,22 +89,40 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void Alive()
+    {
+        _mainCamera.SetActive(true);
+        _lockedCamera.SetActive(false);
+        GetComponent<PlayerController>().setNoLooking(true);
+        bannerSacrifice.SetActive(false);
+        GetComponent<CharacterController>().enabled = true;
+    }
+
     private void Die()
     {
-        //hubMusic.SetActive(true);
-        levelMusic.SetActive(false);
-        _mainCamera.SetActive(false);
-        _lockedCamera.SetActive(true);
-        //Time.timeScale = 0;
-        GetComponent<PlayerController>().setNoLooking(false);
-        bannerSacrifice.SetActive(true);
-        GetComponent<CharacterController>().enabled = false;
-        
-        player.transform.position = spawn.transform.position;
-        
-        _health = 3;
-        
-        //Debug.Log("DED");
+        if (banner.getHasAnyBanners())
+        {
+            //hubMusic.SetActive(true);
+            levelMusic.SetActive(false);
+            _mainCamera.SetActive(false);
+            _lockedCamera.SetActive(true);
+            //Time.timeScale = 0;
+            GetComponent<PlayerController>().setNoLooking(false);
+            bannerSacrifice.SetActive(true);
+            GetComponent<CharacterController>().enabled = false;
+
+            player.transform.position = spawn.transform.position;
+
+            _health = 3;
+
+            //Debug.Log("DED");
+        }
+
+        else
+        {
+            Application.Quit();
+        }
+
 
     }
 
