@@ -7,8 +7,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.Animations.Rigging;
-//using static Enemy_movement;
-//using static UnityEditor.PlayerSettings;
+using static Enemy_movement;
+using static UnityEditor.PlayerSettings;
 
 public class Enemy_movement : MonoBehaviour
 {
@@ -21,7 +21,7 @@ public class Enemy_movement : MonoBehaviour
 
     HitAnimation hitAnim;
 
-    public ParticleSystem fireballParticles;
+    //public ParticleSystem fireballParticles;
 
     public bool canSeeTarget;
     public bool hit;
@@ -61,21 +61,24 @@ public class Enemy_movement : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
         animator = GetComponent<Animator>();
-        hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
-        health = maxHealth;
+        //hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
 
     }
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        health = maxHealth;
     }
     private void Update()
     {
         agent.speed = speed;
+        Vector3 runTo = transform.position + ((transform.position - player.transform.position));
+        float distance = Vector3.Distance(transform.position, player.transform.position);
         animator.SetFloat("Movement", 0);
         Die();
         if (canSeeTarget)
         {
+            transform.LookAt(player.transform.position);
             animator.SetFloat("Movement", 1);
             switch (type)
             {
@@ -91,9 +94,6 @@ public class Enemy_movement : MonoBehaviour
                             if (time < hitTime)
                             {
                                 animator.SetBool("ATK_Melee", false);
-                                Vector3 runTo = transform.position + ((transform.position - player.transform.position));
-                                float distance = Vector3.Distance(transform.position, player.transform.position);
-                                transform.LookAt(player.transform.position);
                                 if (distance < runDistance)
                                 {
                                     agent.SetDestination(runTo);
@@ -115,9 +115,6 @@ public class Enemy_movement : MonoBehaviour
                     break;
                 case enemy.RANGE:
                     {
-                        Vector3 runTo = transform.position + ((transform.position - player.transform.position));
-                        float distance = Vector3.Distance(transform.position, player.transform.position);
-                        transform.LookAt(player.transform.position); 
                         if (distance < shootingDistance)
                         {
                             agent.SetDestination(runTo);
@@ -131,9 +128,6 @@ public class Enemy_movement : MonoBehaviour
                     break;
                 case enemy.MONEY:
                     {
-                        Vector3 runTo = transform.position + ((transform.position - player.transform.position));
-                        float distance = Vector3.Distance(transform.position, player.transform.position);
-                        transform.LookAt(player.transform.position);
                         if (distance < runDistance)
                         {
                             agent.SetDestination(runTo);
@@ -151,13 +145,12 @@ public class Enemy_movement : MonoBehaviour
     {
         if (health <= 0)
         {
-            
             canSeeTarget = false;
             hit = false;
             if (!bountyObtain)
             {
-                banner.increaseKillCount();
-                player.GetComponent<PlayerManager>().AddMoney(bounty);
+                //banner.increaseKillCount();
+                //player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetBool("Death", true);
                 bountyObtain = true;
             }
@@ -166,14 +159,21 @@ public class Enemy_movement : MonoBehaviour
     }
     void Shooting()
     {
+        canShootTimer += Time.deltaTime;
         if (canShoot)
         {
+            var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
+            //var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
+            //FireballClone.transform.parent = BulletClone.transform;
+
+            BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+            //fireballParticles.Play();
+
             canShoot = false;
             animator.SetBool("ATK_Range", true);
-            
+
         }
-        canShootTimer += Time.deltaTime;
-        if (canShootTimer >= shootTimer && (transform.position - player.transform.position).magnitude <= shootingDistance)
+        if (canShootTimer >= shootTimer && (transform.position - player.transform.position).magnitude >= shootingDistance)
         {
             canShoot = true;
             canShootTimer = 0;
@@ -190,7 +190,7 @@ public class Enemy_movement : MonoBehaviour
             StartCoroutine(hitAnim.HitAnim());
             canSeeTarget = true;
             health -= collision.gameObject.GetComponent<bullet>().damage;
-            
+
         }
         if (collision.collider.CompareTag("Player"))
         {
@@ -217,17 +217,17 @@ public class Enemy_movement : MonoBehaviour
             animator.SetFloat("Movement", 1);
         }
     }
-    public void ShootFireBall()
-    {
-        
-        var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-        var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
-        FireballClone.transform.parent = BulletClone.transform;
+    //public void ShootFireBall()
+    //{
 
-        BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-        fireballParticles.Play();
-        
-    }
+    //    var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
+    //    var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
+    //    FireballClone.transform.parent = BulletClone.transform;
+
+    //    BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+    //    fireballParticles.Play();
+
+    //}
 
     public bool GetCanSee()
     {

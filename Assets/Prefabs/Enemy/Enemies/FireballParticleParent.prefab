@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4556274767325085480}
   - component: {fileID: 4556274767325085495}
   - component: {fileID: 4556274767325085494}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireballParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: 4556274767498382881}
   - component: {fileID: 4556274767498382883}
   - component: {fileID: 4556274767498382882}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9649,7 +9649,7 @@ GameObject:
   - component: {fileID: 4556274767809053509}
   - component: {fileID: 4556274767809053508}
   - component: {fileID: 4556274767809053507}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireballParticleParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14462,7 +14462,7 @@ GameObject:
   - component: {fileID: 4556274767845363682}
   - component: {fileID: 4556274767845363684}
   - component: {fileID: 4556274767845363683}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19274,7 +19274,7 @@ GameObject:
   - component: {fileID: 4556274768070341200}
   - component: {fileID: 4556274768070341202}
   - component: {fileID: 4556274768070341201}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24095,7 +24095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4556274768175014813}
   - component: {fileID: 4556274768175014814}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

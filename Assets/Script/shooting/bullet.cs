@@ -47,6 +47,11 @@ public class bullet : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             playerManager.TakeDamage();
+
+        }
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Wall")
+        {
+            Destroy(bullet_prefab);
         }
 
         ContactPoint contact = collision.contacts[0];
@@ -59,8 +64,6 @@ public class bullet : MonoBehaviour
 
             
         }
-
-        Destroy(bullet_prefab);
         
     }
 

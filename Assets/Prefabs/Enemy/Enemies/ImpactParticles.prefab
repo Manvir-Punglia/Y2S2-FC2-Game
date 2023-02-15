@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7658950783508505995}
   - component: {fileID: 7658950783508505997}
   - component: {fileID: 7658950783508505996}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SubImpactParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 7658950783660071121}
   - component: {fileID: 7658950783660071123}
   - component: {fileID: 7658950783660071122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ImpactParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9694,7 +9694,7 @@ GameObject:
   - component: {fileID: 7658950784445904793}
   - component: {fileID: 7658950784445904792}
   - component: {fileID: 7658950784445904807}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ImpactParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
