@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class banner : MonoBehaviour
 {
+    public string bannerType;
+
     int bannerAmount = 0;
 
     int damageIncrease = 0;
@@ -23,26 +25,31 @@ public class banner : MonoBehaviour
         switch (bannerAmount)
         {
             case 0:
-                if(enemyCount == 15)
+                if(enemyCount >= 15)
                 {
                     bannerAmount = 1;
                     manager.resetKillCount(resetType);
+                    manager.setString(bannerType);
                 }
                 break;
                 
 
             case 1:
-                if(enemyCount == 15)
+                if(enemyCount >= 15)
                 {
                     bannerAmount = 2;
                     manager.resetKillCount(resetType);
+                    manager.setString(bannerType);
+
                 }
                 break;
 
             case 2:
-                if(enemyCount == 15)
+                if(enemyCount >= 15)
                 {
                     manager.resetKillCount(resetType);
+                    manager.setString(bannerType);
+
                 }
                 break;
 
@@ -50,21 +57,81 @@ public class banner : MonoBehaviour
 
         }
 
-        switch (bannerAmount)
+        switch (bannerType)
         {
-            case 0:
-                statChange(0, 0, 0, 0);
+            case "Fire":
+                switch (bannerAmount)
+                {
+                    case 0:
+                        statChange(0, 0, 0, 0);
+                        break;
+                    case 1:
+                        statChange(0, 0, 0, 0.05f);
+                        break;
+                    case 2:
+                        statChange(0, 0, 0, 0.15f);
+                        break;
+                    case 3:
+                        statChange(0, 0, 0, 0.2f);
+                        break;
+                }
                 break;
-            case 1:
-                statChange(1, 0, 100, 0.05f);
+
+            case "Water":
+                switch (bannerAmount)
+                {
+                    case 0:
+                        statChange(0, 0, 0, 0);
+                        break;
+                    case 1:
+                        statChange(0, 1, 0, 0.0f);
+                        break;
+                    case 2:
+                        statChange(0, 2, 0, 0.0f);
+                        break;
+                    case 3:
+                        statChange(0, 3, 6, 0.0f);
+                        break;
+                }
                 break;
-            case 2:
-                statChange(2, 0, 4, 0.15f);
+
+            case "Poison":
+                switch (bannerAmount)
+                {
+                    case 0:
+                        statChange(0, 0, 0, 0);
+                        break;
+                    case 1:
+                        statChange(1, 0, 0, 0.0f);
+                        break;
+                    case 2:
+                        statChange(2, 0, 0, 0.0f);
+                        break;
+                    case 3:
+                        statChange(3, 0, 0, 0.0f);
+                        break;
+                }
                 break;
-            case 3:
-                statChange(3, 0, 6, 0.2f);
+
+            case "Lightning":
+                switch (bannerAmount)
+                {
+                    case 0:
+                        statChange(0, 0, 0, 0);
+                        break;
+                    case 1:
+                        statChange(0, 0, 10, 0.0f);
+                        break;
+                    case 2:
+                        statChange(0, 0, 20, 0.0f);
+                        break;
+                    case 3:
+                        statChange(0, 0, 30, 0.0f);
+                        break;
+                }
                 break;
         }
+        
     }
 
     public void statChange(int dmg, int hp, int moveSpeed, float fireRate)

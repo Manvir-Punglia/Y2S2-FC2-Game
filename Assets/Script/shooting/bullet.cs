@@ -26,7 +26,7 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.tag == "Player Bullet")
+        if(this.tag == "Bullet")
         {
             damage = maxdamage + banner.getStats(0);
         }
@@ -46,7 +46,11 @@ public class bullet : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            playerManager.TakeDamage();
+            if(this.tag != "Bullet")
+            {
+                playerManager.TakeDamage();
+            }
+            
 
         }
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Wall")

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class bannerMenu : MonoBehaviour
 {
@@ -13,9 +14,20 @@ public class bannerMenu : MonoBehaviour
     public GameObject poisonBanner1;
     public GameObject lightningBanner0;
     public GameObject lightningBanner1;
+
+    public Text fireEnemyLeft;
+    public Text waterEnemyLeft;
+    public Text poisonEnemyLeft;
+    public Text lightningEnemyLeft;
+
     // Update is called once per frame
     void Update()
     {
+        fireEnemyLeft.text = (15 - player.getKillCount("Fire")).ToString();
+        waterEnemyLeft.text = (15 - player.getKillCount("Water")).ToString();
+        poisonEnemyLeft.text = (15 - player.getKillCount("Poison")).ToString();
+        lightningEnemyLeft.text = (15 - player.getKillCount("Lightning")).ToString();
+
         if(player.getAmount("Fire") == 0)
         {
             fireBanner0.SetActive(true);

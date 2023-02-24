@@ -14,7 +14,17 @@ public class bannerManager : MonoBehaviour
     public banner waterBanner;
     public banner poisonBanner;
     public banner lightningBanner;
-    
+
+    public GameObject fireProgress;
+    public GameObject waterProgress;
+    public GameObject poisonProgress;
+    public GameObject lightningProgress;
+    public GameObject bannerUpgradeText;
+
+    bool canShowProgress = true;
+    bool willShowProgress = false;
+
+    string justUpgraded;
 
     void Start()
     {
@@ -24,6 +34,13 @@ public class bannerManager : MonoBehaviour
     
     void Update()
     {
+
+        if (canShowProgress && willShowProgress)
+        {
+            StartCoroutine(showUpgrade(justUpgraded));
+            StopCoroutine(showUpgrade(justUpgraded));
+        }
+
         fireBanner.bannerUpgrade(enemyCountF, "Fire");
         waterBanner.bannerUpgrade(enemyCountW, "Water");
         poisonBanner.bannerUpgrade(enemyCountP, "Poison");
@@ -31,7 +48,7 @@ public class bannerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            enemyCountW+=15;
+            enemyCountW+=10;
             //Debug.Log(enemyCountW);
         }
     }
@@ -173,6 +190,50 @@ public class bannerManager : MonoBehaviour
                 enemyCountL = 0;
                 break;
         }
+    }
+
+    IEnumerator showUpgrade(string bannerType)
+    {
+        if (canShowProgress)
+        {
+            canShowProgress = false;
+
+            switch (bannerType)
+            {
+                case "Fire":
+                    fireProgress.SetActive(true);
+                    break;
+
+                case "Water":
+                    waterProgress.SetActive(true);
+                    break;
+
+                case "Poison":
+                    poisonProgress.SetActive(true);
+                    break;
+
+                case "Lightning":
+                    lightningProgress.SetActive(true);
+                    break;
+            }
+            bannerUpgradeText.SetActive(true);
+            yield return new WaitForSeconds(5);
+
+            fireProgress.SetActive(false);
+            waterProgress.SetActive(false);
+            poisonProgress.SetActive(false);
+            lightningProgress.SetActive(false);
+            bannerUpgradeText.SetActive(false);
+
+            canShowProgress = true;
+            willShowProgress = false;
+        }
+    }
+
+    public void setString(string type)
+    {
+        justUpgraded = type;
+        willShowProgress = true;
     }
 
 }
