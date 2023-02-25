@@ -182,6 +182,10 @@ public class banner : MonoBehaviour
 
     }
 
+    public void setBannerAmount(int newAmount)
+    {
+        bannerAmount = newAmount;
+    }
     private void Update()
     {
 

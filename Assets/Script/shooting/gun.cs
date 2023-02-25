@@ -188,4 +188,14 @@ public class gun : MonoBehaviour
         }
     }
 
+    public void hardSetCurrAmmo(int ammo)
+    {
+        currentAmmo = ammo;
+    }
+
+    public void hardSetUnloadedAmmo(int ammo)
+    {
+        storedAmmo = ammo;
+    }
+
 }

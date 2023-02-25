@@ -598,6 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250c7b5a243dee748bcef08637bf280c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bannerType: 
   manager: {fileID: 1221995601140673760}
 --- !u!1 &1221995600324370287
 GameObject:
@@ -899,6 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250c7b5a243dee748bcef08637bf280c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bannerType: 
   manager: {fileID: 1221995601140673760}
 --- !u!1 &1221995600604996778
 GameObject:
@@ -944,6 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250c7b5a243dee748bcef08637bf280c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bannerType: 
   manager: {fileID: 1221995601140673760}
 --- !u!1 &1221995601081088857
 GameObject:
@@ -989,6 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250c7b5a243dee748bcef08637bf280c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bannerType: 
   manager: {fileID: 1221995601140673760}
 --- !u!1 &1221995601631897539
 GameObject:
@@ -1444,6 +1448,7 @@ GameObject:
   - component: {fileID: 1221995601140673744}
   - component: {fileID: 1221995601140673752}
   - component: {fileID: 1221995601140673753}
+  - component: {fileID: 8267800143864058431}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1661,6 +1666,11 @@ MonoBehaviour:
   waterBanner: {fileID: 1221995601081088859}
   poisonBanner: {fileID: 1221995600249684768}
   lightningBanner: {fileID: 1221995600592364441}
+  fireProgress: {fileID: 0}
+  waterProgress: {fileID: 0}
+  poisonProgress: {fileID: 0}
+  lightningProgress: {fileID: 0}
+  bannerUpgradeText: {fileID: 0}
 --- !u!114 &1221995601140673750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1793,6 +1803,21 @@ MonoBehaviour:
   keyCount: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+--- !u!114 &8267800143864058431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4340332584493619451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d66551fde19e134e87e3acfd43b793c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  Gun: {fileID: 0}
+  banner: {fileID: 0}
 --- !u!1 &4340332584643431789
 GameObject:
   m_ObjectHideFlags: 0

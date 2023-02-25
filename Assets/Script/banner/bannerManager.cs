@@ -31,7 +31,7 @@ public class bannerManager : MonoBehaviour
 
     }
 
-    
+
     void Update()
     {
 
@@ -48,14 +48,14 @@ public class bannerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            enemyCountW+=10;
+            enemyCountW += 10;
             //Debug.Log(enemyCountW);
         }
     }
 
     public bool getHasAnyBanners()
     {
-        if(fireBanner.getLevel() != 0 && waterBanner.getLevel() != 0 && poisonBanner.getLevel() != 0 && lightningBanner.getLevel() != 0)
+        if (fireBanner.getLevel() != 0 && waterBanner.getLevel() != 0 && poisonBanner.getLevel() != 0 && lightningBanner.getLevel() != 0)
         {
             return false;
         }
@@ -79,7 +79,7 @@ public class bannerManager : MonoBehaviour
                 return lightningBanner.getLevel();
         }
 
-        return 0;  
+        return 0;
     }
 
     public void decrease(string type)
@@ -101,6 +101,26 @@ public class bannerManager : MonoBehaviour
         }
 
     }
+
+    public void setBannerAmount(string type, int level)
+    {
+        switch (type)
+        {
+            case "Fire":
+                fireBanner.setBannerAmount(level);
+                break;
+            case "Water":
+                waterBanner.setBannerAmount(level);
+                break;
+            case "Poison":
+                poisonBanner.setBannerAmount(level);
+                break;
+            case "Lightning":
+                lightningBanner.setBannerAmount(level);
+                break;
+        }
+    }
+
     public float getStats(int stat)
     {
         if (stat <= 0)
@@ -139,15 +159,15 @@ public class bannerManager : MonoBehaviour
         {
             case "Fire":
                 return enemyCountF;
-                
+
             case "Water":
                 return enemyCountW;
-                
+
             case "Poison":
                 return enemyCountP;
-                
+
             case "Lightning":
-                return enemyCountL;       
+                return enemyCountL;
         }
         return 0;
     }
@@ -162,12 +182,32 @@ public class bannerManager : MonoBehaviour
 
             case "Water":
                 enemyCountW++;
-                    break;
+                break;
             case "Poison":
                 enemyCountP++;
                 break;
             case "Lightning":
                 enemyCountL++;
+                break;
+        }
+    }
+
+    public void hardSetKillCount(string enemyType, int kills)
+    {
+        switch (enemyType)
+        {
+            case "Fire":
+                enemyCountF = kills;
+                break;
+
+            case "Water":
+                enemyCountW = kills;
+                break;
+            case "Poison":
+                enemyCountP = kills;
+                break;
+            case "Lightning":
+                enemyCountL = kills;
                 break;
         }
     }

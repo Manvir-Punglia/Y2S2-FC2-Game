@@ -2911,7 +2911,7 @@ Transform:
   - {fileID: 8003596073707784481}
   - {fileID: 8003596073769802336}
   m_Father: {fileID: 9088934778417723645}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1520127106
 MonoBehaviour:
@@ -15221,7 +15221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7307562210652443084, guid: 57390e796632ec044aa74889a54c33c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.69500005
+      value: 0.695
       objectReference: {fileID: 0}
     - target: {fileID: 7307562210652443084, guid: 57390e796632ec044aa74889a54c33c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18064,7 +18064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1550777313247568871
 GameObject:
   m_ObjectHideFlags: 0
@@ -74933,7 +74933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8003596073293214537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74968,7 +74968,7 @@ RectTransform:
   - {fileID: 8003596074072568109}
   - {fileID: 8003596072414472894}
   m_Father: {fileID: 9088934778417723645}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -75761,7 +75761,7 @@ RectTransform:
   - {fileID: 8003596073183346411}
   - {fileID: 8003596072723946894}
   m_Father: {fileID: 9088934778417723645}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -75830,7 +75830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8003596073964660453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84749,9 +84749,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8003596073964660448}
   - {fileID: 1435420611}
   - {fileID: 8003596073293214548}
-  - {fileID: 8003596073964660448}
   - {fileID: 8003596072533219506}
   - {fileID: 8003596073602587077}
   - {fileID: 6495007515996659835}
