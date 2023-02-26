@@ -25672,16 +25672,17 @@ MonoBehaviour:
   bullet: {fileID: 1661705576419134674, guid: 835193d6a5986aa469f657a67ff0d2c0, type: 3}
   shootingPos: {fileID: 2014631420}
   player: {fileID: 0}
-  fireballParticles: {fileID: 4556274767809053508, guid: cc4292536bf3cd5499257b88b342d5c7, type: 3}
   canSeeTarget: 0
   hit: 0
   runDistance: 5
   shootingDistance: 10
   hitTime: 5
+  maxHealth: 3
   health: 3
   bounty: 30
   wanderRadius: 4
   wanderingTimer: 2
+  speed: 2
   canShoot: 0
   bulletSpeed: 1000
   shootTimer: 3
