@@ -156,6 +156,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("health", playerHealth);
         PlayerPrefs.SetInt("money", playerCoins);
         PlayerPrefs.SetInt("storedAmmo", playerAmmo);
+        PlayerPrefs.SetInt("hasRun", 1);
 
         PlayerPrefs.Save();
 

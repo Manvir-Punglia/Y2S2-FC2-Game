@@ -61,7 +61,7 @@ public class Spawn : MonoBehaviour
                 wall[i].SetActive(false);
             }
         }
-        enemyRemaining.text = string.Format("Enemy Count: {00}", enemyList.Count);
+        //enemyRemaining.text = string.Format("Enemy Count: {00}", enemyList.Count);
     }
     public void SetCanSpawn(bool spawn)
     {
