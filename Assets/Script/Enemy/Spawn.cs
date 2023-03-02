@@ -13,6 +13,7 @@ public class Spawn : MonoBehaviour
     [SerializeField] TMP_Text enemyRemaining;
     [SerializeField] GameObject enemyPrefab;
     public List<GameObject> enemyList;
+    public List<GameObject> wall;
     public bool canSpawn = false;
 
     // Update is called once per frame
@@ -44,6 +45,20 @@ public class Spawn : MonoBehaviour
             if (enemyList[i] == null)
             {
                 enemyList.Remove(enemyList[i]);
+            }
+        }
+        if (enemyList.Count > 0)
+        {
+            for (int i = 0; i < wall.Count; i++)
+            {
+                wall[i].SetActive(true);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < wall.Count; i++)
+            {
+                wall[i].SetActive(false);
             }
         }
         enemyRemaining.text = string.Format("Enemy Count: {00}", enemyList.Count);
