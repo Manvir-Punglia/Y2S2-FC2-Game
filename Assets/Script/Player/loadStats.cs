@@ -20,7 +20,21 @@ public class loadStats : MonoBehaviour
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
         Gun = GameObject.FindGameObjectWithTag("gun").GetComponent<gun>();
 
+        player.SetHealth(PlayerPrefs.GetInt("health"));
+        player.SetMoney(PlayerPrefs.GetInt("money"));
 
+        banner.hardSetKillCount("Fire", PlayerPrefs.GetInt("fireKills"));
+        banner.hardSetKillCount("Water", PlayerPrefs.GetInt("waterKills"));
+        banner.hardSetKillCount("Poison", PlayerPrefs.GetInt("poisonKills"));
+        banner.hardSetKillCount("Lightning", PlayerPrefs.GetInt("lightningKills"));
+
+        banner.setBannerAmount("Fire", PlayerPrefs.GetInt("fireBanner"));
+        banner.setBannerAmount("Water", PlayerPrefs.GetInt("waterBanner"));
+        banner.setBannerAmount("Poison", PlayerPrefs.GetInt("poisonBanner"));
+        banner.setBannerAmount("Lightning", PlayerPrefs.GetInt("lightningBanner"));
+
+        Gun.hardSetCurrAmmo(PlayerPrefs.GetInt("loadedAmmo"));
+        Gun.hardSetUnloadedAmmo(PlayerPrefs.GetInt("storedAmmo"));
 
         if (sceneName == "Dungeon1")
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class StoryBlock
@@ -45,8 +46,8 @@ public class GameManager : MonoBehaviour
     public Button option1;
     public Button option2;
     public Button option3;
-    PlayerController player;
-    LittleMen shopkeep;
+    //PlayerManager player;
+    //LittleMen shopkeep;
 
     public GameObject op1;
     public GameObject op2;
@@ -54,15 +55,18 @@ public class GameManager : MonoBehaviour
     public GameObject mt;
     public GameObject cameraFix;
     public GameObject Npc;
-    public GameObject AmmoSpawn;
-    public GameObject HealthSpawn;
-    public GameObject Ammo;
-    public GameObject Health;
-    public GameObject Gun;
+    //public GameObject AmmoSpawn;
+    //public GameObject HealthSpawn;
+    //public GameObject Ammo;
+    //public GameObject Health;
+    //public gun Gun;
     int ammoPrice = 30;
     int healthPrice = 60;
 
-    PlayerManager playerCoins;
+    int playerAmmo;
+    int playerHealth;
+    int playerCoins;
+
     public StoryBlock[] storyBlocks =
     {
         new StoryBlock("Page 1", "Option 1", "Option 2", "Option3", 1, 2),
@@ -80,11 +84,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        shopkeep = GameObject.FindGameObjectWithTag("ShopKeeper").GetComponent<LittleMen>();
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        //shopkeep = GameObject.FindGameObjectWithTag("ShopKeeper").GetComponent<LittleMen>();
         DisplayBlock(storyBlocks[0]);
-        playerCoins = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-
+        playerCoins = PlayerPrefs.GetInt("money");
+        playerAmmo = PlayerPrefs.GetInt("storedAmmo");
+        playerHealth = PlayerPrefs.GetInt("health");
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void DisplayBlock(StoryBlock block)
@@ -105,18 +111,21 @@ public class GameManager : MonoBehaviour
         switch (currentBlock.option1BlockId)
         {
             case 8:
-                if (playerCoins.GetMoney() >= healthPrice)
+                if (playerCoins >= healthPrice)
                 {
-                    Instantiate(Health, HealthSpawn.transform.position, HealthSpawn.transform.rotation);
-                    playerCoins.SetMoney(playerCoins.GetMoney() - healthPrice);
+                    if (playerHealth < 3)
+                    {
+                        playerCoins = (playerCoins - healthPrice);
+                        playerHealth = (playerHealth + 1);
+                    }
                 }
                 break;
             case 9:
 
-                if(playerCoins.GetMoney() >= ammoPrice)
+                if(playerCoins >= ammoPrice)
                 {
-                    Instantiate(Ammo, AmmoSpawn.transform.position, AmmoSpawn.transform.rotation);
-                    playerCoins.SetMoney(playerCoins.GetMoney() - ammoPrice);
+                    playerCoins = (playerCoins - ammoPrice);
+                    playerAmmo = (playerAmmo + 15);
                 }
                 
                 break;
@@ -133,16 +142,24 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(DelayDisplayBlock(storyBlocks[currentBlock.option3BlockId]));
         //DisplayBlock(storyBlocks[currentBlock.option2BlockId]);
-        player.setNoLooking(true);
-        shopkeep.setCanInteract(true);
-        Gun.SetActive(true);
+        //player.setNoLooking(true);
+        //shopkeep.setCanInteract(true);
+        //Gun.SetActive(true);
 
-        op1.SetActive(false);
-        op2.SetActive(false);
-        op3.SetActive(false);
-        mt.SetActive(false);
-        cameraFix.SetActive(false);
-        Npc.SetActive(false);
+        //op1.SetActive(false);
+        //op2.SetActive(false);
+        //op3.SetActive(false);
+        //mt.SetActive(false);
+        //cameraFix.SetActive(false);
+        //Npc.SetActive(false);
+
+        PlayerPrefs.SetInt("health", playerHealth);
+        PlayerPrefs.SetInt("money", playerCoins);
+        PlayerPrefs.SetInt("storedAmmo", playerAmmo);
+
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene("Hub");
 
         this.enabled = false;
 

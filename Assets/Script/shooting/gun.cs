@@ -117,14 +117,14 @@ public class gun : MonoBehaviour
             }
         }
 
-        if (reloading)
-        {
-            playingGod.setCanInteract(false);
-        }
-        else
-        {
-            playingGod.setCanInteract(true);
-        }
+        //if (reloading)
+        //{
+        //    playingGod.setCanInteract(false);
+        //}
+        //else
+        //{
+        //    playingGod.setCanInteract(true);
+        //}
 
     }
 
