@@ -25,12 +25,17 @@ public class Enemy_movement : MonoBehaviour
 
     public bool canSeeTarget;
     public bool hit;
+    public bool fireBoss = false;
 
     public float runDistance;
     public float shootingDistance;
 
     public float hitTime;
     float time = 0;
+
+    public float stompDistance;
+    public float stompTime;
+    float stompTimer = 0;
 
     public float maxHealth;
     public float health;
@@ -139,6 +144,19 @@ public class Enemy_movement : MonoBehaviour
         else
         {
             Wandering();
+        }
+        if (fireBoss)
+        {
+            stompTimer += time.deltaTime;
+            if (stompTimer >= stompTime)
+            {
+                //stomp animation
+                if (distance < stompDistance)
+                {
+                    //deal damage to player
+                }
+                shootTimer = 0;
+            }
         }
     }
     void Die()
