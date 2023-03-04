@@ -147,7 +147,7 @@ public class Enemy_movement : MonoBehaviour
         }
         if (fireBoss)
         {
-            stompTimer += time.deltaTime;
+            stompTimer += Time.deltaTime;
             if (stompTimer >= stompTime)
             {
                 //stomp animation
