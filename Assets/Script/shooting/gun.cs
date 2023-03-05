@@ -31,6 +31,8 @@ public class gun : MonoBehaviour
 
     bool canReload = true;
 
+    bool canAutoShoot = true;
+
     bannerManager banner;
 
     bool canShootAnim = true;
@@ -103,16 +105,14 @@ public class gun : MonoBehaviour
         }
         if (auto)
         {
-            if (Input.GetMouseButton(0) && canAttack)
+            if (Input.GetMouseButton(0) && canAttack && !reloading)
             {
+                if (canAutoShoot)
+                {
+                    StartCoroutine(autoShoot());
+                    StopCoroutine(autoShoot());
+                }
                 
-
-                currentAmmo = currentAmmo - 1;
-                canAttack = false;
-                var BulletClone = Instantiate(bullet, gunObject.position, Quaternion.identity);
-
-                BulletClone.GetComponent<Rigidbody>().AddForce(gunObject.forward * bulSpeed);
-
 
             }
         }
@@ -126,6 +126,18 @@ public class gun : MonoBehaviour
         //    playingGod.setCanInteract(true);
         //}
 
+    }
+
+    IEnumerator autoShoot()
+    {
+        currentAmmo = currentAmmo - 1;
+        canAttack = false;
+        canAutoShoot = false;
+        var BulletClone = Instantiate(bullet, gunObject.position, Quaternion.identity);
+        BulletClone.GetComponent<Rigidbody>().AddForce(gunObject.forward * bulSpeed);
+        yield return new WaitForSeconds(0.2f);
+        canAttack = true;
+        canAutoShoot = true;
     }
 
     IEnumerator reload(int reloadTime)
@@ -173,6 +185,7 @@ public class gun : MonoBehaviour
 
     public int getStoredAmmo()
     {
+        //Debug.LogError(storedAmmo);
         return storedAmmo;
     }
 

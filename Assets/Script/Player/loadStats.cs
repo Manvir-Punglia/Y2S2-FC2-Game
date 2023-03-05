@@ -16,7 +16,6 @@ public class loadStats : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
 
-        
 
         if (sceneName == "Dungeon1")
         {

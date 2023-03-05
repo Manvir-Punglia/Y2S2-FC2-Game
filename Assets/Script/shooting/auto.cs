@@ -8,12 +8,13 @@ public class auto : gun
     {
         bulSpeed = 3500f;
         canAttack = true;
-        attackSpeed = 0.1f;
+        attackSpeed = 0f;
         lastAttack = 0f;
 
-        currentAmmo = 45;
-        maxAmmo = 45;
-        storedAmmo = 250;
+        currentAmmo = 25;
+        maxAmmo = 25;
+        storedAmmo = 150;
+        maxStoredAmmo = 150;
         reloadTime = 3;
 
         auto = true;

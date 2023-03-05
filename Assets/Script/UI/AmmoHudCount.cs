@@ -14,11 +14,11 @@ public class AmmoHudCount : MonoBehaviour
     public int curAmmo;
     public int resAmmo;
 
-    gun Gun;
+    public gun Gun;
     // Start is called before the first frame update
     void Start()
     {
-        Gun = GameObject.FindGameObjectWithTag("gun").GetComponent<gun>();
+        //Gun = GameObject.FindGameObjectWithTag("gun").GetComponent<gun>();
 
         currentAmmo = CurrentAmmoObj.GetComponent<Text>();
         reserveAmmo = ReserveAmmoObj.GetComponent<Text>();
@@ -31,5 +31,6 @@ public class AmmoHudCount : MonoBehaviour
         resAmmo = Gun.getStoredAmmo();
         currentAmmo.text = curAmmo.ToString();
         reserveAmmo.text = resAmmo.ToString();
+        //Debug.LogError(resAmmo);
     }
 }
