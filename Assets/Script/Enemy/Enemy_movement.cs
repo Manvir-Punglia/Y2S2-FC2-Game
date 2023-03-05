@@ -25,7 +25,6 @@ public class Enemy_movement : MonoBehaviour
 
     public bool canSeeTarget;
     public bool hit;
-    public bool fireBoss = false;
 
     public float runDistance;
     public float shootingDistance;
@@ -33,11 +32,6 @@ public class Enemy_movement : MonoBehaviour
     public float hitTime;
     float time = 0;
 
-    public float stompDistance;
-    public float stompTime;
-    float stompTimer = 0;
-
-    public float maxHealth;
     public float health;
 
     public int bounty;
@@ -72,7 +66,6 @@ public class Enemy_movement : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        health = maxHealth;
     }
     private void Update()
     {
@@ -144,19 +137,6 @@ public class Enemy_movement : MonoBehaviour
         else
         {
             Wandering();
-        }
-        if (fireBoss)
-        {
-            stompTimer += Time.deltaTime;
-            if (stompTimer >= stompTime)
-            {
-                //stomp animation
-                if (distance < stompDistance)
-                {
-                    //deal damage to player
-                }
-                shootTimer = 0;
-            }
         }
     }
     public void Die()
