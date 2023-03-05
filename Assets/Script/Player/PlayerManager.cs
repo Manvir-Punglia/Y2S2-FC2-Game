@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
     public GameObject bannerSacrifice;
     public PauseGame pause;
+
+    public Scene Dungeon1;
 
     int _health = 3;
     int _money = 0;
@@ -44,7 +47,7 @@ public class PlayerManager : MonoBehaviour
     {
         newMoneyDisplay.gameObject.SetActive(false);
         banner = GetComponent<bannerManager>();
-
+        
         
     }
 
@@ -53,12 +56,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            //AddMoney(5);
-            _mainCamera.SetActive(true);
-            _lockedCamera.SetActive(false);
-            GetComponent<PlayerController>().setNoLooking(true);
-            bannerSacrifice.SetActive(false);
-            GetComponent<CharacterController>().enabled = true;
+            GetComponent<PlayerController>().setNoLooking(false);
+            SceneManager.LoadScene("Hub");
         }
         DisplayMoney();
 
@@ -100,6 +99,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Die()
     {
+
         if (banner.getHasAnyBanners())
         {
             //hubMusic.SetActive(true);

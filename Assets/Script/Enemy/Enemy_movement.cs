@@ -159,7 +159,7 @@ public class Enemy_movement : MonoBehaviour
             }
         }
     }
-    void Die()
+    public void Die()
     {
         if (health <= 0)
         {
@@ -173,8 +173,15 @@ public class Enemy_movement : MonoBehaviour
                 bountyObtain = true;
             }
             Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+            //Destroy(gameObject);
         }
     }
+
+    public void takeDamage(float dmg)
+    {
+        health -= dmg;
+    }
+
     void Shooting()
     {
         canShootTimer += Time.deltaTime;
@@ -203,11 +210,11 @@ public class Enemy_movement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Bullet"))
+        if (collision.gameObject.tag == ("Bullet"))
         {
             StartCoroutine(hitAnim.HitAnim());
             canSeeTarget = true;
-            health -= collision.gameObject.GetComponent<bullet>().damage;
+            health -= collision.gameObject.GetComponent<bullet>().getDamage();
 
         }
         if (collision.collider.CompareTag("Player"))

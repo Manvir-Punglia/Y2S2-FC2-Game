@@ -15,6 +15,7 @@ TagManager:
   - Dialog
   - ShopKeeper
   - camera
+  - enemy
   layers:
   - Default
   - TransparentFX

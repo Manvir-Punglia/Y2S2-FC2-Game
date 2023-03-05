@@ -68,6 +68,13 @@ public class bullet : MonoBehaviour
 
             
         }
+
+        if(collision.gameObject.tag == "enemy")
+        {
+            collision.gameObject.GetComponent<Enemy_movement>().takeDamage(damage);
+            collision.gameObject.GetComponent<Enemy_movement>().Die();
+            //Debug.Log("HIT!");
+        }
         
     }
 

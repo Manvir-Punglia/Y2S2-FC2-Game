@@ -25609,7 +25609,7 @@ GameObject:
   - component: {fileID: 6956199539130811177}
   m_Layer: 0
   m_Name: Bear
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25674,9 +25674,12 @@ MonoBehaviour:
   player: {fileID: 0}
   canSeeTarget: 0
   hit: 0
+  fireBoss: 0
   runDistance: 5
   shootingDistance: 10
   hitTime: 5
+  stompDistance: 0
+  stompTime: 0
   maxHealth: 3
   health: 3
   bounty: 30
