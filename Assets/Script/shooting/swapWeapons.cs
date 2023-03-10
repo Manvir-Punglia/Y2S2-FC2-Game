@@ -7,51 +7,68 @@ public class swapWeapons : MonoBehaviour
     public List<GameObject> weaponList = new List<GameObject>();
     int index = 0;
 
-    bool hasPistol = true;
+    public GameObject auto;
+    public GameObject pistol;
+
+    bool hasPistol = false;
     bool hasWaffle = false;
-    bool hasAuto = false;
+    bool hasAuto = true;
     bool hasGrenade = false;
 
+    private void Start()
+    {
+        weaponList[0] = auto;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            
-            if (weaponList.Count > index+1 && weaponList[index + 1] != null && index < 3)
+            for(int i = 0; i < weaponList.Count; i++)
             {
-                weaponList[index].gameObject.SetActive(false);
-                weaponList[index+1].gameObject.SetActive(true);
-                index = index + 1;
+                weaponList[index].SetActive(false);
             }
 
-            else if(weaponList[0] != null && index == 3)
+            if(index == weaponList.Count)
             {
-                weaponList[index].gameObject.SetActive(false);
-                weaponList[0].gameObject.SetActive(true);
                 index = 0;
+                weaponList[index].SetActive(true);
             }
-            Debug.LogError(index);
+            else if(index != weaponList.Count)
+            {
+                index++;
+                weaponList[index].SetActive(true);
+            }
+
         }
+
     }
 
     public void setPistol(bool hasIt)
     {
         hasPistol = hasIt;
+        weaponList.Add(pistol);
+
     }
 
-    public void setWaffle(bool hasIt)
-    {
-        hasWaffle = hasIt;
-    }
-
+    
     public void setAuto(bool hasIt)
     {
         hasAuto = hasIt;
+        weaponList.Add(auto);
     }
 
-    public void setGrenade(bool hasIt)
+    public void removePistol()
     {
-        hasGrenade = hasIt;
+        hasPistol = false;
+        weaponList.Remove(pistol);
     }
+
+    public void removeAuto()
+    {
+        hasAuto = false;
+        weaponList.Remove(auto);
+    }
+
 }
