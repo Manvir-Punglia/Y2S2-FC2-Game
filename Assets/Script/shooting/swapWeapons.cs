@@ -8,67 +8,152 @@ public class swapWeapons : MonoBehaviour
     int index = 0;
 
     public GameObject auto;
+    public GameObject autoModel;
     public GameObject pistol;
+    public GameObject pistolModel;
+    public GameObject rocketLauncher;
+    public GameObject rocketLauncherModel;
+    public GameObject shotgun;
+    public GameObject shotgunModel;
 
-    bool hasPistol = false;
-    bool hasWaffle = false;
+    GameObject currentGun;
+
+    bool hasPistol = true;
+    bool hasShot = true;
     bool hasAuto = true;
-    bool hasGrenade = false;
+    bool hasGrenade = true;
 
     private void Start()
     {
-        weaponList[0] = auto;
+        currentGun = auto;
     }
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.E))
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            for(int i = 0; i < weaponList.Count; i++)
+            if (hasAuto && currentGun.GetComponent<gun>().getCanSwap())
             {
-                weaponList[index].SetActive(false);
-            }
+                currentGun = auto;
+                auto.SetActive(true);
+                autoModel.SetActive(true);
 
-            if(index == weaponList.Count)
-            {
-                index = 0;
-                weaponList[index].SetActive(true);
-            }
-            else if(index != weaponList.Count)
-            {
-                index++;
-                weaponList[index].SetActive(true);
-            }
+                pistol.SetActive(false);
+                pistolModel.SetActive(false);
 
+                rocketLauncher.SetActive(false);
+                rocketLauncherModel.SetActive(false);
+
+                shotgun.SetActive(false);
+                shotgunModel.SetActive(false);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (hasPistol && currentGun.GetComponent<gun>().getCanSwap())
+            {
+                currentGun = pistol;
+                auto.SetActive(false);
+                autoModel.SetActive(false);
+
+                pistol.SetActive(true);
+                pistolModel.SetActive(true);
+
+                rocketLauncher.SetActive(false);
+                rocketLauncherModel.SetActive(false);
+
+                shotgun.SetActive(false);
+                shotgunModel.SetActive(false);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (hasShot && currentGun.GetComponent<gun>().getCanSwap())
+            {
+                currentGun = shotgun;
+                auto.SetActive(false);
+                autoModel.SetActive(false);
+
+                pistol.SetActive(false);
+                pistolModel.SetActive(false);
+
+                rocketLauncher.SetActive(false);
+                rocketLauncherModel.SetActive(false);
+
+                shotgun.SetActive(true);
+                shotgunModel.SetActive(true);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (hasGrenade && currentGun.GetComponent<gun>().getCanSwap())
+            {
+                currentGun = rocketLauncher;
+                auto.SetActive(false);
+                autoModel.SetActive(false);
+
+                pistol.SetActive(false);
+                pistolModel.SetActive(false);
+
+                rocketLauncher.SetActive(true);
+                rocketLauncherModel.SetActive(true);
+
+                shotgun.SetActive(false);
+                shotgunModel.SetActive(false);
+            }
         }
 
     }
 
-    public void setPistol(bool hasIt)
+    public void addGun(string gun)
     {
-        hasPistol = hasIt;
-        weaponList.Add(pistol);
+        switch (gun)
+        {
+            case "Pistol":
+                hasPistol = true;
+                break;
 
+            case "Shotgun":
+                hasShot = true;
+                break;
+
+            case "Rocket Launcher":
+                hasGrenade = true;
+                break;
+
+            case "Auto":
+                hasAuto = true;
+                break;
+        }
+        
     }
 
     
-    public void setAuto(bool hasIt)
+    public void removeGun(string gun)
     {
-        hasAuto = hasIt;
-        weaponList.Add(auto);
+        switch (gun)
+        {
+            case "Pistol":
+                hasPistol = false;
+                break;
+
+            case "Shotgun":
+                hasShot = false;
+                break;
+
+            case "Rocket Launcher":
+                hasGrenade = false;
+                break;
+
+            case "Auto":
+                hasAuto = false;
+                break;
+        }
     }
 
-    public void removePistol()
-    {
-        hasPistol = false;
-        weaponList.Remove(pistol);
-    }
-
-    public void removeAuto()
-    {
-        hasAuto = false;
-        weaponList.Remove(auto);
-    }
 
 }

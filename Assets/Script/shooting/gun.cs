@@ -19,6 +19,8 @@ public class gun : MonoBehaviour
     protected float maxAttackSpeed = 0.5f;
     protected float lastAttack = 0f;
 
+    bool canSwap = true;
+
     protected int currentAmmo = 10;
     protected int maxAmmo = 10;
     protected int storedAmmo = 45;
@@ -130,6 +132,7 @@ public class gun : MonoBehaviour
 
     IEnumerator autoShoot()
     {
+        canSwap = false;
         currentAmmo = currentAmmo - 1;
         canAttack = false;
         canAutoShoot = false;
@@ -138,10 +141,12 @@ public class gun : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         canAttack = true;
         canAutoShoot = true;
+        canSwap = true;
     }
 
     IEnumerator reload(int reloadTime)
     {
+        canSwap = false;
         canReload = false;
         reloading = true;
         canAttack = false;
@@ -167,6 +172,7 @@ public class gun : MonoBehaviour
             storedAmmo = 0;
         }
 
+        canSwap = true;
     }
 
     IEnumerator shootAnimation()
@@ -209,6 +215,11 @@ public class gun : MonoBehaviour
     public void hardSetUnloadedAmmo(int ammo)
     {
         storedAmmo = ammo;
+    }
+
+    public bool getCanSwap()
+    {
+        return canSwap;
     }
 
 }
