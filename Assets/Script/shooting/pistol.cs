@@ -4,6 +4,7 @@ using UnityEngine;
 
 public sealed class pistol : gun
 {
+    public Animator PistolAnimator;
     private void Awake()
     {
      bulSpeed = 3000f;
@@ -17,6 +18,8 @@ public sealed class pistol : gun
      reloadTime = 3;
 
      auto = false;
+
+     animator = PistolAnimator;
     }
 
     

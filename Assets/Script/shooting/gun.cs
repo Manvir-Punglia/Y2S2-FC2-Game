@@ -39,7 +39,7 @@ public class gun : MonoBehaviour
 
     bool canShootAnim = true;
 
-    public LittleMen playingGod;
+    //public LittleMen playingGod;
 
     RecoilShake recoil;
 
@@ -113,6 +113,12 @@ public class gun : MonoBehaviour
                 {
                     StartCoroutine(autoShoot());
                     StopCoroutine(autoShoot());
+
+                    if (canShootAnim)
+                    {
+                        StartCoroutine(shootAnimation());
+                        StopCoroutine(shootAnimation());
+                    }
                 }
                 
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class auto : gun
 {
+    public Animator AutoAnimator;
+
     private void Awake()
     {
         bulSpeed = 3500f;
@@ -18,5 +20,7 @@ public class auto : gun
         reloadTime = 3;
 
         auto = true;
+
+        animator = AutoAnimator;
     }
 }

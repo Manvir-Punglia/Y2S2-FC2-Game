@@ -8,6 +8,7 @@ public class doorTransportation : MonoBehaviour
     public PlayerManager player;
     public gun Gun;
     public bannerManager banner;
+    public string Scenename;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class doorTransportation : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Dungeon1");
+            SceneManager.LoadScene(Scenename);
             //PlayerPrefs.SetInt("Ammo", 5);
             //PlayerPrefs.SetFloat("Kills/banner ", 0.6f);
             //PlayerPrefs.SetString("username", "John Doe");
