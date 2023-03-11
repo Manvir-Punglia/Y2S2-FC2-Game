@@ -27,7 +27,7 @@ public class Gate : MonoBehaviour
                 case gate.ENTER:
                     {
                         spawn.GetComponent<Spawn>().SetCanSpawn(true);
-                        Destroy(this.gameObject);
+                        spawn.GetComponent<Collider>().enabled = false;
                     }
                     break;
                 case gate.EXIT:

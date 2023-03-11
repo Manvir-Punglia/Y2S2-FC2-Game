@@ -147,13 +147,12 @@ public class Enemy_movement : MonoBehaviour
             hit = false;
             if (!bountyObtain)
             {
-                //banner.increaseKillCount();
-                //player.GetComponent<PlayerManager>().AddMoney(bounty);
+                banner.increaseKillCount();
+                player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetBool("Death", true);
                 bountyObtain = true;
             }
             Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
-            //Destroy(gameObject);
         }
     }
 
