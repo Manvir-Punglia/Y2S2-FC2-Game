@@ -76,7 +76,7 @@ public class Enemy_movement : MonoBehaviour
                 {
                     if (hit)
                     {
-                        agent.destination = player.transform.position;
+                        agent.SetDestination(player.transform.position);
                         animator.SetBool("ATK_Melee", true);
                     }
                     if (!hit)
@@ -85,6 +85,10 @@ public class Enemy_movement : MonoBehaviour
                         if (distance < runDistance)
                         {
                             agent.SetDestination(runTo);
+                        }
+                        else
+                        {
+                            agent.SetDestination(player.transform.position);
                         }
                         if (time >= hitTime)
                         {

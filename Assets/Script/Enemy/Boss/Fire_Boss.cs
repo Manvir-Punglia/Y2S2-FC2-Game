@@ -60,9 +60,11 @@ public class Fire_Boss : MonoBehaviour
     }
     void Update()
     {
+        Vector3 lookTo = player.transform.position;
+        lookTo.y = 0;
+        transform.LookAt(lookTo);
         Vector3 runTo = transform.position + ((transform.position - player.transform.position));
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        transform.LookAt(player.transform.position);
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") || animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2"))
         {
             agent.destination = this.gameObject.transform.position;
@@ -82,35 +84,58 @@ public class Fire_Boss : MonoBehaviour
             }
             if (health > (maxHealth / 2))
             {
-                if (distance < shootingDistance)
+                agent.stoppingDistance = shootingDistance;
+                canShootTimer += Time.deltaTime;
+                if (canShoot)
                 {
-                    agent.SetDestination(runTo);
+                    var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
+                    //var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
+                    //FireballClone.transform.parent = BulletClone.transform;
+
+                    BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+                    //fireballParticles.Play();
+
+                    canShoot = false;
+                    animator.SetBool("ATK_Range", true);
+
                 }
-                else
+                if (canShootTimer >= shootTimer && (transform.position - player.transform.position).magnitude >= shootingDistance)
                 {
-                    agent.destination = player.transform.position;
+                    canShoot = true;
+                    canShootTimer = 0;
                 }
-                Shooting();
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("ATK_Range"))
+                {
+                    agent.isStopped = true;
+                }
             }
             else if (health <= (maxHealth / 2))
             {
-                time += Time.deltaTime;
-                agent.destination = player.transform.position;
-                if (stompTimer < stompTime)
+                if (hit)
                 {
+                    agent.destination = player.transform.position;
+                    animator.SetBool("ATK_Melee", true);
+                }
+                if (!hit)
+                {
+
+                    if (distance < runDistance)
+                    {
+                        agent.SetDestination(runTo);
+                    }
                     if (time >= hitTime)
                     {
-                        animator.SetBool("ATK_Melee", true);
-                        agent.destination = player.transform.position;
+                        hit = true;
+                        time = 0;
                     }
                     if (time < hitTime)
                     {
+                        time += Time.deltaTime;
                         if (distance < runDistance)
                         {
                             agent.SetDestination(runTo);
                         }
                     }
-
                 }
             }
         }
