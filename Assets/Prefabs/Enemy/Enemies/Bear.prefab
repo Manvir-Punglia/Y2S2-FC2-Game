@@ -25601,9 +25601,7 @@ GameObject:
   - component: {fileID: 2831505889984931111}
   - component: {fileID: 8190828700318023517}
   - component: {fileID: 387568647}
-  - component: {fileID: 387568646}
   - component: {fileID: 387568645}
-  - component: {fileID: 387568644}
   - component: {fileID: -745437374766839000}
   - component: {fileID: 378266368966657996}
   - component: {fileID: 6956199539130811177}
@@ -25672,50 +25670,17 @@ MonoBehaviour:
   bullet: {fileID: 1661705576419134674, guid: 835193d6a5986aa469f657a67ff0d2c0, type: 3}
   shootingPos: {fileID: 2014631420}
   player: {fileID: 0}
-  canSeeTarget: 0
   hit: 0
-  fireBoss: 0
   runDistance: 5
   shootingDistance: 10
   hitTime: 5
-  stompDistance: 0
-  stompTime: 0
-  maxHealth: 3
   health: 3
+  speed: 20
   bounty: 30
-  wanderRadius: 4
-  wanderingTimer: 2
-  speed: 2
   canShoot: 0
   bulletSpeed: 1000
   shootTimer: 3
   type: 0
---- !u!114 &387568646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3170630028271173533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40aa2d9717abfd341b43648265a8aa1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 0
-  angle: 0
-  melee_Radius: 10
-  melee_Angle: 90
-  range_Radius: 20
-  range_Angle: 45
-  player: {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 64
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 512
-  chase_Time: 3
 --- !u!65 &387568645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25729,22 +25694,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.6901462, z: 1}
   m_Center: {x: 0, y: 1.382274, z: 0}
---- !u!54 &387568644
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3170630028271173533}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!195 &-745437374766839000
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -25754,7 +25703,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3170630028271173533}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -25763,7 +25712,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
