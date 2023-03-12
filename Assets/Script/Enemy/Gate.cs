@@ -18,6 +18,13 @@ public class Gate : MonoBehaviour
         ENTER,
         EXIT,
     }
+    void Update()
+    {
+        if (spawn.GetComponent<Spawn>().GetTrigger() || spawn.GetComponent<Spawn>().GetSpawn())
+        {
+            spawn.GetComponent<Collider>().enabled = false;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -27,7 +34,6 @@ public class Gate : MonoBehaviour
                 case gate.ENTER:
                     {
                         spawn.GetComponent<Spawn>().SetCanSpawn(true);
-                        spawn.GetComponent<Collider>().enabled = false;
                     }
                     break;
                 case gate.EXIT:

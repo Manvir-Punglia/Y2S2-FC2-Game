@@ -47,7 +47,6 @@ public class Enemy_movement : MonoBehaviour
     {
         MELEE,
         RANGE,
-        MONEY,
     }
     private void Start()
     {
@@ -64,8 +63,9 @@ public class Enemy_movement : MonoBehaviour
     private void Update()
     {
         agent.speed = speed;
-        transform.LookAt(player.transform.position);
-        agent.SetDestination(player.transform.position);
+        Vector3 lookTo = player.transform.position;
+        lookTo.y = 0;
+        transform.LookAt(lookTo);
         Vector3 runTo = transform.position + ((transform.position - player.transform.position));
         float distance = Vector3.Distance(transform.position, player.transform.position);
         animator.SetFloat("Movement", 1);
@@ -74,9 +74,18 @@ public class Enemy_movement : MonoBehaviour
         {
             case enemy.MELEE:
                 {
-                    agent.destination = player.transform.position;
+                    if (hit)
+                    {
+                        agent.destination = player.transform.position;
+                        animator.SetBool("ATK_Melee", true);
+                    }
                     if (!hit)
                     {
+
+                        if (distance < runDistance)
+                        {
+                            agent.SetDestination(runTo);
+                        }
                         if (time >= hitTime)
                         {
                             hit = true;
@@ -154,8 +163,7 @@ public class Enemy_movement : MonoBehaviour
         if (collision.gameObject.tag == ("Player"))
         {
             hit = false;
-            animator.SetBool("ATK_Melee", true);
-            collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
+            //collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
         }
     }
     //public void ShootFireBall()

@@ -34,10 +34,6 @@ public class Spawn : MonoBehaviour
                 {
                     enemyPrefab.GetComponent<Enemy_movement>().type = enemy.RANGE;
                 }
-                else if(pos[i].GetComponent<SpawnType>().type == SpawnType.spawn.MONEY)
-                {
-                    enemyPrefab.GetComponent<Enemy_movement>().type = enemy.MONEY;
-                }
                 GameObject enemies = Instantiate(enemyPrefab, pos[i].transform.position, Random.rotation);
                 enemyList.Add(enemies);
             }
@@ -55,23 +51,7 @@ public class Spawn : MonoBehaviour
         {
             if (enemyList.Count <= 0 && waveCount < wave)
             {
-                for (int i = 0; i < pos.Count; i++)
-                {
-                    if (pos[i].GetComponent<SpawnType>().type == SpawnType.spawn.MELEE)
-                    {
-                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.MELEE;
-                    }
-                    else if (pos[i].GetComponent<SpawnType>().type == SpawnType.spawn.RANGE)
-                    {
-                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.RANGE;
-                    }
-                    else if (pos[i].GetComponent<SpawnType>().type == SpawnType.spawn.MONEY)
-                    {
-                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.MONEY;
-                    }
-                    GameObject enemies = Instantiate(enemyPrefab, pos[i].transform.position, Random.rotation);
-                    enemyList.Add(enemies);
-                }
+                canSpawn = true;
                 waveCount++;
             }
         }
@@ -94,6 +74,14 @@ public class Spawn : MonoBehaviour
     public void SetCanSpawn(bool spawn)
     {
         canSpawn = spawn;
+    }
+    public bool GetSpawn()
+    {
+        return canSpawn;
+    }
+    public bool GetTrigger()
+    {
+        return triggered;
     }
 
     public int getPosCount()

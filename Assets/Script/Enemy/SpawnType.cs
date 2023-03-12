@@ -10,6 +10,5 @@ public class SpawnType : MonoBehaviour
     {
         MELEE,
         RANGE,
-        MONEY,
     }
 }
