@@ -15,6 +15,9 @@ public class Spawn : MonoBehaviour
     public List<GameObject> enemyList;
     public List<GameObject> wall;
     public bool canSpawn = false;
+    bool triggered = false;
+    public int wave;
+    int waveCount = 0;
 
     // Update is called once per frame
     void Update()
@@ -39,12 +42,37 @@ public class Spawn : MonoBehaviour
                 enemyList.Add(enemies);
             }
             canSpawn = false;
+            triggered = true;
         }
         for (int i = 0; i < enemyList.Count; i++)
         {
             if (enemyList[i] == null)
             {
                 enemyList.Remove(enemyList[i]);
+            }
+        }
+        if (triggered)
+        {
+            if (enemyList.Count <= 0 && waveCount < wave)
+            {
+                for (int i = 0; i < pos.Count; i++)
+                {
+                    if (pos[i].GetComponent<SpawnType>().type == SpawnType.spawn.MELEE)
+                    {
+                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.MELEE;
+                    }
+                    else if (pos[i].GetComponent<SpawnType>().type == SpawnType.spawn.RANGE)
+                    {
+                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.RANGE;
+                    }
+                    else if (pos[i].GetComponent<SpawnType>().type == SpawnType.spawn.MONEY)
+                    {
+                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.MONEY;
+                    }
+                    GameObject enemies = Instantiate(enemyPrefab, pos[i].transform.position, Random.rotation);
+                    enemyList.Add(enemies);
+                }
+                waveCount++;
             }
         }
         if (enemyList.Count > 0)
