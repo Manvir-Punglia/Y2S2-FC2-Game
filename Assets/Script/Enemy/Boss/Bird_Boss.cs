@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Electric_Boss : MonoBehaviour
+public class Bird_Boss : MonoBehaviour
 {
     [SerializeField] GameObject bullet, shootingPos;
     public GameObject player;
@@ -35,6 +35,9 @@ public class Electric_Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 lookTo = player.transform.position;
+        lookTo.y = 0;
+        transform.LookAt(lookTo);
         timer += Time.deltaTime;
         canShootTimer += Time.deltaTime;
         if (timer >= teleportT)

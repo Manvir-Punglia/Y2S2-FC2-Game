@@ -35,6 +35,9 @@ public class Rat_Boss : MonoBehaviour
     }
     void Update()
     {
+        Vector3 lookTo = player.transform.position;
+        lookTo.y = 0;
+        transform.LookAt(lookTo);
         Die();
         timer += Time.deltaTime;
         if (timer >= summonTimer)

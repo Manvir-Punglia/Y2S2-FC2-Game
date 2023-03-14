@@ -9,7 +9,7 @@ using UnityEngine.UI;
 using UnityEngine.Animations.Rigging;
 using static UnityEditor.PlayerSettings;
 
-public class Fire_Boss : MonoBehaviour
+public class Bear_Boss : MonoBehaviour
 {
     [SerializeField] GameObject bullet, shootingPos;
     public GameObject player;
@@ -64,10 +64,11 @@ public class Fire_Boss : MonoBehaviour
         lookTo.y = 0;
         transform.LookAt(lookTo);
         Vector3 runTo = transform.position + ((transform.position - player.transform.position));
+        runTo.y = this.transform.position.y;
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") || animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2"))
         {
-            agent.destination = this.gameObject.transform.position;
+            agent.Stop();
         }
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2"))
         {
@@ -78,7 +79,8 @@ public class Fire_Boss : MonoBehaviour
                 animator.SetBool("ATK_AOE", true);
                 if (distance <= stompDistance)
                 {
-                    player.GetComponent<PlayerManager>().TakeDamage();
+                    //player.GetComponent<PlayerManager>().TakeDamage();
+                    Debug.Log("stomped");
                 }
                 stompTimer = 0;
             }
@@ -111,9 +113,10 @@ public class Fire_Boss : MonoBehaviour
             }
             else if (health <= (maxHealth / 2))
             {
+                agent.stoppingDistance = 0;
                 if (hit)
                 {
-                    agent.destination = player.transform.position;
+                    agent.SetDestination(-runTo);
                     animator.SetBool("ATK_Melee", true);
                 }
                 if (!hit)
@@ -125,7 +128,7 @@ public class Fire_Boss : MonoBehaviour
                     }
                     if (time >= hitTime)
                     {
-                        hit = true;
+                        hit = false;
                         time = 0;
                     }
                     if (time < hitTime)
@@ -200,7 +203,8 @@ public class Fire_Boss : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             hit = true;
-            collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
+            //collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
+            Debug.Log("Hit");
             time = 0;
         }
     }

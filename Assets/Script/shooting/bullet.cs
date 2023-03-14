@@ -37,8 +37,9 @@ public class bullet : MonoBehaviour
         destroyTimer += Time.deltaTime;
         if (destroyTimer >= 3)
         {
-            Destroy(bullet_prefab);
-            Destroy(hit_prefab);
+            DestroyImmediate(this.gameObject, true);
+            //Destroy(bullet_prefab);
+            //Destroy(hit_prefab);
         }
     }
 
@@ -55,7 +56,7 @@ public class bullet : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Wall")
         {
-            Destroy(bullet_prefab);
+            DestroyImmediate(this.gameObject, true);
         }
 
         ContactPoint contact = collision.contacts[0];
@@ -72,7 +73,8 @@ public class bullet : MonoBehaviour
         if(collision.gameObject.tag == "enemy")
         {
             collision.gameObject.GetComponent<Enemy_movement>().takeDamage(damage);
-            collision.gameObject.GetComponent<Enemy_movement>().Die();
+            //collision.gameObject.GetComponent<Enemy_movement>().Die();
+            DestroyImmediate(this.gameObject, true);
             //Debug.Log("HIT!");
         }
         
