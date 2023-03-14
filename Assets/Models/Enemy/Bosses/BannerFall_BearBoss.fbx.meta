@@ -33,7 +33,47 @@ ModelImporter:
   - first:
       74: 8349542763059015795
     second: Walk
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BearEar
+    second: {fileID: 2100000, guid: facf699213e0c2d4697117035bec24e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BearStomach
+    second: {fileID: 2100000, guid: 4de2e88de8dede54a90a8366ecb57cb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Button
+    second: {fileID: 2100000, guid: 83ca727f2a62e16478699f1b043eba55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Claws
+    second: {fileID: 2100000, guid: 4fbc6dbd94943434b9ce2e8645164b7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fur
+    second: {fileID: 2100000, guid: b4478fa22fa9f0943a18047eb66ab19c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nose
+    second: {fileID: 2100000, guid: 9b8a2e7fbbb58a04f883f4cd709a1122, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stitches
+    second: {fileID: 2100000, guid: c0f568d291c925644b7bd1e52aa694a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teeth
+    second: {fileID: 2100000, guid: 77dc0d5b2d44f0a4199a70ad62a2ddca, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
