@@ -79,4 +79,13 @@ public class Electric_Boss : MonoBehaviour
             Debug.Log("electric boss defeated");
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == ("Bullet"))
+        {
+            StartCoroutine(hitAnim.HitAnim());
+            health -= collision.gameObject.GetComponent<bullet>().getDamage();
+
+        }
+    }
 }
