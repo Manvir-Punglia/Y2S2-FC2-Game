@@ -1,6 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
+using UnityEngine.Animations.Rigging;
+using static UnityEditor.PlayerSettings;
 
 public class Water_Boss : MonoBehaviour
 {

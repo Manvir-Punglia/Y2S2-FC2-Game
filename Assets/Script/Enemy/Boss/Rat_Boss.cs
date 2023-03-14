@@ -99,9 +99,8 @@ public class Rat_Boss : MonoBehaviour
         }
         if (collision.collider.CompareTag("Player"))
         {
-            //hit = true;
             collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
-            //time = 0;
+            //melee animation;
         }
     }
 }
