@@ -3,7 +3,57 @@ guid: ec6ae212554506c4a98d8b663b4ac04b
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base Blue
+    second: {fileID: 2100000, guid: a305aa8316a5e9a4ab7bf558033d6fef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base Glass
+    second: {fileID: 2100000, guid: 8e7c180179ae7f5439b9977037f267f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base Skin
+    second: {fileID: 2100000, guid: 57b94522351b33845ac78a2c18ecfd2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glasses Tint
+    second: {fileID: 2100000, guid: 35ea301678a9b57439c7b5ba1c8d5e73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glasses _Frame_
+    second: {fileID: 2100000, guid: 8b05ea1922015f14bb48f689b6fb7d3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 6075af3a213970b4d99610fb7ef729a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 72a920f7d6fc8804e96cd1657c527d03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth
+    second: {fileID: 2100000, guid: 5e3b9f15fcaa6af4192b7f6c072bd2eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nose (SkinSecondary)
+    second: {fileID: 2100000, guid: 25228cb1acdf02b4aa35939316043291, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wizard Stars
+    second: {fileID: 2100000, guid: 5ee623d6bbbea0740a497975433eae8a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +138,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0058
+    globalScale: 0.58
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
