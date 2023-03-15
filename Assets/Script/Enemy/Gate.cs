@@ -12,6 +12,8 @@ public class Gate : MonoBehaviour
     public GameObject hubMusic;
     public GameObject levelMusic;
 
+    public Collider[] collider;
+
 
     public enum gate
     {
@@ -22,7 +24,10 @@ public class Gate : MonoBehaviour
     {
         if (spawn.GetComponent<Spawn>().GetTrigger() || spawn.GetComponent<Spawn>().GetSpawn())
         {
-            spawn.GetComponent<Collider>().enabled = false;
+            for (int i = 0; i < collider.Length; i++)
+            {
+                collider[i].enabled = false;
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
