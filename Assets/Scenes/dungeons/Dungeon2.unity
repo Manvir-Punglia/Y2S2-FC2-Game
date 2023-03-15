@@ -1175,7 +1175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43293722}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.88, y: 1.801234, z: 71.03}
+  m_LocalPosition: {x: 42.88, y: 1, z: 71.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2505,7 +2505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: []
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList:
   - {fileID: 1751165888}
   - {fileID: 1410420143}
@@ -2531,6 +2531,9 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 106007754}
+  - {fileID: 106007753}
 --- !u!65 &106007753
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3486,7 +3489,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 54, y: 9, z: 59}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 986091458}
   m_RootOrder: 4
@@ -3506,7 +3509,7 @@ MonoBehaviour:
   pos:
   - {fileID: 2091390942}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
   - {fileID: 1989840247}
@@ -3529,6 +3532,11 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 140000717}
+  - {fileID: 140000716}
+  - {fileID: 140000715}
+  - {fileID: 140000714}
 --- !u!65 &140000714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4287,7 +4295,7 @@ MonoBehaviour:
   - {fileID: 1079388890}
   - {fileID: 631164392}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
   - {fileID: 1989840247}
@@ -4310,6 +4318,8 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 160476028}
 --- !u!65 &160838078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6857,7 +6867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287905489}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.17, y: 1.39, z: 82.1}
+  m_LocalPosition: {x: -12.17, y: 1, z: 82.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7097,7 +7107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296708237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.38, y: 1.39, z: 74.44}
+  m_LocalPosition: {x: 14.38, y: 1, z: 74.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8396,7 +8406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349609964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.64, y: 1.39, z: 47.89}
+  m_LocalPosition: {x: -12.64, y: 1, z: 47.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11379,7 +11389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479507461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.383299, y: 1.801234, z: 42.889027}
+  m_LocalPosition: {x: 29.383299, y: 1, z: 42.889027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12977,7 +12987,7 @@ MonoBehaviour:
   - {fileID: 2105213660}
   - {fileID: 43293722}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
   - {fileID: 1989840247}
@@ -13000,6 +13010,9 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 529401772}
+  - {fileID: 529401771}
 --- !u!65 &529401771
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15267,7 +15280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631164392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.75, y: 1.39, z: 122.87}
+  m_LocalPosition: {x: 16.75, y: 1, z: 122.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17931,7 +17944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733526536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.28, y: 1.39, z: 97.14}
+  m_LocalPosition: {x: 42.28, y: 1, z: 97.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20500,9 +20513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386ac74803d870f48b2733f2e0292a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: []
+  pos:
+  - {fileID: 479507461}
+  - {fileID: 1840775246}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
   - {fileID: 1989840247}
@@ -20525,6 +20540,9 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 848940651}
+  - {fileID: 848940650}
 --- !u!65 &849250851
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21480,7 +21498,7 @@ MonoBehaviour:
   - {fileID: 1095700323}
   - {fileID: 733526536}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList:
   - {fileID: 296708237}
   - {fileID: 1223258335}
@@ -21505,6 +21523,10 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 888326759}
+  - {fileID: 888326758}
+  - {fileID: 888326757}
 --- !u!65 &888326757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60106,7 +60128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079388890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.830002, y: 1.39, z: 123.27999}
+  m_LocalPosition: {x: 27.830002, y: 1, z: 123.27999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60489,7 +60511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095700323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.44, y: 1.39, z: 88.76}
+  m_LocalPosition: {x: 33.44, y: 1, z: 88.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63524,7 +63546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223258335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.13, y: 1.39, z: 68.4}
+  m_LocalPosition: {x: 8.13, y: 1, z: 68.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64324,7 +64346,7 @@ MonoBehaviour:
   - {fileID: 1095700323}
   - {fileID: 733526536}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
   - {fileID: 1989840247}
@@ -64347,6 +64369,10 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 1251556147}
+  - {fileID: 1251556146}
+  - {fileID: 1251556145}
 --- !u!65 &1251556145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68057,7 +68083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410420143}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.09, y: 1.39, z: 89.13}
+  m_LocalPosition: {x: -15.09, y: 1, z: 89.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75631,7 +75657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751165888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.74, y: 1.39, z: 76.05}
+  m_LocalPosition: {x: -13.74, y: 1, z: 76.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76948,7 +76974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: []
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList:
   - {fileID: 349609964}
   wall:
@@ -76972,6 +76998,9 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 1807660947}
+  - {fileID: 1807660946}
 --- !u!65 &1807660946
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77699,7 +77728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840775246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.5693, y: 1.801234, z: 32.929028}
+  m_LocalPosition: {x: 19.5693, y: 1, z: 32.929028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83655,7 +83684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091390942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.45, y: 1.39, z: 92.15}
+  m_LocalPosition: {x: 14.45, y: 1, z: 92.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84077,7 +84106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105213660}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.98, y: 1.801234, z: 71.16}
+  m_LocalPosition: {x: 45.98, y: 1, z: 71.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

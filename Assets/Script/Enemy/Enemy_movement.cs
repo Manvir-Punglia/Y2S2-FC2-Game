@@ -66,7 +66,6 @@ public class Enemy_movement : MonoBehaviour
         Vector3 lookTo = player.transform.position;
         lookTo.y = 0;
         transform.LookAt(lookTo);
-        Vector3 runTo = (transform.position - player.transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.transform.position);
         animator.SetFloat("Movement", 1);
         Die();
@@ -91,7 +90,7 @@ public class Enemy_movement : MonoBehaviour
                             time += Time.deltaTime;
                             if (distance < runDistance)
                             {
-                                agent.SetDestination(runTo);
+                                agent.SetDestination(-player.transform.position);
                             }
                         }
                     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5095,7 +5095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: []
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
   enemyList:
   - {fileID: 1362032412}
   - {fileID: 682314439}
@@ -5120,6 +5120,9 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 268119734}
+  - {fileID: 268119733}
 --- !u!65 &268119733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5649,7 +5652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: []
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
   enemyList:
   - {fileID: 1924436867}
   - {fileID: 1764913378}
@@ -5674,6 +5677,8 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 290030820}
 --- !u!65 &290030820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58468,7 +58473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: []
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
   enemyList:
   - {fileID: 1834293172}
   - {fileID: 1273335747}
@@ -58495,6 +58500,8 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 1637434627}
 --- !u!65 &1637434627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61505,7 +61512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: []
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
   enemyList:
   - {fileID: 425460762}
   - {fileID: 893394822}
@@ -61531,6 +61538,8 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 1786966819}
 --- !u!65 &1786966819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63696,7 +63705,7 @@ MonoBehaviour:
   - {fileID: 435250773}
   - {fileID: 1260189065}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
   enemyList: []
   wall:
   - {fileID: 1104406226}
@@ -63719,6 +63728,8 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 1895948755}
 --- !u!65 &1895948755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63794,7 +63805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: []
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
   enemyList:
   - {fileID: 497212122}
   - {fileID: 193792682}
@@ -63819,6 +63830,9 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 1896438232}
+  - {fileID: 1896438231}
 --- !u!65 &1896438231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64705,7 +64719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: []
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
   enemyList:
   - {fileID: 359754401}
   - {fileID: 1068847200}
@@ -64731,6 +64745,8 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 1935764669}
 --- !u!65 &1935764669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -67512,7 +67528,7 @@ MonoBehaviour:
   - {fileID: 777489262}
   - {fileID: 948809070}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
   enemyList: []
   wall:
   - {fileID: 1104406226}
@@ -67535,6 +67551,9 @@ MonoBehaviour:
   type: 0
   hubMusic: {fileID: 0}
   levelMusic: {fileID: 0}
+  collider:
+  - {fileID: 2080082293}
+  - {fileID: 2080082292}
 --- !u!65 &2080082292
 BoxCollider:
   m_ObjectHideFlags: 0
