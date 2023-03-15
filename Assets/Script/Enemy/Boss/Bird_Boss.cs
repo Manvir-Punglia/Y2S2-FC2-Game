@@ -13,14 +13,11 @@ public class Bird_Boss : MonoBehaviour
 
     HitAnimation hitAnim;
 
-    //public ParticleSystem ;
     float timer = 0;
     public float teleportT;
 
     public float health;
 
-    public int bounty;
-    bool bountyObtain;
 
     bool canShoot;
     public float bulletSpeed;
@@ -30,54 +27,41 @@ public class Bird_Boss : MonoBehaviour
     public void Awake()
     {
         player = GameObject.FindWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 lookTo = player.transform.position;
-        lookTo.y = 0;
         transform.LookAt(lookTo);
-        timer += Time.deltaTime;
-        canShootTimer += Time.deltaTime;
-        if (timer >= teleportT)
+        if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            timer = 0;
-            this.transform.position = pos[Random.Range(0, pos.Length)].transform.position;
+            timer += Time.deltaTime;
+            canShootTimer += Time.deltaTime;
+            if (timer >= teleportT)
+            {
+                timer = 0;
+                this.transform.position = pos[Random.Range(0, pos.Length)].transform.position;
+            }
+            if (canShootTimer >= shootTimer && timer < teleportT)
+            {
+                Shooting();
+                canShootTimer = 0;
+            }
+            Die();
         }
-        if (canShootTimer >= shootTimer && timer < teleportT)
-        {
-            Shooting();
-            canShootTimer = 0;
-        }
-        Die();
     }
     void Shooting()
     {
         var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-        //var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
-        //FireballClone.transform.parent = BulletClone.transform;
 
         BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-        //fireballParticles.Play();
-        //animator.SetBool("ATK_Range", true);
-        //if (animator.GetCurrentAnimatorStateInfo(0).IsName("ATK_Range"))
-        //{
-        //    agent.isStopped = true;
-        //}
     }
     void Die()
     {
         if (health <= 0)
         {
-            //if (!bountyObtain)
-            //{
-            //    //banner.increaseKillCount();
-            //    //player.GetComponent<PlayerManager>().AddMoney(bounty);
-            //    animator.SetBool("Death", true);
-            //    bountyObtain = true;
-            //}
-            //Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
             Destroy(this.gameObject);
             Debug.Log("electric boss defeated");
         }
@@ -86,8 +70,11 @@ public class Bird_Boss : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Bullet"))
         {
-            StartCoroutine(hitAnim.HitAnim());
-            health -= collision.gameObject.GetComponent<bullet>().getDamage();
+            if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                StartCoroutine(hitAnim.HitAnim());
+                health -= collision.gameObject.GetComponent<bullet>().getDamage();
+            }
 
         }
     }
