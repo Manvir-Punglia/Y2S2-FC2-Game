@@ -14,11 +14,13 @@ public class AmmoHudCount : MonoBehaviour
     public int curAmmo;
     public int resAmmo;
 
-    public gun Gun;
+    //public gun Gun;
+    public swapWeapons player;
     // Start is called before the first frame update
     void Start()
     {
         //Gun = GameObject.FindGameObjectWithTag("gun").GetComponent<gun>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<swapWeapons>();
 
         currentAmmo = CurrentAmmoObj.GetComponent<Text>();
         reserveAmmo = ReserveAmmoObj.GetComponent<Text>();
@@ -27,8 +29,8 @@ public class AmmoHudCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        curAmmo = Gun.getCurrAmmo();
-        resAmmo = Gun.getStoredAmmo();
+        curAmmo = player.getCurrentAmmo("loaded");
+        resAmmo = player.getCurrentAmmo("unloaded");
         currentAmmo.text = curAmmo.ToString();
         reserveAmmo.text = resAmmo.ToString();
         //Debug.LogError(resAmmo);

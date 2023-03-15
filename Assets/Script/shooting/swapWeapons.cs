@@ -16,6 +16,19 @@ public class swapWeapons : MonoBehaviour
     public GameObject shotgun;
     public GameObject shotgunModel;
 
+    int autoLoadedAmmo;
+    int autoUnLoadedAmmo;
+
+    int pistolLoadedAmmo;
+    int pistolUnLoadedAmmo;
+
+    int rocketLoadedAmmo;
+    int rocketUnLoadedAmmo;
+
+    int shotgunLoadedAmmo;
+    int shotgunUnLoadedAmmo;
+
+
     GameObject currentGun;
 
     bool hasPistol = true;
@@ -26,11 +39,23 @@ public class swapWeapons : MonoBehaviour
     private void Start()
     {
         currentGun = auto;
+
+        autoLoadedAmmo = auto.GetComponent<gun>().getCurrAmmo();
+        autoUnLoadedAmmo = auto.GetComponent<gun>().getStoredAmmo();
+
+        pistolLoadedAmmo = pistol.GetComponent<gun>().getCurrAmmo();
+        pistolUnLoadedAmmo = pistol.GetComponent<gun>().getStoredAmmo();
+
+        rocketLoadedAmmo = rocketLauncher.GetComponent<gun>().getCurrAmmo();
+        rocketUnLoadedAmmo = rocketLauncher.GetComponent<gun>().getStoredAmmo();
+
+        shotgunLoadedAmmo = shotgun.GetComponent<gun>().getCurrAmmo();
+        shotgunUnLoadedAmmo = shotgun.GetComponent<gun>().getStoredAmmo();
     }
     // Update is called once per frame
     void Update()
     {
-
+        updateAmmo();
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (hasAuto && currentGun.GetComponent<gun>().getCanSwap())
@@ -109,6 +134,20 @@ public class swapWeapons : MonoBehaviour
 
     }
 
+    public void updateAmmo()
+    {
+        autoLoadedAmmo = auto.GetComponent<gun>().getCurrAmmo();
+        autoUnLoadedAmmo = auto.GetComponent<gun>().getStoredAmmo();
+
+        pistolLoadedAmmo = pistol.GetComponent<gun>().getCurrAmmo();
+        pistolUnLoadedAmmo = pistol.GetComponent<gun>().getStoredAmmo();
+
+        rocketLoadedAmmo = rocketLauncher.GetComponent<gun>().getCurrAmmo();
+        rocketUnLoadedAmmo = rocketLauncher.GetComponent<gun>().getStoredAmmo();
+
+        shotgunLoadedAmmo = shotgun.GetComponent<gun>().getCurrAmmo();
+        shotgunUnLoadedAmmo = shotgun.GetComponent<gun>().getStoredAmmo();
+    }
     public void addGun(string gun)
     {
         switch (gun)
@@ -155,5 +194,18 @@ public class swapWeapons : MonoBehaviour
         }
     }
 
+    public int getCurrentAmmo(string whichType)
+    {
+        switch (whichType)
+        {
+            case "loaded":
+                return currentGun.GetComponent<gun>().getCurrAmmo();
+                break;
+            case "unloaded":
+                return currentGun.GetComponent<gun>().getStoredAmmo();
+                break;
+        }
 
+        return 0;
+    }
 }

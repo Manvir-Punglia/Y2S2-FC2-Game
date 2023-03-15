@@ -43,7 +43,11 @@ public class door : MonoBehaviour
             case doorType.BOSS:
                 if (Key.getKey() > 0)
                 {
-                    keySlots[Key.getKey() - 1].GetComponent<MeshRenderer>().material = hasKey;
+                    for(int i = 0; i < Key.getKey(); i++)
+                    {
+                        keySlots[Key.getKey() - 1].GetComponent<MeshRenderer>().material = hasKey;
+                    }
+                    
                 }
                 break;
         }

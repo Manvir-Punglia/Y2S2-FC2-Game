@@ -48,6 +48,14 @@ public class doorInteraction : MonoBehaviour
         if(Physics.Raycast(look, out lookingAt, 20, interactable))
         {
             E.SetActive(true);
+            if (playerInput.actions["Interact"].triggered)
+            {
+                //Debug.LogError("Door");
+                if(lookingAt.collider.gameObject.tag == "normal door")
+                {
+                    lookingAt.collider.gameObject.GetComponent<door>().open();
+                }
+            }
         }
         else
         {

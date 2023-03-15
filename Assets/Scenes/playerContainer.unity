@@ -5087,7 +5087,7 @@ GameObject:
   - component: {fileID: 945257738}
   - component: {fileID: 945257737}
   - component: {fileID: 945257736}
-  - component: {fileID: 945257735}
+  - component: {fileID: 945257739}
   m_Layer: 6
   m_Name: pistol
   m_TagString: gun
@@ -5110,23 +5110,6 @@ Transform:
   m_Father: {fileID: 8474872465948196789}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 168.74, z: 0}
---- !u!114 &945257735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945257733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae44ad5892d63648bc108229b19f0bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 6937317632471841382, guid: ca2e76878b5bf694d92ff26019cdeb0d, type: 3}
-  gunObject: {fileID: 962727223034028848}
-  animator: {fileID: 747673395}
-  gunSound: {fileID: 1439599036}
-  AutoAnimator: {fileID: 747673395}
 --- !u!65 &945257736
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5190,6 +5173,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945257733}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &945257739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945257733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77902ee7ff56314fa059cfd9bd175be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6937317632471841382, guid: ca2e76878b5bf694d92ff26019cdeb0d, type: 3}
+  gunObject: {fileID: 962727223034028848}
+  animator: {fileID: 747673395}
+  gunSound: {fileID: 1439599036}
+  PistolAnimator: {fileID: 747673395}
 --- !u!1 &989318102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6760,6 +6760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1337780109}
   - component: {fileID: 1337780108}
+  - component: {fileID: 1337780110}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -6844,6 +6845,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1337780110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337780107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1337861524
 GameObject:
   m_ObjectHideFlags: 0
@@ -12023,7 +12044,7 @@ MonoBehaviour:
   reserveAmmo: {fileID: 0}
   curAmmo: 14
   resAmmo: 123
-  Gun: {fileID: 8773344339165474923}
+  player: {fileID: 7081988390067223623}
 --- !u!1 &463555987730309711
 GameObject:
   m_ObjectHideFlags: 0
@@ -13400,6 +13421,7 @@ GameObject:
   - component: {fileID: 1988166305}
   - component: {fileID: 7081988390067223622}
   - component: {fileID: 7081988390067223623}
+  - component: {fileID: 7081988390067223624}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -15457,6 +15479,20 @@ MonoBehaviour:
   rocketLauncherModel: {fileID: 1283005536}
   shotgun: {fileID: 1102281528}
   shotgunModel: {fileID: 1344503145}
+--- !u!114 &7081988390067223624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3228680691203896962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579d87424cb0d984da307455e825ce8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  keyCount: 0
 --- !u!224 &7180504024721123354
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18147,6 +18183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8003596073707784481}
   - component: {fileID: 8003596073707784480}
+  - component: {fileID: 8003596073707784484}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -18154,6 +18191,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8003596073707784484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8003596073707784483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!4 &8003596073769802336
 Transform:
   m_ObjectHideFlags: 0
