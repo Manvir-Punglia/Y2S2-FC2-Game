@@ -67,12 +67,12 @@ public class Bird_Boss : MonoBehaviour
             }
             else if (charge)
             {
-                if (chargeAnimTriggered)
-                {
-                    animator.SetTrigger("ATK_Melee");
-                    chargeAnimTriggered = false;
-                }
-                    hitBox.enabled = false;
+                //if (chargeAnimTriggered)
+                //{
+                //    animator.SetTrigger("ATK_Melee");
+                //    chargeAnimTriggered = false;
+                //}
+                hitBox.enabled = false;
                 chargeBox.enabled = true;
                 chargeTime += Time.deltaTime;
                 rb.velocity += transform.forward * speed;
@@ -88,7 +88,7 @@ public class Bird_Boss : MonoBehaviour
             }
             if (wait >= waitTimer)
             {
-                chargeAnimTriggered = true;
+                //chargeAnimTriggered = true;
                 charge = true;
                 wait = 0;
             }
