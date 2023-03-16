@@ -157,7 +157,7 @@ public class Enemy_movement : MonoBehaviour
         if (collision.gameObject.tag == ("Player"))
         {
             hit = false;
-            //collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
+            collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
         }
     }
     //public void ShootFireBall()

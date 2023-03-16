@@ -8,10 +8,12 @@ public class Bird_Boss : MonoBehaviour
     public GameObject player;
     public GameObject[] pos;
     Animator animator;
+    Rigidbody rb;
+    public Collider hitBox;
+    public Collider chargeBox;
 
     bannerManager banner;
 
-    HitAnimation hitAnim;
 
     float timer = 0;
     public float teleportT;
@@ -23,31 +25,72 @@ public class Bird_Boss : MonoBehaviour
     public float bulletSpeed;
     public float shootTimer;
     float canShootTimer;
+
+    bool charge;
+    public float chargeTimer;
+    float chargeTime;
+    public float waitTimer;
+    float wait;
+    public float speed;
+    bool chargeAnimTriggered;
     // Start is called before the first frame update
     public void Awake()
     {
         player = GameObject.FindWithTag("Player");
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 lookTo = player.transform.position;
-        transform.LookAt(lookTo);
+        transform.LookAt(player.transform.position);
         if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            timer += Time.deltaTime;
-            canShootTimer += Time.deltaTime;
-            if (timer >= teleportT)
+            if (!charge)
             {
-                timer = 0;
-                this.transform.position = pos[Random.Range(0, pos.Length)].transform.position;
+                hitBox.enabled = true;
+                chargeBox.enabled = false;
+                rb.velocity = Vector3.zero;
+                timer += Time.deltaTime;
+                canShootTimer += Time.deltaTime;
+                if (timer >= teleportT)
+                {
+                    timer = 0;
+                    this.transform.position = pos[Random.Range(0, pos.Length)].transform.position;
+                }
+                if (canShootTimer >= shootTimer && timer < teleportT)
+                {
+                    Shooting();
+                    canShootTimer = 0;
+                }
             }
-            if (canShootTimer >= shootTimer && timer < teleportT)
+            else if (charge)
             {
-                Shooting();
-                canShootTimer = 0;
+                if (chargeAnimTriggered)
+                {
+                    animator.SetTrigger("ATK_Melee");
+                    chargeAnimTriggered = false;
+                }
+                    hitBox.enabled = false;
+                chargeBox.enabled = true;
+                chargeTime += Time.deltaTime;
+                rb.velocity += transform.forward * speed;
+                if (chargeTime >= chargeTimer)
+                {
+                    charge = false;
+                    chargeTime = 0;
+                }
+            }
+            if (!charge)
+            {
+                wait += Time.deltaTime;
+            }
+            if (wait >= waitTimer)
+            {
+                chargeAnimTriggered = true;
+                charge = true;
+                wait = 0;
             }
             Die();
         }
@@ -72,10 +115,16 @@ public class Bird_Boss : MonoBehaviour
         {
             if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                StartCoroutine(hitAnim.HitAnim());
                 health -= collision.gameObject.GetComponent<bullet>().getDamage();
             }
 
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            other.gameObject.GetComponent<PlayerManager>().TakeDamage();
         }
     }
 }
