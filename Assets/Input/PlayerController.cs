@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField, Tooltip("Player speed multiplier.")]
     private float playerSpeed = 30.0f;
-    private float maxPlayerSpeed = 30.0f;
+    public float maxPlayerSpeed = 30.0f;
     [SerializeField, Tooltip("How how the player should jump.")]
     private float jumpHeight = 2.0f;
     [SerializeField, Tooltip("Downwards force on the player.")]
@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private InputActionAsset asset;
     public bool noLooking = true;
 
+    public bool smolPlayer;
+
     bannerManager banner;
 
     //Tiago Audio
@@ -38,6 +40,11 @@ public class PlayerController : MonoBehaviour
         //anim = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
         cameraTransform = Camera.main.transform;
+
+        if (smolPlayer)
+        {
+            maxPlayerSpeed = 7f;
+        }
     }
 
     void Update()
