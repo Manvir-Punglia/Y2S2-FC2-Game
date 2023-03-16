@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
 using Unity.VisualScripting;
 using static Enemy_movement;
+using UnityEngine.SceneManagement;
 
 public class Spawn : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Spawn : MonoBehaviour
     bool triggered = false;
     public int wave;
     int waveCount = 0;
+    public bool key;
+    //public GameObject keyPrefab;
+    //public GameObject keyPos;
 
     // Update is called once per frame
     void Update()
@@ -68,6 +72,10 @@ public class Spawn : MonoBehaviour
             {
                 wall[i].SetActive(false);
             }
+        }
+        if (key && triggered && enemyList.Count == 0 && waveCount == wave)
+        {
+            SceneManager.LoadScene("Hub");
         }
         //enemyRemaining.text = string.Format("Enemy Count: {00}", enemyList.Count);
     }

@@ -766,6 +766,7 @@ MonoBehaviour:
   - {fileID: 151988630}
   canSpawn: 0
   wave: 0
+  key: 0
 --- !u!114 &568826926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,6 +888,7 @@ MonoBehaviour:
   - {fileID: 1713393613}
   canSpawn: 0
   wave: 0
+  key: 0
 --- !u!114 &649756828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,6 +1479,7 @@ MonoBehaviour:
   - {fileID: 729005503}
   canSpawn: 0
   wave: 0
+  key: 0
 --- !u!114 &1361316218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2155,7 +2158,8 @@ MonoBehaviour:
   - {fileID: 899435030}
   - {fileID: 1737273075}
   canSpawn: 0
-  wave: 0
+  wave: 1
+  key: 1
 --- !u!114 &1748448223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2261,6 +2265,7 @@ MonoBehaviour:
   - {fileID: 1692187938}
   canSpawn: 0
   wave: 0
+  key: 0
 --- !u!114 &1756274592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2455,6 +2460,37 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1915377006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915377007}
+  m_Layer: 0
+  m_Name: keyPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1915377007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915377006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -85, y: 3, z: 45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1964487959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,6 +2578,7 @@ MonoBehaviour:
   - {fileID: 864889842}
   canSpawn: 0
   wave: 0
+  key: 0
 --- !u!114 &1986049544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2720,6 +2757,7 @@ MonoBehaviour:
   - {fileID: 344411385}
   canSpawn: 0
   wave: 0
+  key: 0
 --- !u!114 &2024187842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19178,11 +19216,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
+  maxPlayerSpeed: 30
   jumpHeight: 2
   gravityValue: -20
   rotationSpeed: 0.4
   animationBlendDamp: 0.3
   noLooking: 1
+  smolPlayer: 0
   jumpSound: {fileID: 3782856296492846350}
   moveSound: {fileID: 3782856296263633188}
 --- !u!23 &1779471854319423162
