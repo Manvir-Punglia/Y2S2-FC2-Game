@@ -16,9 +16,9 @@ public class Spawn : MonoBehaviour
     public List<GameObject> enemyList;
     public List<GameObject> wall;
     public bool canSpawn = false;
-    bool triggered = false;
+    public bool triggered = false;
     public int wave;
-    int waveCount = 0;
+    public int waveCount = 0;
     public bool key;
     //public GameObject keyPrefab;
     //public GameObject keyPos;

@@ -992,6 +992,7 @@ GameObject:
   - component: {fileID: 2940443579786861978}
   - component: {fileID: -942188976028651190}
   - component: {fileID: 5780915957309700039}
+  - component: {fileID: 3569457508246346968}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -1088,6 +1089,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &3569457508246346968
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2598546244490698933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 8}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &2810445276972314148
 GameObject:
   m_ObjectHideFlags: 0

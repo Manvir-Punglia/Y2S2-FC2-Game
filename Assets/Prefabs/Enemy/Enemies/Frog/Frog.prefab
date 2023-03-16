@@ -3277,7 +3277,7 @@ MonoBehaviour:
   runDistance: 5
   shootingDistance: 10
   hitTime: 3
-  health: 5
+  health: 4
   speed: 10
   bounty: 20
   canShoot: 0

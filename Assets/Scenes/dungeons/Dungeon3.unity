@@ -5018,7 +5018,11 @@ MonoBehaviour:
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
+  triggered: 0
   wave: 0
+  waveCount: 0
+  key: 0
+  keyPos: {fileID: 0}
 --- !u!114 &268119732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5575,7 +5579,11 @@ MonoBehaviour:
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
+  triggered: 0
   wave: 0
+  waveCount: 0
+  key: 0
+  keyPos: {fileID: 0}
 --- !u!114 &290030819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58398,7 +58406,11 @@ MonoBehaviour:
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
+  triggered: 0
   wave: 0
+  waveCount: 0
+  key: 1
+  keyPos: {fileID: 0}
 --- !u!114 &1637434626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61436,7 +61448,11 @@ MonoBehaviour:
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
+  triggered: 0
   wave: 0
+  waveCount: 0
+  key: 0
+  keyPos: {fileID: 0}
 --- !u!114 &1786966818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63626,7 +63642,11 @@ MonoBehaviour:
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
+  triggered: 0
   wave: 0
+  waveCount: 0
+  key: 0
+  keyPos: {fileID: 0}
 --- !u!114 &1895948754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63728,7 +63748,11 @@ MonoBehaviour:
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
+  triggered: 0
   wave: 0
+  waveCount: 0
+  key: 0
+  keyPos: {fileID: 0}
 --- !u!114 &1896438230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64643,7 +64667,11 @@ MonoBehaviour:
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
+  triggered: 0
   wave: 0
+  waveCount: 0
+  key: 0
+  keyPos: {fileID: 0}
 --- !u!114 &1935764668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67449,7 +67477,11 @@ MonoBehaviour:
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
+  triggered: 0
   wave: 0
+  waveCount: 0
+  key: 0
+  keyPos: {fileID: 0}
 --- !u!114 &2080082291
 MonoBehaviour:
   m_ObjectHideFlags: 0

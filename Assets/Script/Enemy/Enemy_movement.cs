@@ -150,7 +150,7 @@ public class Enemy_movement : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Bullet"))
         {
-            StartCoroutine(hitAnim.HitAnim());
+            //StartCoroutine(hitAnim.HitAnim());
             health -= collision.gameObject.GetComponent<bullet>().getDamage();
 
         }
