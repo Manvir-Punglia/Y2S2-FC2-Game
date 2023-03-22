@@ -1104,8 +1104,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 4, z: 0}
 --- !u!114 &-4023754986470595308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,11 +1122,11 @@ MonoBehaviour:
   shootingPos: {fileID: 2019159583178023217}
   player: {fileID: 0}
   hit: 0
-  runDistance: 10
-  shootingDistance: 15
+  runDistance: 2
+  shootingDistance: 5
   hitTime: 3
   health: 5
-  speed: 20
+  speed: 15
   bounty: 5
   canShoot: 0
   bulletSpeed: 1000

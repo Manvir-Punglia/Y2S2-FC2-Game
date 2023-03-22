@@ -5022,7 +5022,6 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &268119732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5583,7 +5582,6 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &290030819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5629,7 +5627,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1851884051}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &292062898
 BoxCollider:
@@ -58410,7 +58408,6 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 1
-  keyPos: {fileID: 0}
 --- !u!114 &1637434626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61407,99 +61404,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1786966816
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1786966820}
-  - component: {fileID: 1786966819}
-  - component: {fileID: 1786966818}
-  - component: {fileID: 1786966817}
-  m_Layer: 0
-  m_Name: start (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1786966817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786966816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 386ac74803d870f48b2733f2e0292a01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pos: []
-  enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
-  enemyList:
-  - {fileID: 425460762}
-  - {fileID: 893394822}
-  - {fileID: 1665048809}
-  wall:
-  - {fileID: 1104406226}
-  canSpawn: 0
-  triggered: 0
-  wave: 0
-  waveCount: 0
-  key: 0
-  keyPos: {fileID: 0}
---- !u!114 &1786966818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786966816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3912b216d0418b046a59dd57a0636315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawn: {fileID: 1786966816}
-  destination: {fileID: 0}
-  type: 0
-  hubMusic: {fileID: 0}
-  levelMusic: {fileID: 0}
-  collider:
-  - {fileID: 1786966819}
---- !u!65 &1786966819
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786966816}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 6, z: 7}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1786966820
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786966816}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.044391632, y: -12.15701, z: -2.6426697}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1851884051}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1787371384
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62722,7 +62626,6 @@ Transform:
   - {fileID: 1637434628}
   - {fileID: 268119735}
   - {fileID: 1896438233}
-  - {fileID: 1786966820}
   - {fileID: 1895948756}
   - {fileID: 290030821}
   m_Father: {fileID: 0}
@@ -63646,7 +63549,6 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &1895948754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63692,7 +63594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1851884051}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1896170054
 BoxCollider:
@@ -63752,7 +63654,6 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &1896438230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64671,7 +64572,6 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &1935764668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67481,7 +67381,6 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &2080082291
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class bullet : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Wall")
         {
-            DestroyImmediate(this.gameObject, true);
+            Destroy(this.gameObject);
         }
 
         ContactPoint contact = collision.contacts[0];
@@ -74,7 +74,7 @@ public class bullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy_movement>().takeDamage(damage);
             //collision.gameObject.GetComponent<Enemy_movement>().Die();
-            DestroyImmediate(this.gameObject, true);
+            Destroy(this.gameObject);
             //Debug.Log("HIT!");
         }
         

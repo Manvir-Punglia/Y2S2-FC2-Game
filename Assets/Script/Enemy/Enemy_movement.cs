@@ -64,7 +64,6 @@ public class Enemy_movement : MonoBehaviour
     {
         agent.speed = speed;
         Vector3 lookTo = player.transform.position;
-        lookTo.y = 0;
         transform.LookAt(lookTo);
         float distance = Vector3.Distance(transform.position, player.transform.position);
         animator.SetFloat("Movement", 1);
