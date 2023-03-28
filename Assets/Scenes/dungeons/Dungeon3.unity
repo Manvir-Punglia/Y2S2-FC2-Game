@@ -5009,12 +5009,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386ac74803d870f48b2733f2e0292a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: []
-  enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
-  enemyList:
+  pos:
   - {fileID: 1362032412}
   - {fileID: 682314439}
+  enemyRemaining: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
+  enemyList: []
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
@@ -5569,12 +5569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386ac74803d870f48b2733f2e0292a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: []
-  enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
-  enemyList:
+  pos:
   - {fileID: 1924436867}
   - {fileID: 1764913378}
+  enemyRemaining: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
+  enemyList: []
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
@@ -58393,14 +58393,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386ac74803d870f48b2733f2e0292a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: []
-  enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
-  enemyList:
+  pos:
   - {fileID: 1834293172}
   - {fileID: 1273335747}
   - {fileID: 971638603}
   - {fileID: 848658377}
+  enemyRemaining: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
+  enemyList: []
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
@@ -63641,12 +63641,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386ac74803d870f48b2733f2e0292a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: []
-  enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
-  enemyList:
+  pos:
   - {fileID: 497212122}
   - {fileID: 193792682}
+  enemyRemaining: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
+  enemyList: []
   wall:
   - {fileID: 1104406226}
   canSpawn: 0
@@ -64558,13 +64558,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386ac74803d870f48b2733f2e0292a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: []
-  enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
-  enemyList:
+  pos:
   - {fileID: 359754401}
   - {fileID: 1068847200}
   - {fileID: 170106348}
+  enemyRemaining: {fileID: 0}
+  enemyPrefab: {fileID: 2598546244490698933, guid: e8a0f868fafd2aa44af9b028b3f1207e, type: 3}
+  enemyList: []
   wall:
   - {fileID: 1104406226}
   canSpawn: 0

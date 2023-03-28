@@ -62,6 +62,7 @@ public class Enemy_movement : MonoBehaviour
     }
     private void Update()
     {
+        transform.localEulerAngles = Vector3.zero;
         agent.speed = speed;
         Vector3 lookTo = player.transform.position;
         transform.LookAt(lookTo);

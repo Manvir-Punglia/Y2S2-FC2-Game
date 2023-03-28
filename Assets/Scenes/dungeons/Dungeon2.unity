@@ -2512,22 +2512,12 @@ MonoBehaviour:
   enemyList: []
   wall:
   - {fileID: 714047137}
-  - {fileID: 1402561715}
-  - {fileID: 1489836427}
-  - {fileID: 149571719}
   - {fileID: 1695784846}
-  - {fileID: 882374936}
-  - {fileID: 541984550}
-  - {fileID: 309325668}
-  - {fileID: 809250081}
-  - {fileID: 435271552}
-  - {fileID: 1884838246}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &106007752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3528,21 +3518,13 @@ MonoBehaviour:
   wall:
   - {fileID: 714047137}
   - {fileID: 1402561715}
-  - {fileID: 1489836427}
-  - {fileID: 149571719}
-  - {fileID: 1695784846}
   - {fileID: 882374936}
-  - {fileID: 541984550}
-  - {fileID: 309325668}
-  - {fileID: 809250081}
-  - {fileID: 435271552}
-  - {fileID: 1884838246}
+  - {fileID: 1402561715}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &140000713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4326,23 +4308,13 @@ MonoBehaviour:
   enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
-  - {fileID: 714047137}
   - {fileID: 1402561715}
-  - {fileID: 1489836427}
-  - {fileID: 149571719}
-  - {fileID: 1695784846}
-  - {fileID: 882374936}
-  - {fileID: 541984550}
-  - {fileID: 309325668}
-  - {fileID: 809250081}
-  - {fileID: 435271552}
   - {fileID: 1884838246}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 1
-  keyPos: {fileID: 2001704192}
 --- !u!114 &160476030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12948,23 +12920,13 @@ MonoBehaviour:
   enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
-  - {fileID: 714047137}
-  - {fileID: 1402561715}
-  - {fileID: 1489836427}
-  - {fileID: 149571719}
-  - {fileID: 1695784846}
-  - {fileID: 882374936}
-  - {fileID: 541984550}
-  - {fileID: 309325668}
   - {fileID: 809250081}
   - {fileID: 435271552}
-  - {fileID: 1884838246}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &529401770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20492,23 +20454,14 @@ MonoBehaviour:
   enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
-  - {fileID: 714047137}
-  - {fileID: 1402561715}
-  - {fileID: 1489836427}
   - {fileID: 149571719}
-  - {fileID: 1695784846}
-  - {fileID: 882374936}
-  - {fileID: 541984550}
   - {fileID: 309325668}
   - {fileID: 809250081}
-  - {fileID: 435271552}
-  - {fileID: 1884838246}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &848940653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21487,23 +21440,14 @@ MonoBehaviour:
   enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
-  - {fileID: 714047137}
-  - {fileID: 1402561715}
   - {fileID: 1489836427}
   - {fileID: 149571719}
-  - {fileID: 1695784846}
-  - {fileID: 882374936}
   - {fileID: 541984550}
-  - {fileID: 309325668}
-  - {fileID: 809250081}
-  - {fileID: 435271552}
-  - {fileID: 1884838246}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &888326756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64347,15 +64291,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
-  - {fileID: 714047137}
-  - {fileID: 1402561715}
-  - {fileID: 1489836427}
-  - {fileID: 149571719}
-  - {fileID: 1695784846}
   - {fileID: 882374936}
-  - {fileID: 541984550}
-  - {fileID: 309325668}
-  - {fileID: 809250081}
   - {fileID: 435271552}
   - {fileID: 1884838246}
   canSpawn: 0
@@ -64363,7 +64299,6 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &1251556144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76990,23 +76925,13 @@ MonoBehaviour:
   enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
   enemyList: []
   wall:
-  - {fileID: 714047137}
-  - {fileID: 1402561715}
-  - {fileID: 1489836427}
-  - {fileID: 149571719}
-  - {fileID: 1695784846}
-  - {fileID: 882374936}
-  - {fileID: 541984550}
   - {fileID: 309325668}
-  - {fileID: 809250081}
-  - {fileID: 435271552}
-  - {fileID: 1884838246}
+  - {fileID: 1695784846}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  keyPos: {fileID: 0}
 --- !u!114 &1807660945
 MonoBehaviour:
   m_ObjectHideFlags: 0
