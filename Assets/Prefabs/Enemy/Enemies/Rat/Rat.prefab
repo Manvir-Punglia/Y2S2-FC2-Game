@@ -1056,6 +1056,7 @@ MonoBehaviour:
   bullet: {fileID: 1661705576419134674, guid: 835193d6a5986aa469f657a67ff0d2c0, type: 3}
   shootingPos: {fileID: 7168190584275773024}
   player: {fileID: 0}
+  enemyName: Rat
   hit: 0
   runDistance: 3
   shootingDistance: 7

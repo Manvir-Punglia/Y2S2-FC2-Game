@@ -148,9 +148,26 @@ public class bannerManager : MonoBehaviour
             return 0;
         }
     }
-    public void increaseKillCount()
+    public void increaseKillCount(string type)
     {
-        enemyCountF++;
+        switch(type)
+        {
+            case "Fire":
+                enemyCountF++;
+                break;
+
+            case "Water":
+                enemyCountW++;
+                break;
+
+            case "Lightning":
+                enemyCountL++;
+                break;
+
+            case "Poison":
+                enemyCountP++;
+                break;
+        }
     }
 
     public int getKillCount(string enemyType)

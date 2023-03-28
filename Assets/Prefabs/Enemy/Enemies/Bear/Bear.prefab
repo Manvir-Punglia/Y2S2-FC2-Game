@@ -25670,6 +25670,7 @@ MonoBehaviour:
   bullet: {fileID: 1661705576419134674, guid: 835193d6a5986aa469f657a67ff0d2c0, type: 3}
   shootingPos: {fileID: 2014631420}
   player: {fileID: 0}
+  enemyName: Bear
   hit: 0
   runDistance: 5
   shootingDistance: 10
@@ -46150,6 +46151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2680303613052275224}
   - component: {fileID: 8218468447561661595}
+  - component: {fileID: 7541371515804900950}
   m_Layer: 0
   m_Name: R_FireLight
   m_TagString: Untagged
@@ -46234,6 +46236,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &7541371515804900950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786000930174840093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &4935536916544175611
 GameObject:
   m_ObjectHideFlags: 0
@@ -51471,6 +51493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7224034016293577692}
   - component: {fileID: 1987592455250888652}
+  - component: {fileID: 931969672811458828}
   m_Layer: 0
   m_Name: L_FireLight
   m_TagString: Untagged
@@ -51555,6 +51578,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &931969672811458828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508090827949696550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &6605545445441121877
 GameObject:
   m_ObjectHideFlags: 0

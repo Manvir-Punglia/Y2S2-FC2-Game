@@ -3273,6 +3273,7 @@ MonoBehaviour:
   bullet: {fileID: 1661705576419134674, guid: 835193d6a5986aa469f657a67ff0d2c0, type: 3}
   shootingPos: {fileID: 3943177067044234615}
   player: {fileID: 0}
+  enemyName: Frog
   hit: 0
   runDistance: 5
   shootingDistance: 10

@@ -1121,6 +1121,7 @@ MonoBehaviour:
   bullet: {fileID: 7988127137646469324, guid: e0aa5daaeb8d8e340a76b21b3ca081f9, type: 3}
   shootingPos: {fileID: 2019159583178023217}
   player: {fileID: 0}
+  enemyName: Bird
   hit: 0
   runDistance: 2
   shootingDistance: 5

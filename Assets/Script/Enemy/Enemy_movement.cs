@@ -21,6 +21,8 @@ public class Enemy_movement : MonoBehaviour
 
     HitAnimation hitAnim;
 
+    public string enemyName;
+
     //public ParticleSystem fireballParticles;
 
     public bool hit;
@@ -129,11 +131,34 @@ public class Enemy_movement : MonoBehaviour
     }
     public void Die()
     {
+
         if (health <= 0)
         {
+            
             if (!bountyObtain)
             {
-                banner.increaseKillCount();
+                switch (enemyName)
+                {
+                    case "Bear":
+                        //fire
+                        player.GetComponent<bannerManager>().increaseKillCount("Fire");
+                        break;
+
+                    case "Frog":
+                        //water
+                        player.GetComponent<bannerManager>().increaseKillCount("Water");
+                        break;
+
+                    case "Bird":
+                        //lightning
+                        player.GetComponent<bannerManager>().increaseKillCount("Lightning");
+                        break;
+
+                    case "Rat":
+                        //poison
+                        player.GetComponent<bannerManager>().increaseKillCount("Poison");
+                        break;
+                }
                 player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetBool("Death", true);
                 bountyObtain = true;
