@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     public Scene Dungeon1;
 
     int _health = 3;
+    int _maxHealth = 3;
     int _money = 0;
     int _newMoney = 0;
     [SerializeField] private float _invincableDuration = 1f;
@@ -54,6 +55,10 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(_health);
+        //_health = _maxHealth + ((int)banner.getStats(1));
+        
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             GetComponent<PlayerController>().setNoLooking(false);
@@ -145,6 +150,7 @@ public class PlayerManager : MonoBehaviour
     public void SetHealth(int health)
     {
         _health = health;
+        _maxHealth = health;
     }
 
     public int GetMoney()

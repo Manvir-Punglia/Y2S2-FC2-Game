@@ -8,6 +8,8 @@ public class HealthHud : MonoBehaviour
     public GameObject Health2of3;
     public GameObject Health1of3;
     public GameObject Health0of3;
+    public GameObject armour1;
+    public GameObject armour2;
 
     public PlayerManager player;
 
@@ -29,6 +31,8 @@ public class HealthHud : MonoBehaviour
             Health2of3.SetActive(false);
             Health1of3.SetActive(false);
             Health0of3.SetActive(false);
+            armour1.SetActive(false);
+            armour2.SetActive(false);
 
         }
         else if (playerHealth == 2)
@@ -37,6 +41,8 @@ public class HealthHud : MonoBehaviour
             Health2of3.SetActive(true);
             Health1of3.SetActive(false);
             Health0of3.SetActive(false);
+            armour1.SetActive(false);
+            armour2.SetActive(false);
 
         }
         else if (playerHealth == 1)
@@ -45,6 +51,26 @@ public class HealthHud : MonoBehaviour
             Health2of3.SetActive(false);
             Health1of3.SetActive(true);
             Health0of3.SetActive(false);
+            armour1.SetActive(false);
+            armour2.SetActive(false);
+        }
+        else if(playerHealth == 4)
+        {
+            Health3of3.SetActive(true);
+            Health2of3.SetActive(false);
+            Health1of3.SetActive(false);
+            Health0of3.SetActive(false);
+            armour1.SetActive(true);
+            armour2.SetActive(false);
+        }
+        else if(playerHealth == 5)
+        {
+            Health3of3.SetActive(true);
+            Health2of3.SetActive(false);
+            Health1of3.SetActive(false);
+            Health0of3.SetActive(false);
+            armour1.SetActive(false);
+            armour2.SetActive(true);
         }
         else
         {
@@ -52,6 +78,8 @@ public class HealthHud : MonoBehaviour
             Health2of3.SetActive(false);
             Health1of3.SetActive(false);
             Health0of3.SetActive(true);
+            armour1.SetActive(false);
+            armour2.SetActive(false);
         }
 
     }

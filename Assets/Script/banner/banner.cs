@@ -15,6 +15,12 @@ public class banner : MonoBehaviour
 
     public bannerManager manager;
 
+    PlayerManager player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+    }
     public float getLevel()
     {
         return bannerAmount;
@@ -30,6 +36,10 @@ public class banner : MonoBehaviour
                     bannerAmount = 1;
                     manager.resetKillCount(resetType);
                     manager.setString(bannerType);
+                    if(bannerType == "Water")
+                    {
+                        player.SetHealth(player.GetHealth() + 1);
+                    }
                 }
                 break;
                 
@@ -40,7 +50,10 @@ public class banner : MonoBehaviour
                     bannerAmount = 2;
                     manager.resetKillCount(resetType);
                     manager.setString(bannerType);
-
+                    if (bannerType == "Water")
+                    {
+                        player.SetHealth(player.GetHealth() + 1);
+                    }
                 }
                 break;
 
@@ -49,12 +62,12 @@ public class banner : MonoBehaviour
                 {
                     manager.resetKillCount(resetType);
                     manager.setString(bannerType);
-
+                    if (bannerType == "Water" && player.GetHealth()<5)
+                    {
+                        player.SetHealth(player.GetHealth() + 1);
+                    }
                 }
                 break;
-
-            
-
         }
 
         switch (bannerType)
