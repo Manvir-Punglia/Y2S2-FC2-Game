@@ -30,8 +30,8 @@ TagManager:
   - ShopKeeper
   - interactable
   - Misc
-  - 
-  - 
+  - LayerMask
+  - SeeThrough
   - 
   - 
   - 
