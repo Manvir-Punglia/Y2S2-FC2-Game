@@ -96,7 +96,7 @@ public class gun : MonoBehaviour
                 currentAmmo = currentAmmo - 1;
 
                 canAttack = false;
-                var BulletClone = Instantiate(bullet, gunObject.position, Quaternion.identity);
+                var BulletClone = Instantiate(bullet, gunObject.position, gunObject.rotation);
 
                 RecoilShake.Instance.triggerRecoil(true);
 
@@ -107,7 +107,7 @@ public class gun : MonoBehaviour
         }
         if (auto)
         {
-            if (Input.GetMouseButton(0) && canAttack && !reloading)
+            if (Input.GetMouseButton(0) && canAttack && !reloading && currentAmmo > 0)
             {
                 if (canAutoShoot)
                 {
@@ -142,7 +142,7 @@ public class gun : MonoBehaviour
         currentAmmo = currentAmmo - 1;
         canAttack = false;
         canAutoShoot = false;
-        var BulletClone = Instantiate(bullet, gunObject.position, Quaternion.identity);
+        var BulletClone = Instantiate(bullet, gunObject.position, gunObject.rotation);
         BulletClone.GetComponent<Rigidbody>().AddForce(gunObject.forward * bulSpeed);
         yield return new WaitForSeconds(0.2f);
         canAttack = true;
