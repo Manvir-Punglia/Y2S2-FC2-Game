@@ -512,7 +512,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1281279702472384451, guid: b4280e1562e606e408de2f66aa10eb3d, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1281279702472384451, guid: b4280e1562e606e408de2f66aa10eb3d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -116428,7 +116428,7 @@ Transform:
   - {fileID: 6495007515996659835}
   - {fileID: 2036334647}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9090665276241908645
 MeshFilter:
