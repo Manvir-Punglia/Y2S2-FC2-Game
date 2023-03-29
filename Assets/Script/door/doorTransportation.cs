@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class doorTransportation : MonoBehaviour
 {
     public PlayerManager player;
-    public gun Gun;
+    public gun Auto;
+    public gun Pistol;
     public bannerManager banner;
     public string Scenename;
 
@@ -14,21 +15,23 @@ public class doorTransportation : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-        Gun = GameObject.FindGameObjectWithTag("gun").GetComponent<gun>();
+        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
     }
         
 
     // Update is called once per frame
     void Update()
     {
-
+        //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(Scenename);
+            PlayerPrefs.SetInt("PistolloadedAmmo", 1);
+            PlayerPrefs.SetInt("PistolstoredAmmo", 60);
             //PlayerPrefs.SetInt("Ammo", 5);
             //PlayerPrefs.SetFloat("Kills/banner ", 0.6f);
             //PlayerPrefs.SetString("username", "John Doe");
@@ -46,12 +49,16 @@ public class doorTransportation : MonoBehaviour
             PlayerPrefs.SetFloat("poisonKills", banner.getKillCount("Poison"));
             PlayerPrefs.SetFloat("lightningKills", banner.getKillCount("Lightning"));
 
-            PlayerPrefs.SetInt("loadedAmmo", Gun.getCurrAmmo());
-            PlayerPrefs.SetInt("storedAmmo", Gun.getStoredAmmo());
-                     
+            PlayerPrefs.SetInt("AutoloadedAmmo", Auto.getCurrAmmo());
+            PlayerPrefs.SetInt("AutostoredAmmo", Auto.getStoredAmmo());
+            PlayerPrefs.SetInt("PistolloadedAmmo", Pistol.getCurrAmmo());
+            PlayerPrefs.SetInt("PistolstoredAmmo", Pistol.getStoredAmmo());
+
             PlayerPrefs.SetInt("hasRun", 1);
 
             PlayerPrefs.Save();
+
+            SceneManager.LoadScene(Scenename);
         }
     }
 

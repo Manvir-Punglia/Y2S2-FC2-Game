@@ -102124,10 +102124,6 @@ MonoBehaviour:
   autoModel: {fileID: 2859628078391943834}
   pistol: {fileID: 3129466586035042570}
   pistolModel: {fileID: 2859628078552448858}
-  rocketLauncher: {fileID: 3129466587086922309}
-  rocketLauncherModel: {fileID: 3129466587849742447}
-  shotgun: {fileID: 3129466588046475063}
-  shotgunModel: {fileID: 3129466587785378150}
 --- !u!114 &5271005608506587209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102141,7 +102137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Gun: {fileID: 0}
+  Auto: {fileID: 5958041815224530020}
+  Pistol: {fileID: 3129466586035042564}
   banner: {fileID: 0}
 --- !u!4 &5348659839428566338
 Transform:
@@ -103322,7 +103319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6841762628894817213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.694993, z: -0.0000037398995}
+  m_LocalPosition: {x: 0, y: 0.69499296, z: -0.0000037398993}
   m_LocalScale: {x: 0.30674848, y: 0.30674848, z: 0.30674848}
   m_ConstrainProportionsScale: 0
   m_Children:

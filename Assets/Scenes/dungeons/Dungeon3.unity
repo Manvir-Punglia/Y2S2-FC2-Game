@@ -83299,7 +83299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 57.369995, y: -24.600006}
+  m_AnchoredPosition: {x: 57.369995, y: -24.599976}
   m_SizeDelta: {x: 272.8076, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3257535061015053975
@@ -87952,10 +87952,6 @@ MonoBehaviour:
   autoModel: {fileID: 2446720347522133128}
   pistol: {fileID: 3257535060116289304}
   pistolModel: {fileID: 2446720347665854792}
-  rocketLauncher: {fileID: 3257535059003649111}
-  rocketLauncherModel: {fileID: 3257535059782194813}
-  shotgun: {fileID: 3257535059962933541}
-  shotgunModel: {fileID: 3257535059718616948}
 --- !u!114 &5727822312626878043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87969,7 +87965,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Gun: {fileID: 0}
+  Auto: {fileID: 6121580265982638710}
+  Pistol: {fileID: 3257535060116289302}
   banner: {fileID: 0}
 --- !u!4 &5845655706574991117
 Transform:

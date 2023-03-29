@@ -11,10 +11,10 @@ public class swapWeapons : MonoBehaviour
     public GameObject autoModel;
     public GameObject pistol;
     public GameObject pistolModel;
-    public GameObject rocketLauncher;
-    public GameObject rocketLauncherModel;
-    public GameObject shotgun;
-    public GameObject shotgunModel;
+    //public GameObject rocketLauncher;
+    //public GameObject rocketLauncherModel;
+    //public GameObject shotgun;
+    //public GameObject shotgunModel;
 
     int autoLoadedAmmo;
     int autoUnLoadedAmmo;
@@ -22,11 +22,11 @@ public class swapWeapons : MonoBehaviour
     int pistolLoadedAmmo;
     int pistolUnLoadedAmmo;
 
-    int rocketLoadedAmmo;
-    int rocketUnLoadedAmmo;
+    //int rocketLoadedAmmo;
+    //int rocketUnLoadedAmmo;
 
-    int shotgunLoadedAmmo;
-    int shotgunUnLoadedAmmo;
+    //int shotgunLoadedAmmo;
+    //int shotgunUnLoadedAmmo;
 
 
     GameObject currentGun;
@@ -46,11 +46,11 @@ public class swapWeapons : MonoBehaviour
         pistolLoadedAmmo = pistol.GetComponent<gun>().getCurrAmmo();
         pistolUnLoadedAmmo = pistol.GetComponent<gun>().getStoredAmmo();
 
-        rocketLoadedAmmo = rocketLauncher.GetComponent<gun>().getCurrAmmo();
-        rocketUnLoadedAmmo = rocketLauncher.GetComponent<gun>().getStoredAmmo();
+        //rocketLoadedAmmo = rocketLauncher.GetComponent<gun>().getCurrAmmo();
+        //rocketUnLoadedAmmo = rocketLauncher.GetComponent<gun>().getStoredAmmo();
 
-        shotgunLoadedAmmo = shotgun.GetComponent<gun>().getCurrAmmo();
-        shotgunUnLoadedAmmo = shotgun.GetComponent<gun>().getStoredAmmo();
+        //shotgunLoadedAmmo = shotgun.GetComponent<gun>().getCurrAmmo();
+        //shotgunUnLoadedAmmo = shotgun.GetComponent<gun>().getStoredAmmo();
     }
     // Update is called once per frame
     void Update()
@@ -67,11 +67,11 @@ public class swapWeapons : MonoBehaviour
                 pistol.SetActive(false);
                 pistolModel.SetActive(false);
 
-                rocketLauncher.SetActive(false);
-                rocketLauncherModel.SetActive(false);
+                //rocketLauncher.SetActive(false);
+                //rocketLauncherModel.SetActive(false);
 
-                shotgun.SetActive(false);
-                shotgunModel.SetActive(false);
+                //shotgun.SetActive(false);
+                //shotgunModel.SetActive(false);
             }
         }
 
@@ -86,51 +86,51 @@ public class swapWeapons : MonoBehaviour
                 pistol.SetActive(true);
                 pistolModel.SetActive(true);
 
-                rocketLauncher.SetActive(false);
-                rocketLauncherModel.SetActive(false);
+                //rocketLauncher.SetActive(false);
+                //rocketLauncherModel.SetActive(false);
 
-                shotgun.SetActive(false);
-                shotgunModel.SetActive(false);
+                //shotgun.SetActive(false);
+                //shotgunModel.SetActive(false);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (hasShot && currentGun.GetComponent<gun>().getCanSwap())
-            {
-                currentGun = shotgun;
-                auto.SetActive(false);
-                autoModel.SetActive(false);
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    if (hasShot && currentGun.GetComponent<gun>().getCanSwap())
+        //    {
+        //        currentGun = shotgun;
+        //        auto.SetActive(false);
+        //        autoModel.SetActive(false);
 
-                pistol.SetActive(false);
-                pistolModel.SetActive(false);
+        //        pistol.SetActive(false);
+        //        pistolModel.SetActive(false);
 
-                rocketLauncher.SetActive(false);
-                rocketLauncherModel.SetActive(false);
+        //        rocketLauncher.SetActive(false);
+        //        rocketLauncherModel.SetActive(false);
 
-                shotgun.SetActive(true);
-                shotgunModel.SetActive(true);
-            }
-        }
+        //        shotgun.SetActive(true);
+        //        shotgunModel.SetActive(true);
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if (hasGrenade && currentGun.GetComponent<gun>().getCanSwap())
-            {
-                currentGun = rocketLauncher;
-                auto.SetActive(false);
-                autoModel.SetActive(false);
+        //if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    if (hasGrenade && currentGun.GetComponent<gun>().getCanSwap())
+        //    {
+        //        currentGun = rocketLauncher;
+        //        auto.SetActive(false);
+        //        autoModel.SetActive(false);
 
-                pistol.SetActive(false);
-                pistolModel.SetActive(false);
+        //        pistol.SetActive(false);
+        //        pistolModel.SetActive(false);
 
-                rocketLauncher.SetActive(true);
-                rocketLauncherModel.SetActive(true);
+        //        rocketLauncher.SetActive(true);
+        //        rocketLauncherModel.SetActive(true);
 
-                shotgun.SetActive(false);
-                shotgunModel.SetActive(false);
-            }
-        }
+        //        shotgun.SetActive(false);
+        //        shotgunModel.SetActive(false);
+        //    }
+        //}
 
     }
 
@@ -142,11 +142,11 @@ public class swapWeapons : MonoBehaviour
         pistolLoadedAmmo = pistol.GetComponent<gun>().getCurrAmmo();
         pistolUnLoadedAmmo = pistol.GetComponent<gun>().getStoredAmmo();
 
-        rocketLoadedAmmo = rocketLauncher.GetComponent<gun>().getCurrAmmo();
-        rocketUnLoadedAmmo = rocketLauncher.GetComponent<gun>().getStoredAmmo();
+        //rocketLoadedAmmo = rocketLauncher.GetComponent<gun>().getCurrAmmo();
+        //rocketUnLoadedAmmo = rocketLauncher.GetComponent<gun>().getStoredAmmo();
 
-        shotgunLoadedAmmo = shotgun.GetComponent<gun>().getCurrAmmo();
-        shotgunUnLoadedAmmo = shotgun.GetComponent<gun>().getStoredAmmo();
+        //shotgunLoadedAmmo = shotgun.GetComponent<gun>().getCurrAmmo();
+        //shotgunUnLoadedAmmo = shotgun.GetComponent<gun>().getStoredAmmo();
     }
     public void addGun(string gun)
     {

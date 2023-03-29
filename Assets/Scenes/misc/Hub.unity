@@ -11206,7 +11206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Gun: {fileID: 0}
+  Auto: {fileID: 0}
+  Pistol: {fileID: 945257739}
   banner: {fileID: 0}
   Scenename: Dungeon4
 --- !u!65 &566968400
@@ -23441,10 +23442,10 @@ GameObject:
   - component: {fileID: 945257738}
   - component: {fileID: 945257737}
   - component: {fileID: 945257736}
-  - component: {fileID: 945257735}
+  - component: {fileID: 945257739}
   m_Layer: 6
   m_Name: pistol
-  m_TagString: gun
+  m_TagString: pistol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23464,23 +23465,6 @@ Transform:
   m_Father: {fileID: 8474872465948196789}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 168.74, z: 0}
---- !u!114 &945257735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945257733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae44ad5892d63648bc108229b19f0bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 6937317632471841382, guid: ca2e76878b5bf694d92ff26019cdeb0d, type: 3}
-  gunObject: {fileID: 962727223034028848}
-  animator: {fileID: 747673395}
-  gunSound: {fileID: 1439599036}
-  AutoAnimator: {fileID: 747673395}
 --- !u!65 &945257736
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23544,6 +23528,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945257733}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &945257739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945257733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77902ee7ff56314fa059cfd9bd175be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6937317632471841382, guid: ca2e76878b5bf694d92ff26019cdeb0d, type: 3}
+  gunObject: {fileID: 962727223034028848}
+  animator: {fileID: 747673395}
+  gunSound: {fileID: 1439599036}
+  PistolAnimator: {fileID: 747673395}
 --- !u!1 &950113217
 GameObject:
   m_ObjectHideFlags: 0
@@ -51874,7 +51875,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Gun: {fileID: 0}
+  Auto: {fileID: 0}
+  Pistol: {fileID: 945257739}
   banner: {fileID: 0}
   Scenename: Dungeon3
 --- !u!65 &1544770517
@@ -58629,7 +58631,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Gun: {fileID: 0}
+  Auto: {fileID: 0}
+  Pistol: {fileID: 945257739}
   banner: {fileID: 0}
   Scenename: Dungeon2
 --- !u!65 &1760077592
@@ -58911,7 +58914,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Gun: {fileID: 0}
+  Auto: {fileID: 0}
+  Pistol: {fileID: 945257739}
   banner: {fileID: 0}
   Scenename: Dungeon1
 --- !u!1 &1775681704
@@ -112157,7 +112161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Gun: {fileID: 0}
+  Auto: {fileID: 8773344339165474923}
+  Pistol: {fileID: 945257739}
   banner: {fileID: 0}
 --- !u!114 &7081988390067223623
 MonoBehaviour:
@@ -112176,10 +112181,6 @@ MonoBehaviour:
   autoModel: {fileID: 632612832}
   pistol: {fileID: 945257733}
   pistolModel: {fileID: 747673394}
-  rocketLauncher: {fileID: 2122376778}
-  rocketLauncherModel: {fileID: 1283005536}
-  shotgun: {fileID: 1102281528}
-  shotgunModel: {fileID: 1344503145}
 --- !u!114 &7081988390067223624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116717,7 +116718,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8474872465948196786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.69500035, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6950004, z: 0}
   m_LocalScale: {x: 0.30674848, y: 0.30674848, z: 0.30674848}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -116997,7 +116998,7 @@ GameObject:
   - component: {fileID: 8773344339165474923}
   m_Layer: 6
   m_Name: auto
-  m_TagString: gun
+  m_TagString: auto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -45927,7 +45927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 56.36975, y: -27.600006}
+  m_AnchoredPosition: {x: 56.36975, y: -27.599976}
   m_SizeDelta: {x: 272.8076, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3782856296248128697
@@ -49226,7 +49226,7 @@ GameObject:
   - component: {fileID: 3782856296823932216}
   m_Layer: 6
   m_Name: pistol
-  m_TagString: gun
+  m_TagString: pistol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59954,7 +59954,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4747827932197128065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.69500035, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6950004, z: 0}
   m_LocalScale: {x: 0.30674848, y: 0.30674848, z: 0.30674848}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -68486,7 +68486,7 @@ GameObject:
   - component: {fileID: 5601996295410108504}
   m_Layer: 6
   m_Name: auto
-  m_TagString: gun
+  m_TagString: auto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74910,10 +74910,6 @@ MonoBehaviour:
   autoModel: {fileID: 4088720990489550502}
   pistol: {fileID: 3782856296823932214}
   pistolModel: {fileID: 4088720990060741478}
-  rocketLauncher: {fileID: 3782856295847943801}
-  rocketLauncherModel: {fileID: 3782856295013688403}
-  shotgun: {fileID: 3782856295094043403}
-  shotgunModel: {fileID: 3782856295355139418}
 --- !u!114 &6212470673067508853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74927,7 +74923,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Gun: {fileID: 0}
+  Auto: {fileID: 5601996295410108504}
+  Pistol: {fileID: 3782856296823932216}
   banner: {fileID: 0}
 --- !u!114 &6212470673067508859
 MonoBehaviour:

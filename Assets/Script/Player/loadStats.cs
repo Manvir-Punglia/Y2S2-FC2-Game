@@ -8,20 +8,31 @@ public class loadStats : MonoBehaviour
     Scene scene;
     string sceneName;
     public PlayerManager player;
-    public gun Gun;
+    public gun Auto;
+    public gun Pistol;
     public bannerManager banner;
     // Start is called before the first frame update
     void Start()
     {
         scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
+        //Debug.LogError(scene.name);
+        Pistol.gameObject.SetActive(true);
+        Auto.gameObject.SetActive(true);
+        
 
-
-        if (sceneName == "Dungeon1")
+        if (scene.name != "Hub")
         {
+            Debug.LogError("dungeon 1 loaded");
+            //Debug.LogError(PlayerPrefs.GetInt("AutoloadedAmmo"));
+
             //int score = PlayerPrefs.GetInt("score");
             //float volume = PlayerPrefs.GetFloat("volume");
             //string player = PlayerPrefs.GetString("username");
+
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+            banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+            
 
             player.SetHealth(PlayerPrefs.GetInt("health"));
             player.SetMoney(PlayerPrefs.GetInt("money"));
@@ -36,15 +47,19 @@ public class loadStats : MonoBehaviour
             banner.setBannerAmount("Poison", PlayerPrefs.GetInt("poisonBanner"));
             banner.setBannerAmount("Lightning", PlayerPrefs.GetInt("lightningBanner"));
 
-            Gun.hardSetCurrAmmo(PlayerPrefs.GetInt("loadedAmmo"));
-            Gun.hardSetUnloadedAmmo(PlayerPrefs.GetInt("storedAmmo"));
+            Auto.hardSetCurrAmmo(PlayerPrefs.GetInt("AutoloadedAmmo"));
+            Auto.hardSetUnloadedAmmo(PlayerPrefs.GetInt("AutostoredAmmo"));
+
+            Pistol.hardSetCurrAmmo(PlayerPrefs.GetInt("PistolloadedAmmo"));
+            Pistol.hardSetUnloadedAmmo(PlayerPrefs.GetInt("PistolstoredAmmo"));
 
         }
         else if (sceneName == "Hub" && PlayerPrefs.GetInt("hasRun") == 1)
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
             banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-            Gun = GameObject.FindGameObjectWithTag("gun").GetComponent<gun>();
+            //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+            //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
 
             player.SetHealth(PlayerPrefs.GetInt("health"));
             player.SetMoney(PlayerPrefs.GetInt("money"));
@@ -59,15 +74,19 @@ public class loadStats : MonoBehaviour
             banner.setBannerAmount("Poison", PlayerPrefs.GetInt("poisonBanner"));
             banner.setBannerAmount("Lightning", PlayerPrefs.GetInt("lightningBanner"));
 
-            Gun.hardSetCurrAmmo(PlayerPrefs.GetInt("loadedAmmo"));
-            Gun.hardSetUnloadedAmmo(PlayerPrefs.GetInt("storedAmmo"));
+            Auto.hardSetCurrAmmo(PlayerPrefs.GetInt("AutoloadedAmmo"));
+            Auto.hardSetUnloadedAmmo(PlayerPrefs.GetInt("AutostoredAmmo"));
+
+            Pistol.hardSetCurrAmmo(PlayerPrefs.GetInt("PistolloadedAmmo"));
+            Pistol.hardSetUnloadedAmmo(PlayerPrefs.GetInt("PistolstoredAmmo"));
         }
 
+        Pistol.gameObject.SetActive(false);
+        Auto.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

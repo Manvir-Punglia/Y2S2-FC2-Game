@@ -88912,7 +88912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Gun: {fileID: 0}
+  Auto: {fileID: 282428775473335725}
+  Pistol: {fileID: 8802933396773585101}
   banner: {fileID: 0}
 --- !u!114 &1756979603046269313
 MonoBehaviour:
@@ -88931,10 +88932,6 @@ MonoBehaviour:
   autoModel: {fileID: 8568982956881124179}
   pistol: {fileID: 8802933396773585091}
   pistolModel: {fileID: 8568982957544933011}
-  rocketLauncher: {fileID: 8802933395811949452}
-  rocketLauncherModel: {fileID: 8802933396036821414}
-  shotgun: {fileID: 8802933396133693182}
-  shotgunModel: {fileID: 8802933396375912623}
 --- !u!114 &1756979603046269326
 MonoBehaviour:
   m_ObjectHideFlags: 0

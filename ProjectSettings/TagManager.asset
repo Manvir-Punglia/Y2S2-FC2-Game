@@ -17,6 +17,8 @@ TagManager:
   - camera
   - enemy
   - floor
+  - auto
+  - pistol
   layers:
   - Default
   - TransparentFX
