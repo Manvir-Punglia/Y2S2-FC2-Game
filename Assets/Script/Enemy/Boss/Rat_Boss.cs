@@ -32,41 +32,44 @@ public class Rat_Boss : MonoBehaviour
     public void Awake()
     {
         player = GameObject.FindWithTag("Player");
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
-        Vector3 lookTo = player.transform.position;
-        lookTo.y = 0;
-        transform.LookAt(lookTo);
-        Die();
-        timer += Time.deltaTime;
-        if (timer >= summonTimer)
+        if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            canSummon = true;
-            timer = 0;
-        }
-        if (canSummon)
-        {
-            for (int i = 0; i < summonPos.Count; i++)
+            transform.LookAt(new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z));
+            Die();
+            timer += Time.deltaTime;
+            if (timer >= summonTimer)
             {
-                if (summonPos[i].GetComponent<SpawnType>().type == SpawnType.spawn.MELEE)
-                {
-                    enemyPrefab.GetComponent<Enemy_movement>().type = enemy.MELEE;
-                }
-                else if (summonPos[i].GetComponent<SpawnType>().type == SpawnType.spawn.RANGE)
-                {
-                    enemyPrefab.GetComponent<Enemy_movement>().type = enemy.RANGE;
-                }
-                GameObject enemies = Instantiate(enemyPrefab, summonPos[i].transform.position, Random.rotation);
-                enemyList.Add(enemies);
+                canSummon = true;
+                timer = 0;
             }
-            canSummon = false;
-        }
-        for (int i = 0; i < enemyList.Count; i++)
-        {
-            if (enemyList[i] == null)
+            if (canSummon)
             {
-                enemyList.Remove(enemyList[i]);
+                animator.SetTrigger("ATK_AOE");
+                for (int i = 0; i < summonPos.Count; i++)
+                {
+                    if (summonPos[i].GetComponent<SpawnType>().type == SpawnType.spawn.MELEE)
+                    {
+                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.MELEE;
+                    }
+                    else if (summonPos[i].GetComponent<SpawnType>().type == SpawnType.spawn.RANGE)
+                    {
+                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.RANGE;
+                    }
+                    GameObject enemies = Instantiate(enemyPrefab, summonPos[i].transform.position, Random.rotation);
+                    enemyList.Add(enemies);
+                }
+                canSummon = false;
+            }
+            for (int i = 0; i < enemyList.Count; i++)
+            {
+                if (enemyList[i] == null)
+                {
+                    enemyList.Remove(enemyList[i]);
+                }
             }
         }
     }
@@ -83,7 +86,6 @@ public class Rat_Boss : MonoBehaviour
             //}
             //Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
             Destroy(this.gameObject);
-            Debug.Log("rat boss defeated");
         }
     }
     private void OnCollisionEnter(Collision collision)

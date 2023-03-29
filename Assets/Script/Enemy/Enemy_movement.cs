@@ -66,8 +66,7 @@ public class Enemy_movement : MonoBehaviour
     {
         transform.localEulerAngles = Vector3.zero;
         agent.speed = speed;
-        Vector3 lookTo = player.transform.position;
-        transform.LookAt(lookTo);
+        transform.LookAt(new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z));
         float distance = Vector3.Distance(transform.position, player.transform.position);
         animator.SetFloat("Movement", 1);
         Die();
@@ -77,8 +76,8 @@ public class Enemy_movement : MonoBehaviour
                 {
                     if (hit)
                     {
-                        agent.SetDestination(lookTo);
-                        animator.SetBool("ATK_Melee", true);
+                        agent.SetDestination(player.transform.position);
+                        animator.SetTrigger("ATK_Melee");
                     }
                     if (!hit)
                     {
@@ -106,14 +105,11 @@ public class Enemy_movement : MonoBehaviour
                     if (canShoot)
                     {
                         var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-                        //var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
-                        //FireballClone.transform.parent = BulletClone.transform;
 
                         BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-                        //fireballParticles.Play();
 
                         canShoot = false;
-                        animator.SetBool("ATK_Range", true);
+                        animator.SetTrigger("ATK_Range");
 
                     }
                     if (canShootTimer >= shootTimer && (transform.position - player.transform.position).magnitude >= shootingDistance)
@@ -160,7 +156,7 @@ public class Enemy_movement : MonoBehaviour
                         break;
                 }
                 player.GetComponent<PlayerManager>().AddMoney(bounty);
-                animator.SetBool("Death", true);
+                animator.SetTrigger("Death");
                 bountyObtain = true;
             }
             Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);

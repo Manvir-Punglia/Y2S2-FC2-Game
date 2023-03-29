@@ -48,27 +48,30 @@ public class Frog_Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jTimer += Time.deltaTime;
-        canShootTimer += Time.deltaTime;
-        if (jTimer >= jumpTime && ground)
+        if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-            jTimer = 0;
-        }
-        if (!ground)
-        {
-            transform.LookAt(player.transform);
-            rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
-        }
+            jTimer += Time.deltaTime;
+            canShootTimer += Time.deltaTime;
+            if (jTimer >= jumpTime && ground)
+            {
+                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                jTimer = 0;
+            }
+            if (!ground)
+            {
+                transform.LookAt(player.transform);
+                rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
+            }
 
-        if (canShootTimer >= shootTimer)
-        {
-            canShootTimer = 0;
-            var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-            BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-            animator.SetTrigger("ATK_Range");
+            if (canShootTimer >= shootTimer)
+            {
+                canShootTimer = 0;
+                var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
+                BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+                animator.SetTrigger("ATK_Range");
+            }
+            Die();
         }
-        Die();
     }
     public void Die()
     {

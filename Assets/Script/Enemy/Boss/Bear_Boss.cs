@@ -60,27 +60,21 @@ public class Bear_Boss : MonoBehaviour
     }
     void Update()
     {
-        Vector3 lookTo = player.transform.position;
-        lookTo.y = 0;
-        transform.LookAt(lookTo);
-        Vector3 runTo = transform.position + ((transform.position - player.transform.position));
-        runTo.y = this.transform.position.y;
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") || animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2"))
+        //if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            agent.Stop();
-        }
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2"))
-        {
+            transform.LookAt(new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z));
+            Vector3 runTo = transform.position + ((transform.position - player.transform.position));
+            runTo.y = this.transform.position.y;
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+
             stompTimer += Time.deltaTime;
             if (stompTimer >= stompTime)
             {
                 agent.destination = this.gameObject.transform.position;
-                animator.SetBool("ATK_AOE", true);
+                animator.SetTrigger("ATK_AOE");
                 if (distance <= stompDistance)
                 {
-                    //player.GetComponent<PlayerManager>().TakeDamage();
-                    Debug.Log("stomped");
+                    player.GetComponent<PlayerManager>().TakeDamage();
                 }
                 stompTimer = 0;
             }
@@ -88,22 +82,11 @@ public class Bear_Boss : MonoBehaviour
             {
                 agent.stoppingDistance = shootingDistance;
                 canShootTimer += Time.deltaTime;
-                if (canShoot)
+                if (canShootTimer >= shootTimer)
                 {
                     var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-                    //var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
-                    //FireballClone.transform.parent = BulletClone.transform;
-
                     BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-                    //fireballParticles.Play();
-
-                    canShoot = false;
-                    animator.SetBool("ATK_Range", true);
-
-                }
-                if (canShootTimer >= shootTimer && (transform.position - player.transform.position).magnitude >= shootingDistance)
-                {
-                    canShoot = true;
+                    animator.SetTrigger("ATK_Range");
                     canShootTimer = 0;
                 }
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("ATK_Range"))
@@ -117,15 +100,10 @@ public class Bear_Boss : MonoBehaviour
                 if (hit)
                 {
                     agent.SetDestination(-runTo);
-                    animator.SetBool("ATK_Melee", true);
+                    animator.SetTrigger("ATK_Melee");
                 }
-                if (!hit)
+                else
                 {
-
-                    if (distance < runDistance)
-                    {
-                        agent.SetDestination(runTo);
-                    }
                     if (time >= hitTime)
                     {
                         hit = false;
@@ -152,7 +130,7 @@ public class Bear_Boss : MonoBehaviour
             {
                 //banner.increaseKillCount();
                 //player.GetComponent<PlayerManager>().AddMoney(bounty);
-                animator.SetBool("Death", true);
+                animator.SetTrigger("Death");
                 bountyObtain = true;
             }
             Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
@@ -163,34 +141,6 @@ public class Bear_Boss : MonoBehaviour
     public void takeDamage(float dmg)
     {
         health -= dmg;
-    }
-
-    void Shooting()
-    {
-        canShootTimer += Time.deltaTime;
-        if (canShoot)
-        {
-            var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-            //var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
-            //FireballClone.transform.parent = BulletClone.transform;
-
-            BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-            //fireballParticles.Play();
-
-            canShoot = false;
-            animator.SetBool("ATK_Range", true);
-
-        }
-        if (canShootTimer >= shootTimer)
-        {
-            canShoot = true;
-            canShootTimer = 0;
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("ATK_Range"))
-        {
-            agent.destination = this.gameObject.transform.position;
-        }
-        animator.SetBool("ATK_Range", false);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -203,22 +153,10 @@ public class Bear_Boss : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             hit = true;
-            //collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
-            Debug.Log("Hit");
+            collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
             time = 0;
         }
     }
-    //public void ShootFireBall()
-    //{
-
-    //    var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-    //    var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
-    //    FireballClone.transform.parent = BulletClone.transform;
-
-    //    BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-    //    fireballParticles.Play();
-
-    //}
     public void SetHit(bool isHit)
     {
         hit = isHit;
