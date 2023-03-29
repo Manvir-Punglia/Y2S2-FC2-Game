@@ -13,8 +13,8 @@ public class Frog_Boss : MonoBehaviour
 {
     [SerializeField] GameObject bullet, shootingPos;
     public GameObject player;
-    NavMeshAgent agent;
     Animator animator;
+    Rigidbody rb;
 
     bannerManager banner;
 
@@ -22,57 +22,97 @@ public class Frog_Boss : MonoBehaviour
 
     //public ParticleSystem fireballParticles;
 
-    public bool hit;
+    public float jumpTime;
+    float jTimer = 0;
+    public float jumpHeight;
+    bool ground;
 
-    public float runDistance;
-    public float shootingDistance;
-
-    public float hitTime;
-    float time = 0;
-
-    public float stompDistance;
-    public float stompTime;
-    float stompTimer = 0;
+    public float speed;
 
     public float health;
 
     public int bounty;
     bool bountyObtain;
 
-    public bool canShoot;
     public float bulletSpeed;
     public float shootTimer;
     float canShootTimer;
-
-    private void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
-    // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        player = GameObject.FindWithTag("Player");
+        animator = GetComponent<Animator>();
+        ground = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        jTimer += Time.deltaTime;
+        canShootTimer += Time.deltaTime;
+        if (jTimer >= jumpTime && ground)
+        {
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            jTimer = 0;
+        }
+        if (!ground)
+        {
+            transform.LookAt(player.transform);
+            rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
+        }
+
+        if (canShootTimer >= shootTimer)
+        {
+            canShootTimer = 0;
+            var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
+            BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+            animator.SetTrigger("ATK_Range");
+        }
+        Die();
     }
     public void Die()
     {
         if (health <= 0)
         {
-            hit = false;
             if (!bountyObtain)
             {
                 //banner.increaseKillCount();
                 //player.GetComponent<PlayerManager>().AddMoney(bounty);
-                animator.SetBool("Death", true);
+                animator.SetTrigger("Death");
                 bountyObtain = true;
             }
             Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
-            //Destroy(gameObject);
+        }
+    }
+    public void takeDamage(float dmg)
+    {
+        health -= dmg;
+    }
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.name == "floor")
+        {
+            ground = true;
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name == "floor")
+        {
+            ground = false;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == ("Bullet"))
+        {
+            //StartCoroutine(hitAnim.HitAnim());
+            health -= collision.gameObject.GetComponent<bullet>().getDamage();
+
+        }
+        if (collision.gameObject.tag == ("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
         }
     }
 }

@@ -16,6 +16,7 @@ TagManager:
   - ShopKeeper
   - camera
   - enemy
+  - floor
   layers:
   - Default
   - TransparentFX
