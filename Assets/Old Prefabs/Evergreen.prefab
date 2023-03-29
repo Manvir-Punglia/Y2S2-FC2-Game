@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5493448455964150604}
   - component: {fileID: -6702443050821984964}
   - component: {fileID: -6123550219821552810}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Evergreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,8 +64,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 3b6d2898531037b44b93d2f89c6d03b1, type: 3}
-  - {fileID: 4874126678125670354, guid: 3b6d2898531037b44b93d2f89c6d03b1, type: 3}
+  - {fileID: 2100000, guid: e0d8e8e77adcd3b47b2f5ccde894a5b4, type: 2}
+  - {fileID: 2100000, guid: 9e176ad8081500e4aa27edc19ea051bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
