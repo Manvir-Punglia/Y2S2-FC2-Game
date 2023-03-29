@@ -172,7 +172,7 @@ ModelImporter:
       takeName: Armature|Auto Shoot
       internalID: 0
       firstFrame: 0
-      lastFrame: 55
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -317,7 +317,7 @@ ModelImporter:
       takeName: Armature.001|Armature.001|Armature|Shooting|Armature|Shooting
       internalID: 0
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -346,7 +346,7 @@ ModelImporter:
       takeName: Armature.001|Armature.001|Armature|Shooting|Armature|Shooting.001
       internalID: 0
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
