@@ -2508,7 +2508,7 @@ MonoBehaviour:
   - {fileID: 1410420143}
   - {fileID: 287905489}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
+  enemyPrefab: {fileID: 7774833944674130571, guid: e430190bee5188b468945d1cd8c3bcf4, type: 3}
   enemyList: []
   wall:
   - {fileID: 714047137}
@@ -3515,7 +3515,7 @@ MonoBehaviour:
   pos:
   - {fileID: 2091390942}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
+  enemyPrefab: {fileID: 7774833944674130571, guid: e430190bee5188b468945d1cd8c3bcf4, type: 3}
   enemyList: []
   wall:
   - {fileID: 714047137}
@@ -4309,7 +4309,7 @@ MonoBehaviour:
   - {fileID: 1079388890}
   - {fileID: 631164392}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
+  enemyPrefab: {fileID: 7774833944674130571, guid: e430190bee5188b468945d1cd8c3bcf4, type: 3}
   enemyList: []
   wall:
   - {fileID: 1402561715}
@@ -12999,7 +12999,7 @@ MonoBehaviour:
   - {fileID: 2105213660}
   - {fileID: 43293722}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
+  enemyPrefab: {fileID: 7774833944674130571, guid: e430190bee5188b468945d1cd8c3bcf4, type: 3}
   enemyList: []
   wall:
   - {fileID: 809250081}
@@ -20535,7 +20535,7 @@ MonoBehaviour:
   - {fileID: 479507461}
   - {fileID: 1840775246}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
+  enemyPrefab: {fileID: 7774833944674130571, guid: e430190bee5188b468945d1cd8c3bcf4, type: 3}
   enemyList: []
   wall:
   - {fileID: 149571719}
@@ -21523,7 +21523,7 @@ MonoBehaviour:
   - {fileID: 296708237}
   - {fileID: 1223258335}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
+  enemyPrefab: {fileID: 7774833944674130571, guid: e430190bee5188b468945d1cd8c3bcf4, type: 3}
   enemyList: []
   wall:
   - {fileID: 1489836427}
@@ -64376,7 +64376,7 @@ MonoBehaviour:
   - {fileID: 1095700323}
   - {fileID: 733526536}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
+  enemyPrefab: {fileID: 7774833944674130571, guid: e430190bee5188b468945d1cd8c3bcf4, type: 3}
   enemyList: []
   wall:
   - {fileID: 882374936}
@@ -77012,7 +77012,7 @@ MonoBehaviour:
   pos:
   - {fileID: 349609964}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 9144276994006732294, guid: 20a322d180e8e3a4d9a0c71f7f740bdd, type: 3}
+  enemyPrefab: {fileID: 7774833944674130571, guid: e430190bee5188b468945d1cd8c3bcf4, type: 3}
   enemyList: []
   wall:
   - {fileID: 309325668}
@@ -85492,7 +85492,7 @@ GameObject:
   - component: {fileID: 282428775473335725}
   m_Layer: 6
   m_Name: auto
-  m_TagString: gun
+  m_TagString: auto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101543,7 +101543,7 @@ GameObject:
   - component: {fileID: 8802933396773585101}
   m_Layer: 6
   m_Name: pistol
-  m_TagString: gun
+  m_TagString: pistol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107963,9 +107963,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8568982956881124179}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.658, y: -1.139, z: 3.041}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.6579931, y: -1.1389965, z: 3.0410028}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 76597920523948407}

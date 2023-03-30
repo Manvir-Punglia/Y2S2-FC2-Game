@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 17243d6f4ff70714aa5c5923beab925a, type: 3}
       propertyPath: m_Name
-      value: BannerFall_FrogEnemy7
+      value: BannerFall_FrogEnemy7 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17243d6f4ff70714aa5c5923beab925a, type: 3}
@@ -74,32 +74,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 17243d6f4ff70714aa5c5923beab925a, type: 3}
   m_PrefabInstance: {fileID: 7432253947009460186}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &430895780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7774833944674130571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0222ae9d23213c44693d741b91624e7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  shootingPos: {fileID: 0}
-  enemyName: 
-  hit: 0
-  runDistance: 0
-  shootingDistance: 0
-  hitTime: 0
-  health: 0
-  speed: 0
-  bounty: 0
-  canShoot: 0
-  bulletSpeed: 0
-  shootTimer: 0
-  type: 0
 --- !u!65 &430895779
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,6 +87,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!95 &-7140209294109829093
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7774833944674130571}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6bbada7e2b45c39428b65f8d31d18519, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!195 &430895778
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -135,3 +129,33 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &430895780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7774833944674130571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0222ae9d23213c44693d741b91624e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1661705576419134674, guid: 835193d6a5986aa469f657a67ff0d2c0, type: 3}
+  shootingPos: {fileID: 7774833944674130571}
+  player: {fileID: 0}
+  banner: {fileID: 0}
+  Auto: {fileID: 0}
+  Pistol: {fileID: 0}
+  enemyName: 
+  hit: 0
+  runDistance: 5
+  shootingDistance: 7
+  hitTime: 4
+  health: 5
+  speed: 7
+  bounty: 15
+  canShoot: 0
+  bulletSpeed: 100
+  shootTimer: 2
+  type: 1

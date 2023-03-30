@@ -22,7 +22,7 @@ public class Gate : MonoBehaviour
     }
     void Update()
     {
-        if (spawn.GetComponent<Spawn>().GetTrigger() || spawn.GetComponent<Spawn>().GetSpawn())
+        if (spawn.GetComponent<Spawn>().GetTrigger())
         {
             for (int i = 0; i < collider.Length; i++)
             {

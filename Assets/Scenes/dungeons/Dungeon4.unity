@@ -2264,7 +2264,7 @@ MonoBehaviour:
   - {fileID: 330811777}
   - {fileID: 1682869770}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 3574761024748859793, guid: 5439bc2184b065a46b085718cf146c91, type: 3}
+  enemyPrefab: {fileID: 3692593815764057189, guid: 4f1df554f48fb624d9d5d9f291a6d355, type: 3}
   enemyList: []
   wall:
   - {fileID: 896578558}
@@ -8589,7 +8589,7 @@ MonoBehaviour:
   - {fileID: 1295349064}
   - {fileID: 1565660938}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 3574761024748859793, guid: 5439bc2184b065a46b085718cf146c91, type: 3}
+  enemyPrefab: {fileID: 3692593815764057189, guid: 4f1df554f48fb624d9d5d9f291a6d355, type: 3}
   enemyList: []
   wall:
   - {fileID: 896578558}
@@ -15935,7 +15935,7 @@ MonoBehaviour:
   - {fileID: 432263986}
   - {fileID: 1977911139}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 3574761024748859793, guid: 5439bc2184b065a46b085718cf146c91, type: 3}
+  enemyPrefab: {fileID: 3692593815764057189, guid: 4f1df554f48fb624d9d5d9f291a6d355, type: 3}
   enemyList: []
   wall:
   - {fileID: 896578558}
@@ -30464,7 +30464,7 @@ MonoBehaviour:
   - {fileID: 1662229273}
   - {fileID: 840813990}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 3574761024748859793, guid: 5439bc2184b065a46b085718cf146c91, type: 3}
+  enemyPrefab: {fileID: 3692593815764057189, guid: 4f1df554f48fb624d9d5d9f291a6d355, type: 3}
   enemyList: []
   wall:
   - {fileID: 896578558}
@@ -34834,7 +34834,7 @@ MonoBehaviour:
   - {fileID: 816830229}
   - {fileID: 1335580332}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 3574761024748859793, guid: 5439bc2184b065a46b085718cf146c91, type: 3}
+  enemyPrefab: {fileID: 3692593815764057189, guid: 4f1df554f48fb624d9d5d9f291a6d355, type: 3}
   enemyList: []
   wall:
   - {fileID: 896578558}
@@ -35108,13 +35108,13 @@ MonoBehaviour:
   pos:
   - {fileID: 1424260423}
   enemyRemaining: {fileID: 0}
-  enemyPrefab: {fileID: 3574761024748859793, guid: 5439bc2184b065a46b085718cf146c91, type: 3}
+  enemyPrefab: {fileID: 3692593815764057189, guid: 4f1df554f48fb624d9d5d9f291a6d355, type: 3}
   enemyList: []
   wall:
   - {fileID: 896578558}
   canSpawn: 0
   triggered: 0
-  wave: 2
+  wave: 0
   waveCount: 0
   key: 0
   done: 
@@ -86455,7 +86455,7 @@ GameObject:
   - component: {fileID: 3129466586035042564}
   m_Layer: 6
   m_Name: pistol
-  m_TagString: gun
+  m_TagString: pistol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102694,7 +102694,7 @@ GameObject:
   - component: {fileID: 5958041815224530020}
   m_Layer: 6
   m_Name: auto
-  m_TagString: gun
+  m_TagString: auto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -17,9 +17,9 @@ public class Enemy_movement : MonoBehaviour
     NavMeshAgent agent;
     Animator animator;
 
-    PlayerManager player;
-    bannerManager banner;
-    gun Auto, Pistol;
+    public PlayerManager player;
+    public bannerManager banner;
+    public gun Auto, Pistol;
 
     HitAnimation hitAnim;
 
@@ -54,11 +54,6 @@ public class Enemy_movement : MonoBehaviour
     }
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player");
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
-        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         animator = GetComponent<Animator>();
         //hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
 
@@ -66,6 +61,7 @@ public class Enemy_movement : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Player");
     }
     private void Update()
     {
@@ -135,7 +131,7 @@ public class Enemy_movement : MonoBehaviour
 
         if (health <= 0)
         {
-            
+            agent.isStopped = true;
             if (!bountyObtain)
             {
                 switch (enemyName)

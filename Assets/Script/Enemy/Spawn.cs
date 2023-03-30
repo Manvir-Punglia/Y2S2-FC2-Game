@@ -52,6 +52,10 @@ public class Spawn : MonoBehaviour
                 }
                 GameObject enemies = Instantiate(enemyPrefab, pos[i].transform.position, Random.rotation);
                 enemyList.Add(enemies);
+                enemies.GetComponent<Enemy_movement>().player = player;
+                enemies.GetComponent<Enemy_movement>().banner = banner;
+                enemies.GetComponent<Enemy_movement>().Auto = Auto;
+                enemies.GetComponent<Enemy_movement>().Pistol = Pistol;
             }
             canSpawn = false;
             triggered = true;
