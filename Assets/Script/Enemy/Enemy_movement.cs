@@ -13,11 +13,13 @@ using static UnityEditor.PlayerSettings;
 public class Enemy_movement : MonoBehaviour
 {
     [SerializeField] GameObject bullet, shootingPos;
-    public GameObject player;
+    GameObject target;
     NavMeshAgent agent;
     Animator animator;
 
+    PlayerManager player;
     bannerManager banner;
+    gun Auto, Pistol;
 
     HitAnimation hitAnim;
 
@@ -52,8 +54,11 @@ public class Enemy_movement : MonoBehaviour
     }
     private void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         animator = GetComponent<Animator>();
         //hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
 
@@ -66,7 +71,7 @@ public class Enemy_movement : MonoBehaviour
     {
         transform.localEulerAngles = Vector3.zero;
         agent.speed = speed;
-        transform.LookAt(new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z));
+        transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
         float distance = Vector3.Distance(transform.position, player.transform.position);
         animator.SetFloat("Movement", 1);
         Die();
@@ -76,7 +81,7 @@ public class Enemy_movement : MonoBehaviour
                 {
                     if (hit)
                     {
-                        agent.SetDestination(player.transform.position);
+                        agent.SetDestination(target.transform.position);
                         animator.SetTrigger("ATK_Melee");
                     }
                     if (!hit)
@@ -91,7 +96,7 @@ public class Enemy_movement : MonoBehaviour
                             time += Time.deltaTime;
                             if (distance < runDistance)
                             {
-                                agent.SetDestination(-player.transform.position);
+                                agent.SetDestination(-target.transform.position);
                             }
                         }
                     }
@@ -106,13 +111,13 @@ public class Enemy_movement : MonoBehaviour
                     {
                         var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
 
-                        BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+                        BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
 
                         canShoot = false;
                         animator.SetTrigger("ATK_Range");
 
                     }
-                    if (canShootTimer >= shootTimer && (transform.position - player.transform.position).magnitude >= shootingDistance)
+                    if (canShootTimer >= shootTimer && (transform.position - target.transform.position).magnitude >= shootingDistance)
                     {
                         canShoot = true;
                         canShootTimer = 0;
@@ -155,7 +160,7 @@ public class Enemy_movement : MonoBehaviour
                         player.GetComponent<bannerManager>().increaseKillCount("Poison");
                         break;
                 }
-                player.GetComponent<PlayerManager>().AddMoney(bounty);
+                target.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetTrigger("Death");
                 bountyObtain = true;
             }

@@ -20,10 +20,22 @@ public class Spawn : MonoBehaviour
     public int wave;
     public int waveCount = 0;
     public bool key;
+    public string done;
+    PlayerManager player;
+    bannerManager banner;
+    gun Auto, Pistol;
+    public bool _out;
     //public GameObject keyPrefab;
     //public GameObject keyPos;
 
     // Update is called once per frame
+    void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
+    }
     void Update()
     {
         if (canSpawn)
@@ -75,6 +87,31 @@ public class Spawn : MonoBehaviour
         }
         if (key && triggered && enemyList.Count == 0 && waveCount == wave)
         {
+            PlayerPrefs.SetInt("PistolloadedAmmo", 1);
+            PlayerPrefs.SetInt("PistolstoredAmmo", 60);
+
+            PlayerPrefs.SetInt("health", player.GetHealth());
+            PlayerPrefs.SetInt("money", player.GetMoney());
+
+            PlayerPrefs.SetFloat("fireBanner", banner.getAmount("Fire"));
+            PlayerPrefs.SetFloat("waterBanner", banner.getAmount("Water"));
+            PlayerPrefs.SetFloat("poisonBanner", banner.getAmount("Poison"));
+            PlayerPrefs.SetFloat("lightningBanner", banner.getAmount("Lightning"));
+
+            PlayerPrefs.SetFloat("fireKills", banner.getKillCount("Fire"));
+            PlayerPrefs.SetFloat("waterKills", banner.getKillCount("Water"));
+            PlayerPrefs.SetFloat("poisonKills", banner.getKillCount("Poison"));
+            PlayerPrefs.SetFloat("lightningKills", banner.getKillCount("Lightning"));
+
+            PlayerPrefs.SetInt("AutoloadedAmmo", Auto.getCurrAmmo());
+            PlayerPrefs.SetInt("AutostoredAmmo", Auto.getStoredAmmo());
+            PlayerPrefs.SetInt("PistolloadedAmmo", Pistol.getCurrAmmo());
+            PlayerPrefs.SetInt("PistolstoredAmmo", Pistol.getStoredAmmo());
+
+            PlayerPrefs.SetInt(done, 1);
+
+            PlayerPrefs.Save();
+
             SceneManager.LoadScene("Hub");
         }
         //enemyRemaining.text = string.Format("Enemy Count: {00}", enemyList.Count);

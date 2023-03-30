@@ -8,15 +8,18 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.Animations.Rigging;
 using static UnityEditor.PlayerSettings;
+using UnityEngine.SceneManagement;
 
 public class Bear_Boss : MonoBehaviour
 {
     [SerializeField] GameObject bullet, shootingPos;
-    public GameObject player;
+    GameObject target;
     NavMeshAgent agent;
     Animator animator;
 
+    PlayerManager player;
     bannerManager banner;
+    gun Auto, Pistol;
 
     HitAnimation hitAnim;
 
@@ -48,8 +51,11 @@ public class Bear_Boss : MonoBehaviour
     void Start()
     {
         hit = false;
-        player = GameObject.FindWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         animator = GetComponent<Animator>();
         //hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
     }
@@ -85,7 +91,7 @@ public class Bear_Boss : MonoBehaviour
                 if (canShootTimer >= shootTimer)
                 {
                     var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-                    BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+                    BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
                     animator.SetTrigger("ATK_Range");
                     canShootTimer = 0;
                 }
@@ -133,8 +139,36 @@ public class Bear_Boss : MonoBehaviour
                 animator.SetTrigger("Death");
                 bountyObtain = true;
             }
-            Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
-            //Destroy(gameObject);
+            if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Death")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                Destroy(this.gameObject);
+                PlayerPrefs.SetInt("PistolloadedAmmo", 1);
+                PlayerPrefs.SetInt("PistolstoredAmmo", 60);
+
+                PlayerPrefs.SetInt("health", player.GetHealth());
+                PlayerPrefs.SetInt("money", player.GetMoney());
+
+                PlayerPrefs.SetFloat("fireBanner", banner.getAmount("Fire"));
+                PlayerPrefs.SetFloat("waterBanner", banner.getAmount("Water"));
+                PlayerPrefs.SetFloat("poisonBanner", banner.getAmount("Poison"));
+                PlayerPrefs.SetFloat("lightningBanner", banner.getAmount("Lightning"));
+
+                PlayerPrefs.SetFloat("fireKills", banner.getKillCount("Fire"));
+                PlayerPrefs.SetFloat("waterKills", banner.getKillCount("Water"));
+                PlayerPrefs.SetFloat("poisonKills", banner.getKillCount("Poison"));
+                PlayerPrefs.SetFloat("lightningKills", banner.getKillCount("Lightning"));
+
+                PlayerPrefs.SetInt("AutoloadedAmmo", Auto.getCurrAmmo());
+                PlayerPrefs.SetInt("AutostoredAmmo", Auto.getStoredAmmo());
+                PlayerPrefs.SetInt("PistolloadedAmmo", Pistol.getCurrAmmo());
+                PlayerPrefs.SetInt("PistolstoredAmmo", Pistol.getStoredAmmo());
+
+                PlayerPrefs.SetInt("BearBossDone", 1);
+
+                PlayerPrefs.Save();
+
+                SceneManager.LoadScene("Hub");
+            }
         }
     }
 

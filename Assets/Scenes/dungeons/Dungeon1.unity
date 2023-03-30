@@ -769,6 +769,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
+  done: 
+  _out: 0
 --- !u!114 &568826926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +895,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
+  done: 
+  _out: 0
 --- !u!114 &649756828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,6 +1566,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
+  done: 
+  _out: 0
 --- !u!114 &1361316218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2320,6 +2326,8 @@ MonoBehaviour:
   wave: 1
   waveCount: 0
   key: 1
+  done: done
+  _out: 0
 --- !u!114 &1748448223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2428,6 +2436,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
+  done: 
+  _out: 0
 --- !u!114 &1756274592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2743,6 +2753,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
+  done: 
+  _out: 0
 --- !u!114 &1986049544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2924,6 +2936,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
+  done: 
+  _out: 0
 --- !u!114 &2024187842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44366,6 +44380,7 @@ MonoBehaviour:
   pause: {fileID: 0}
   Dungeon1:
     m_Handle: 0
+  _money: 0
   _invincableDuration: 1
   player: {fileID: 1779471854319423153}
   bloodScreen: {fileID: 3782856296525987659}
@@ -49230,7 +49245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &3782856296823932216
 MonoBehaviour:
   m_ObjectHideFlags: 0

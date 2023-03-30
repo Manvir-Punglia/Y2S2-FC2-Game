@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bird_Boss : MonoBehaviour
 {
     [SerializeField] GameObject bullet, shootingPos;
-    public GameObject player;
+    GameObject target;
     public GameObject[] pos;
     Animator animator;
     Rigidbody rb;
     public Collider hitBox;
     public Collider chargeBox;
 
+    PlayerManager player;
     bannerManager banner;
+    gun Auto, Pistol;
 
 
     float timer = 0;
@@ -20,6 +23,8 @@ public class Bird_Boss : MonoBehaviour
 
     public float health;
 
+    public int bounty;
+    bool bountyObtain;
 
     bool canShoot;
     public float bulletSpeed;
@@ -36,7 +41,11 @@ public class Bird_Boss : MonoBehaviour
     // Start is called before the first frame update
     public void Awake()
     {
-        player = GameObject.FindWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
@@ -44,7 +53,7 @@ public class Bird_Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player.transform.position);
+        transform.LookAt(target.transform.position);
         if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
             if (!charge)
@@ -99,14 +108,49 @@ public class Bird_Boss : MonoBehaviour
     {
         var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
 
-        BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+        BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
     }
     void Die()
     {
         if (health <= 0)
         {
-            Destroy(this.gameObject);
-            Debug.Log("electric boss defeated");
+            if (!bountyObtain)
+            {
+                //banner.increaseKillCount();
+                //player.GetComponent<PlayerManager>().AddMoney(bounty);
+                animator.SetBool("Death", true);
+                bountyObtain = true;
+            }
+            if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Death")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                Destroy(this.gameObject);
+                PlayerPrefs.SetInt("PistolloadedAmmo", 1);
+                PlayerPrefs.SetInt("PistolstoredAmmo", 60);
+
+                PlayerPrefs.SetInt("health", player.GetHealth());
+                PlayerPrefs.SetInt("money", player.GetMoney());
+
+                PlayerPrefs.SetFloat("fireBanner", banner.getAmount("Fire"));
+                PlayerPrefs.SetFloat("waterBanner", banner.getAmount("Water"));
+                PlayerPrefs.SetFloat("poisonBanner", banner.getAmount("Poison"));
+                PlayerPrefs.SetFloat("lightningBanner", banner.getAmount("Lightning"));
+
+                PlayerPrefs.SetFloat("fireKills", banner.getKillCount("Fire"));
+                PlayerPrefs.SetFloat("waterKills", banner.getKillCount("Water"));
+                PlayerPrefs.SetFloat("poisonKills", banner.getKillCount("Poison"));
+                PlayerPrefs.SetFloat("lightningKills", banner.getKillCount("Lightning"));
+
+                PlayerPrefs.SetInt("AutoloadedAmmo", Auto.getCurrAmmo());
+                PlayerPrefs.SetInt("AutostoredAmmo", Auto.getStoredAmmo());
+                PlayerPrefs.SetInt("PistolloadedAmmo", Pistol.getCurrAmmo());
+                PlayerPrefs.SetInt("PistolstoredAmmo", Pistol.getStoredAmmo());
+
+                PlayerPrefs.SetInt("BirdBossDone", 1);
+
+                PlayerPrefs.Save();
+
+                SceneManager.LoadScene("Hub");
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)
