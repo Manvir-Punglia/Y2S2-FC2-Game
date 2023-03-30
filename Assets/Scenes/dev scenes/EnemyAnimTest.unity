@@ -354,7 +354,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &768171277
 MonoBehaviour:
@@ -732,7 +732,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 302222bd74c33c147b7649bf0cec4b87, type: 2}
+  - {fileID: 2100000, guid: 7b4794d908e3e474788a188019df0a72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -904,7 +904,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7658950784445904793, guid: 4d84768cf893ec847b8f3fb946ca436c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7658950784445904793, guid: 4d84768cf893ec847b8f3fb946ca436c, type: 3}
       propertyPath: m_LocalPosition.x
