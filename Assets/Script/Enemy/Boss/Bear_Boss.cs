@@ -27,7 +27,7 @@ public class Bear_Boss : MonoBehaviour
 
     public bool hit;
 
-    public float runDistance;
+    public float shootDistance;
 
     public float hitTime;
     float time = 0;
@@ -89,6 +89,14 @@ public class Bear_Boss : MonoBehaviour
             }
             if (health > (maxHealth / 2))
             {
+                if (Vector3.Distance(transform.position, target.transform.position) > shootDistance)
+                {
+                    agent.SetDestination(target.transform.position);
+                }
+                else
+                {
+                    agent.SetDestination(-target.transform.position);
+                }
                 canShootTimer += Time.deltaTime;
                 if (canShootTimer >= shootTimer)
                 {
