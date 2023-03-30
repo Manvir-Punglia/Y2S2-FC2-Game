@@ -94,6 +94,15 @@ public class swapWeapons : MonoBehaviour
             }
         }
 
+        if (currentGun == pistol)
+        {
+            PlayerPrefs.SetInt("CurrentGun", 1);
+        }
+
+        if (currentGun == auto)
+        {
+            PlayerPrefs.SetInt("CurrentGun", 0);
+        }
         //if (Input.GetKeyDown(KeyCode.Alpha3))
         //{
         //    if (hasShot && currentGun.GetComponent<gun>().getCanSwap())

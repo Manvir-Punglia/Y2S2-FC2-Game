@@ -14,7 +14,8 @@ public class LittleMen : MonoBehaviour
     //public GameObject mainText;
     //public GameObject cameraFix;
     //public GameObject Npc;
-    public gun Gun;
+    public gun Auto;
+    public gun Pistol;
 
     GameManager gameManager;
 
@@ -43,8 +44,10 @@ public class LittleMen : MonoBehaviour
 
             PlayerPrefs.SetInt("health", player.GetHealth());
             PlayerPrefs.SetInt("money", player.GetMoney());
-            PlayerPrefs.SetInt("loadedAmmo", Gun.getCurrAmmo());
-            PlayerPrefs.SetInt("storedAmmo", Gun.getStoredAmmo());
+            PlayerPrefs.SetInt("AutoloadedAmmo", Auto.getCurrAmmo());
+            PlayerPrefs.SetInt("AutostoredAmmo", Auto.getStoredAmmo());
+            PlayerPrefs.SetInt("PistolloadedAmmo", Pistol.getCurrAmmo());
+            PlayerPrefs.SetInt("PistolstoredAmmo", Pistol.getStoredAmmo());
 
             PlayerPrefs.Save();
 

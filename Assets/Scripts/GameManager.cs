@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         //shopkeep = GameObject.FindGameObjectWithTag("ShopKeeper").GetComponent<LittleMen>();
         DisplayBlock(storyBlocks[0]);
         playerCoins = PlayerPrefs.GetInt("money");
-        playerAmmo = PlayerPrefs.GetInt("storedAmmo");
+        playerAmmo = PlayerPrefs.GetInt("AutostoredAmmo");
         playerHealth = PlayerPrefs.GetInt("health");
         Cursor.lockState = CursorLockMode.None;
     }
@@ -155,7 +155,14 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("health", playerHealth);
         PlayerPrefs.SetInt("money", playerCoins);
-        PlayerPrefs.SetInt("storedAmmo", playerAmmo);
+        if (PlayerPrefs.GetInt("CurrentGun") == 0)
+        {
+            PlayerPrefs.SetInt("AutostoredAmmo", playerAmmo);
+        }
+        if (PlayerPrefs.GetInt("CurrentGun") == 1)
+        {
+            PlayerPrefs.SetInt("PistolstoredAmmo", playerAmmo);
+        }
         PlayerPrefs.SetInt("hasRun", 1);
 
         PlayerPrefs.Save();

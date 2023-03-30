@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
 
     int _health = 3;
     int _maxHealth = 3;
-    int _money = 0;
+    public int _money = 0;
     int _newMoney = 0;
     [SerializeField] private float _invincableDuration = 1f;
 
