@@ -28,7 +28,6 @@ public class Bear_Boss : MonoBehaviour
     public bool hit;
 
     public float runDistance;
-    public float shootingDistance;
 
     public float hitTime;
     float time = 0;
@@ -68,60 +67,50 @@ public class Bear_Boss : MonoBehaviour
     {
         //if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            transform.LookAt(new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z));
-            Vector3 runTo = transform.position + ((transform.position - player.transform.position));
-            runTo.y = this.transform.position.y;
-            float distance = Vector3.Distance(transform.position, player.transform.position);
+            transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
+            float distance = Vector3.Distance(transform.position, target.transform.position);
 
             stompTimer += Time.deltaTime;
             if (stompTimer >= stompTime)
             {
-                agent.destination = this.gameObject.transform.position;
-                animator.SetTrigger("ATK_AOE");
+                agent.isStopped = true;
+                //animator.SetTrigger("ATK_AOE");
                 if (distance <= stompDistance)
                 {
-                    player.GetComponent<PlayerManager>().TakeDamage();
+                    target.GetComponent<PlayerManager>().TakeDamage();
                 }
                 stompTimer = 0;
             }
+            else
+            {
+                agent.isStopped = false;
+            }
             if (health > (maxHealth / 2))
             {
-                agent.stoppingDistance = shootingDistance;
                 canShootTimer += Time.deltaTime;
                 if (canShootTimer >= shootTimer)
                 {
                     var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
                     BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-                    animator.SetTrigger("ATK_Range");
+                    //animator.SetTrigger("ATK_Range");
                     canShootTimer = 0;
-                }
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("ATK_Range"))
-                {
-                    agent.isStopped = true;
                 }
             }
             else if (health <= (maxHealth / 2))
             {
-                agent.stoppingDistance = 0;
                 if (hit)
                 {
-                    agent.SetDestination(-runTo);
-                    animator.SetTrigger("ATK_Melee");
+                    agent.SetDestination(target.transform.position);
+                    //animator.SetTrigger("ATK_Melee");
                 }
                 else
                 {
-                    if (time >= hitTime)
+                    time += Time.deltaTime;
+                    agent.SetDestination(-target.transform.position);
+                    if(time >= hitTime)
                     {
-                        hit = false;
+                        hit = true;
                         time = 0;
-                    }
-                    if (time < hitTime)
-                    {
-                        time += Time.deltaTime;
-                        if (distance < runDistance)
-                        {
-                            agent.SetDestination(runTo);
-                        }
                     }
                 }
             }
@@ -186,7 +175,7 @@ public class Bear_Boss : MonoBehaviour
         }
         if (collision.collider.CompareTag("Player"))
         {
-            hit = true;
+            hit = false;
             collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
             time = 0;
         }
