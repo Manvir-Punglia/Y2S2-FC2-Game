@@ -23,7 +23,7 @@ public class Bear_Boss : MonoBehaviour
 
     HitAnimation hitAnim;
 
-    //public ParticleSystem fireballParticles;
+    public ParticleSystem fireballParticles;
 
     public bool hit;
 
@@ -50,12 +50,13 @@ public class Bear_Boss : MonoBehaviour
     void Start()
     {
         hit = false;
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("Intro");
         target = GameObject.FindGameObjectWithTag("Player");
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
-        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
-        animator = GetComponent<Animator>();
+        //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         //hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
     }
     private void Awake()
@@ -65,7 +66,7 @@ public class Bear_Boss : MonoBehaviour
     }
     void Update()
     {
-        //if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
             transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
             float distance = Vector3.Distance(transform.position, target.transform.position);
@@ -74,10 +75,11 @@ public class Bear_Boss : MonoBehaviour
             if (stompTimer >= stompTime)
             {
                 agent.isStopped = true;
-                //animator.SetTrigger("ATK_AOE");
+                animator.SetTrigger("ATK_AOE");
                 if (distance <= stompDistance)
                 {
                     target.GetComponent<PlayerManager>().TakeDamage();
+                    Debug.Log("stomp");
                 }
                 stompTimer = 0;
             }
@@ -92,7 +94,7 @@ public class Bear_Boss : MonoBehaviour
                 {
                     var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
                     BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-                    //animator.SetTrigger("ATK_Range");
+                    animator.SetTrigger("ATK_Range");
                     canShootTimer = 0;
                 }
             }
@@ -101,13 +103,13 @@ public class Bear_Boss : MonoBehaviour
                 if (hit)
                 {
                     agent.SetDestination(target.transform.position);
-                    //animator.SetTrigger("ATK_Melee");
+                    animator.SetTrigger("ATK_Melee");
                 }
                 else
                 {
                     time += Time.deltaTime;
                     agent.SetDestination(-target.transform.position);
-                    if(time >= hitTime)
+                    if (time >= hitTime)
                     {
                         hit = true;
                         time = 0;
@@ -124,7 +126,7 @@ public class Bear_Boss : MonoBehaviour
             if (!bountyObtain)
             {
                 //banner.increaseKillCount();
-                //player.GetComponent<PlayerManager>().AddMoney(bounty);
+                player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetTrigger("Death");
                 bountyObtain = true;
             }
@@ -173,10 +175,10 @@ public class Bear_Boss : MonoBehaviour
             health -= collision.gameObject.GetComponent<bullet>().getDamage();
 
         }
-        if (collision.collider.CompareTag("Player"))
+        if (collision.gameObject == target)
         {
             hit = false;
-            collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
+            target.gameObject.GetComponent<PlayerManager>().TakeDamage();
             time = 0;
         }
     }
