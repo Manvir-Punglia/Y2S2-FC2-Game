@@ -35,6 +35,8 @@ public class Enemy_movement : MonoBehaviour
     public float hitTime;
     float time = 0;
 
+    public GameObject slash;
+
     public float health;
     public float speed;
 
@@ -78,7 +80,8 @@ public class Enemy_movement : MonoBehaviour
                     if (hit)
                     {
                         agent.SetDestination(target.transform.position);
-                        animator.SetTrigger("ATK_Melee");
+                        slash.SetActive(false);
+                        //Debug.LogError("runs");
                     }
                     if (!hit)
                     {
@@ -179,6 +182,8 @@ public class Enemy_movement : MonoBehaviour
         if (collision.gameObject.tag == ("Player"))
         {
             hit = false;
+            animator.SetTrigger("ATK_Melee");
+            slash.SetActive(true);
             collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
         }
     }
@@ -196,5 +201,12 @@ public class Enemy_movement : MonoBehaviour
     public void SetHit(bool isHit)
     {
         hit = isHit;
+    }
+
+    IEnumerator SlashAttack()
+    {
+        slash.SetActive(true);
+        yield return new WaitForSeconds(1);
+        slash.SetActive(false);
     }
 }
