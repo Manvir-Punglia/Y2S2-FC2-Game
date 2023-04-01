@@ -17,6 +17,7 @@ public class Dissolve : MonoBehaviour
     
     void Start()
     {
+
         if (skinnedMesh != null)
         {
             skinnedMaterials = skinnedMesh.materials;
@@ -25,16 +26,7 @@ public class Dissolve : MonoBehaviour
         
     }
 
-    
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(DissolveAnim());
-        }
-    }
-
-    IEnumerator DissolveAnim()
+    IEnumerator DissolveAnim(float delay)
     {
         if (vfxDissolve != null)
         {
@@ -44,9 +36,12 @@ public class Dissolve : MonoBehaviour
         if (skinnedMaterials.Length > 0)
         {
             float counter = 0;
-            
+
+            yield return new WaitForSeconds(delay);
+
             while (skinnedMaterials[0].GetFloat("_DissolveAmount") < 1)
             {
+
                 counter += dissolveRate;
 
                 for (int i = 0; i < skinnedMaterials.Length; i++)
@@ -60,5 +55,10 @@ public class Dissolve : MonoBehaviour
         }
         
 
+    }
+
+    public void StartAnim()
+    {
+        StartCoroutine(DissolveAnim(vfxDissolve.GetFloat("Delay")));
     }
 }
