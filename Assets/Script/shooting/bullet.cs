@@ -9,9 +9,7 @@ public class bullet : MonoBehaviour
     public float maxdamage = 1;
 
     float destroyTimer = 0f;
-    public GameObject bullet_prefab;
     public GameObject hit_prefab;
-    public GameObject player;
     public bannerManager banner;
 
     PlayerManager playerManager;
@@ -67,13 +65,12 @@ public class bullet : MonoBehaviour
         {
             var hit = Instantiate(hit_prefab, pos, rotation);
 
-            
+            Destroy(hit, 3f);
         }
 
         if(collision.gameObject.tag == "enemy")
         {
             collision.gameObject.GetComponent<Enemy_movement>().takeDamage(damage);
-            //collision.gameObject.GetComponent<Enemy_movement>().Die();
             Destroy(this.gameObject);
             //Debug.Log("HIT!");
         }

@@ -34,13 +34,15 @@ public class Rat_Boss : MonoBehaviour
     public float summonTimer;
     float timer;
 
+    public GameObject dissolve;
+
     public void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player");
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
-        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        //banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         animator = GetComponent<Animator>();
     }
     void Update()
@@ -91,11 +93,13 @@ public class Rat_Boss : MonoBehaviour
                 //banner.increaseKillCount();
                 //player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetBool("Death", true);
+                dissolve.GetComponent<Dissolve>().StartAnim();
+
                 bountyObtain = true;
             }
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Death")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                Destroy(this.gameObject);
+                Destroy(dissolve.gameObject);
                 PlayerPrefs.SetInt("PistolloadedAmmo", 1);
                 PlayerPrefs.SetInt("PistolstoredAmmo", 60);
 

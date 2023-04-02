@@ -38,14 +38,16 @@ public class Bird_Boss : MonoBehaviour
     float wait;
     public float speed;
     bool chargeAnimTriggered;
+
+    public GameObject dissolve;
     // Start is called before the first frame update
     public void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player");
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
-        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        //banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
@@ -53,6 +55,8 @@ public class Bird_Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Die();
+
         transform.LookAt(target.transform.position);
         if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
@@ -101,7 +105,7 @@ public class Bird_Boss : MonoBehaviour
                 charge = true;
                 wait = 0;
             }
-            Die();
+            
         }
     }
     void Shooting()
@@ -119,11 +123,13 @@ public class Bird_Boss : MonoBehaviour
                 //banner.increaseKillCount();
                 //player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetBool("Death", true);
+                dissolve.GetComponent<Dissolve>().StartAnim();
+
                 bountyObtain = true;
             }
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Death")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                Destroy(this.gameObject);
+                Destroy(dissolve.gameObject);
                 PlayerPrefs.SetInt("PistolloadedAmmo", 1);
                 PlayerPrefs.SetInt("PistolstoredAmmo", 60);
 

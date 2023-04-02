@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.VFX;
 using static Enemy_movement;
 using static UnityEditor.PlayerSettings;
 
@@ -33,9 +34,13 @@ public class Enemy_movement : MonoBehaviour
     public float shootingDistance;
 
     public float hitTime;
+
+    public float MeleeDelay;
+    public float RangeDelay;
+
     float time = 0;
 
-    public GameObject slash;
+    public GameObject melee;
 
     public float health;
     public float speed;
@@ -47,6 +52,8 @@ public class Enemy_movement : MonoBehaviour
     public float bulletSpeed;
     public float shootTimer;
     float canShootTimer;
+
+    public GameObject dissolve;
 
     public enemy type = enemy.MELEE;
     public enum enemy
@@ -67,53 +74,54 @@ public class Enemy_movement : MonoBehaviour
     }
     private void Update()
     {
-        transform.localEulerAngles = Vector3.zero;
-        agent.speed = speed;
+        //transform.localEulerAngles = Vector3.zero;
+        //agent.speed = speed;
         transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        animator.SetFloat("Movement", 1);
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+        
         Die();
         switch (type)
         {
             case enemy.MELEE:
                 {
+                    animator.SetFloat("Movement", 1);
+                    agent.stoppingDistance = .5f;
                     if (hit)
                     {
                         agent.SetDestination(target.transform.position);
-                        slash.SetActive(false);
+                        
                         //Debug.LogError("runs");
                     }
                     if (!hit)
                     {
+                        time += Time.deltaTime;
+
                         if (time >= hitTime)
                         {
                             hit = true;
                             time = 0;
                         }
-                        if (time < hitTime)
+                        
+                        if (distance < runDistance)
                         {
-                            time += Time.deltaTime;
-                            if (distance < runDistance)
-                            {
-                                agent.SetDestination(-target.transform.position);
-                            }
+                            agent.SetDestination(-target.transform.position);
                         }
+                        
                     }
 
                 }
                 break;
             case enemy.RANGE:
                 {
+                    animator.SetFloat("Movement", 0);
                     agent.stoppingDistance = shootingDistance;
                     canShootTimer += Time.deltaTime;
                     if (canShoot)
                     {
-                        var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-
-                        BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+                        animator.SetTrigger("ATK_Range");
+                        StartCoroutine(RangeAttack(animator.GetCurrentAnimatorStateInfo(0).length * RangeDelay));
 
                         canShoot = false;
-                        animator.SetTrigger("ATK_Range");
 
                     }
                     if (canShootTimer >= shootTimer && (transform.position - target.transform.position).magnitude >= shootingDistance)
@@ -151,19 +159,21 @@ public class Enemy_movement : MonoBehaviour
 
                     case "Bird":
                         //lightning
-                        player.GetComponent<bannerManager>().increaseKillCount("Lightning");
+                        //player.GetComponent<bannerManager>().increaseKillCount("Lightning");
                         break;
 
                     case "Rat":
                         //poison
-                        player.GetComponent<bannerManager>().increaseKillCount("Poison");
+                        //player.GetComponent<bannerManager>().increaseKillCount("Poison");
                         break;
                 }
-                target.GetComponent<PlayerManager>().AddMoney(bounty);
+                //target.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetTrigger("Death");
+                dissolve.GetComponent<Dissolve>().StartAnim();
+
                 bountyObtain = true;
             }
-            Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+            Destroy(dissolve.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
         }
     }
 
@@ -173,19 +183,15 @@ public class Enemy_movement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == ("Bullet"))
-        {
-            //StartCoroutine(hitAnim.HitAnim());
-            health -= collision.gameObject.GetComponent<bullet>().getDamage();
-
-        }
+        
         if (collision.gameObject.tag == ("Player"))
         {
-            hit = false;
+            
             animator.SetTrigger("ATK_Melee");
-            slash.SetActive(true);
-            collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
+            StartCoroutine(MeleeAttack(animator.GetCurrentAnimatorStateInfo(0).length * MeleeDelay));
+
         }
+        
     }
     //public void ShootFireBall()
     //{
@@ -203,10 +209,20 @@ public class Enemy_movement : MonoBehaviour
         hit = isHit;
     }
 
-    IEnumerator SlashAttack()
+    IEnumerator MeleeAttack(float delay)
     {
-        slash.SetActive(true);
-        yield return new WaitForSeconds(1);
-        slash.SetActive(false);
+        
+        yield return new WaitForSeconds(delay);
+        melee.GetComponent<VisualEffect>().Play();
+        //target.GetComponent<PlayerManager>().TakeDamage();
+        hit = false;
+        Debug.LogError("test");
+    }
+
+    IEnumerator RangeAttack(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
+        BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
     }
 }

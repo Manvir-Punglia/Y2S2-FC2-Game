@@ -47,14 +47,16 @@ public class Bear_Boss : MonoBehaviour
     public float shootTimer;
     float canShootTimer;
 
+    public GameObject dissolve;
+
     void Start()
     {
         hit = false;
         animator = GetComponent<Animator>();
         animator.SetTrigger("Intro");
         target = GameObject.FindGameObjectWithTag("Player");
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        //banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
         //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
         //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         //hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
@@ -125,6 +127,7 @@ public class Bear_Boss : MonoBehaviour
                 }
             }
         }
+        Die();
     }
     public void Die()
     {
@@ -134,13 +137,15 @@ public class Bear_Boss : MonoBehaviour
             if (!bountyObtain)
             {
                 //banner.increaseKillCount();
-                player.GetComponent<PlayerManager>().AddMoney(bounty);
+                //player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetTrigger("Death");
+                dissolve.GetComponent<Dissolve>().StartAnim();
+
                 bountyObtain = true;
             }
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Death")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                Destroy(this.gameObject);
+                Destroy(dissolve.gameObject);
                 PlayerPrefs.SetInt("PistolloadedAmmo", 1);
                 PlayerPrefs.SetInt("PistolstoredAmmo", 60);
 
