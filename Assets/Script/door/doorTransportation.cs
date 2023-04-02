@@ -10,6 +10,8 @@ public class doorTransportation : MonoBehaviour
     public gun Pistol;
     public bannerManager banner;
     public string Scenename;
+    public string BossSceneName;
+    public string checkVariable;
 
     private void Start()
     {
@@ -58,7 +60,14 @@ public class doorTransportation : MonoBehaviour
 
             PlayerPrefs.Save();
 
-            SceneManager.LoadScene(Scenename);
+            if (PlayerPrefs.GetInt(checkVariable) == 1)
+            {
+                SceneManager.LoadScene(BossSceneName);
+            }
+            else
+            {
+                SceneManager.LoadScene(Scenename);
+            }
         }
     }
 

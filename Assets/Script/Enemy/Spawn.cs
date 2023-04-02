@@ -20,11 +20,11 @@ public class Spawn : MonoBehaviour
     public int wave;
     public int waveCount = 0;
     public bool key;
-    public string done;
     PlayerManager player;
     bannerManager banner;
     gun Auto, Pistol;
     public bool _out;
+    public string checkVariable;
     //public GameObject keyPrefab;
     //public GameObject keyPos;
 
@@ -112,7 +112,7 @@ public class Spawn : MonoBehaviour
             PlayerPrefs.SetInt("PistolloadedAmmo", Pistol.getCurrAmmo());
             PlayerPrefs.SetInt("PistolstoredAmmo", Pistol.getStoredAmmo());
 
-            PlayerPrefs.SetInt(done, 1);
+            PlayerPrefs.SetInt(checkVariable, 1);
 
             PlayerPrefs.Save();
 

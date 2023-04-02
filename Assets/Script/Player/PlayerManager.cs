@@ -60,7 +60,6 @@ public class PlayerManager : MonoBehaviour
     {
         //Debug.Log(_health);
         //_health = _maxHealth + ((int)banner.getStats(1));
-        
 
         if (Input.GetKeyDown(KeyCode.C))
         {

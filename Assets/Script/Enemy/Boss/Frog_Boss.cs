@@ -101,32 +101,32 @@ public class Frog_Boss : MonoBehaviour
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Death")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
                 Destroy(dissolve.gameObject);
-                //PlayerPrefs.SetInt("PistolloadedAmmo", 1);
-                //PlayerPrefs.SetInt("PistolstoredAmmo", 60);
+                PlayerPrefs.SetInt("PistolloadedAmmo", 1);
+                PlayerPrefs.SetInt("PistolstoredAmmo", 60);
 
-                //PlayerPrefs.SetInt("health", player.GetHealth());
-                //PlayerPrefs.SetInt("money", player.GetMoney());
+                PlayerPrefs.SetInt("health", player.GetHealth());
+                PlayerPrefs.SetInt("money", player.GetMoney());
 
-                //PlayerPrefs.SetFloat("fireBanner", banner.getAmount("Fire"));
-                //PlayerPrefs.SetFloat("waterBanner", banner.getAmount("Water"));
-                //PlayerPrefs.SetFloat("poisonBanner", banner.getAmount("Poison"));
-                //PlayerPrefs.SetFloat("lightningBanner", banner.getAmount("Lightning"));
+                PlayerPrefs.SetFloat("fireBanner", banner.getAmount("Fire"));
+                PlayerPrefs.SetFloat("waterBanner", banner.getAmount("Water"));
+                PlayerPrefs.SetFloat("poisonBanner", banner.getAmount("Poison"));
+                PlayerPrefs.SetFloat("lightningBanner", banner.getAmount("Lightning"));
 
-                //PlayerPrefs.SetFloat("fireKills", banner.getKillCount("Fire"));
-                //PlayerPrefs.SetFloat("waterKills", banner.getKillCount("Water"));
-                //PlayerPrefs.SetFloat("poisonKills", banner.getKillCount("Poison"));
-                //PlayerPrefs.SetFloat("lightningKills", banner.getKillCount("Lightning"));
+                PlayerPrefs.SetFloat("fireKills", banner.getKillCount("Fire"));
+                PlayerPrefs.SetFloat("waterKills", banner.getKillCount("Water"));
+                PlayerPrefs.SetFloat("poisonKills", banner.getKillCount("Poison"));
+                PlayerPrefs.SetFloat("lightningKills", banner.getKillCount("Lightning"));
 
-                //PlayerPrefs.SetInt("AutoloadedAmmo", Auto.getCurrAmmo());
-                //PlayerPrefs.SetInt("AutostoredAmmo", Auto.getStoredAmmo());
-                //PlayerPrefs.SetInt("PistolloadedAmmo", Pistol.getCurrAmmo());
-                //PlayerPrefs.SetInt("PistolstoredAmmo", Pistol.getStoredAmmo());
+                PlayerPrefs.SetInt("AutoloadedAmmo", Auto.getCurrAmmo());
+                PlayerPrefs.SetInt("AutostoredAmmo", Auto.getStoredAmmo());
+                PlayerPrefs.SetInt("PistolloadedAmmo", Pistol.getCurrAmmo());
+                PlayerPrefs.SetInt("PistolstoredAmmo", Pistol.getStoredAmmo());
 
-                //PlayerPrefs.SetInt("FrogBossDone", 1);
+                PlayerPrefs.SetInt("FrogBossDone", 1);
 
-                //PlayerPrefs.Save();
+                PlayerPrefs.Save();
 
-                //SceneManager.LoadScene("Hub");
+                SceneManager.LoadScene("Hub");
             }
         }
     }

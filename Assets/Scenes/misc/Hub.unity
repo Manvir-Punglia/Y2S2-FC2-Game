@@ -11460,6 +11460,8 @@ MonoBehaviour:
   Pistol: {fileID: 945257739}
   banner: {fileID: 0}
   Scenename: Dungeon4
+  BossSceneName: Dungeon 4 Boss
+  checkVariable: dungeon4
 --- !u!65 &566968400
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52548,6 +52550,8 @@ MonoBehaviour:
   Pistol: {fileID: 945257739}
   banner: {fileID: 0}
   Scenename: Dungeon3
+  BossSceneName: Dungeon 3 Boss
+  checkVariable: dungeon3
 --- !u!65 &1544770517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59402,6 +59406,8 @@ MonoBehaviour:
   Pistol: {fileID: 945257739}
   banner: {fileID: 0}
   Scenename: Dungeon2
+  BossSceneName: Dungeon 2 Boss
+  checkVariable: dungeon2
 --- !u!65 &1760077592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59685,6 +59691,8 @@ MonoBehaviour:
   Pistol: {fileID: 945257739}
   banner: {fileID: 0}
   Scenename: Dungeon1
+  BossSceneName: Dungeon 1 Boss
+  checkVariable: dungeon1
 --- !u!1 &1775681704
 GameObject:
   m_ObjectHideFlags: 0

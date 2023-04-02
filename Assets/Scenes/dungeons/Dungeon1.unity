@@ -847,6 +847,7 @@ MonoBehaviour:
   key: 0
   done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &568826926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,6 +974,7 @@ MonoBehaviour:
   key: 0
   done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &649756828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,6 +1722,7 @@ MonoBehaviour:
   key: 0
   done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &1361316218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2480,6 +2483,7 @@ MonoBehaviour:
   key: 1
   done: done
   _out: 0
+  checkVariable: dungeon1
 --- !u!114 &1748448223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2590,6 +2594,7 @@ MonoBehaviour:
   key: 0
   done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &1756274592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2983,6 +2988,7 @@ MonoBehaviour:
   key: 0
   done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &1986049544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3166,6 +3172,7 @@ MonoBehaviour:
   key: 0
   done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &2024187842
 MonoBehaviour:
   m_ObjectHideFlags: 0

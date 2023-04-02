@@ -2273,8 +2273,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &106747928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8598,8 +8598,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 1
-  done: Dun4
   _out: 0
+  checkVariable: dungeon4
 --- !u!114 &419228620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15944,8 +15944,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &767282134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30625,8 +30625,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &1469387231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35071,8 +35071,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &1666781886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35345,8 +35345,8 @@ MonoBehaviour:
   wave: 0
   waveCount: 0
   key: 0
-  done: 
   _out: 0
+  checkVariable: 
 --- !u!114 &1673265706
 MonoBehaviour:
   m_ObjectHideFlags: 0
