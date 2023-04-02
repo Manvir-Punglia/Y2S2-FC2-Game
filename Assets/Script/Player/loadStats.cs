@@ -23,7 +23,7 @@ public class loadStats : MonoBehaviour
 
         if (scene.name != "Hub")
         {
-            Debug.LogError("dungeon 1 loaded");
+            //Debug.LogError("dungeon 1 loaded");
             //Debug.LogError(PlayerPrefs.GetInt("AutoloadedAmmo"));
 
             //int score = PlayerPrefs.GetInt("score");

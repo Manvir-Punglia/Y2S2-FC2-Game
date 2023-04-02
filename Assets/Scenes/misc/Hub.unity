@@ -71227,6 +71227,8 @@ MonoBehaviour:
   hubMusic: {fileID: 2087800369}
   levelMusic: {fileID: 640090324}
   tookDamageSound: {fileID: 228288586}
+  Auto: {fileID: 8773344339165474923}
+  Pistol: {fileID: 945257739}
 --- !u!114 &1988166318
 MonoBehaviour:
   m_ObjectHideFlags: 0

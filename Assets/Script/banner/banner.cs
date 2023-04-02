@@ -31,7 +31,7 @@ public class banner : MonoBehaviour
         switch (bannerAmount)
         {
             case 0:
-                if(enemyCount >= 15)
+                if(enemyCount >= 5)
                 {
                     bannerAmount = 1;
                     manager.resetKillCount(resetType);

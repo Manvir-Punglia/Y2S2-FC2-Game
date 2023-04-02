@@ -1901,7 +1901,7 @@ MonoBehaviour:
   banner: {fileID: 0}
   Auto: {fileID: 0}
   Pistol: {fileID: 0}
-  enemyName: 
+  enemyName: Bear
   hit: 0
   runDistance: 0
   shootingDistance: 5

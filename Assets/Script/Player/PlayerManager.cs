@@ -43,6 +43,9 @@ public class PlayerManager : MonoBehaviour
 
     public AudioSource tookDamageSound;
 
+    public gun Auto;
+    public gun Pistol;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,16 +98,38 @@ public class PlayerManager : MonoBehaviour
 
     public void Alive()
     {
-        _mainCamera.SetActive(true);
-        _lockedCamera.SetActive(false);
-        GetComponent<PlayerController>().setNoLooking(true);
-        bannerSacrifice.SetActive(false);
-        GetComponent<CharacterController>().enabled = true;
+        PlayerPrefs.SetInt("health", GetHealth());
+        PlayerPrefs.SetInt("money", GetMoney());
+
+        PlayerPrefs.SetFloat("fireBanner", banner.getAmount("Fire"));
+        PlayerPrefs.SetFloat("waterBanner", banner.getAmount("Water"));
+        PlayerPrefs.SetFloat("poisonBanner", banner.getAmount("Poison"));
+        PlayerPrefs.SetFloat("lightningBanner", banner.getAmount("Lightning"));
+
+        PlayerPrefs.SetFloat("fireKills", banner.getKillCount("Fire"));
+        PlayerPrefs.SetFloat("waterKills", banner.getKillCount("Water"));
+        PlayerPrefs.SetFloat("poisonKills", banner.getKillCount("Poison"));
+        PlayerPrefs.SetFloat("lightningKills", banner.getKillCount("Lightning"));
+
+        PlayerPrefs.SetInt("AutoloadedAmmo", Auto.getCurrAmmo());
+        PlayerPrefs.SetInt("AutostoredAmmo", Auto.getStoredAmmo());
+        PlayerPrefs.SetInt("PistolloadedAmmo", Pistol.getCurrAmmo());
+        PlayerPrefs.SetInt("PistolstoredAmmo", Pistol.getStoredAmmo());
+
+        PlayerPrefs.SetInt("hasRun", 1);
+
+        SceneManager.LoadScene("Hub");
+
+        //_mainCamera.SetActive(true);
+        //_lockedCamera.SetActive(false);
+        //GetComponent<PlayerController>().setNoLooking(true);
+        //bannerSacrifice.SetActive(false);
+        //GetComponent<CharacterController>().enabled = true;
     }
 
     private void Die()
     {
-
+        Debug.LogError(banner.getHasAnyBanners());
         if (banner.getHasAnyBanners())
         {
             //hubMusic.SetActive(true);
@@ -116,16 +141,19 @@ public class PlayerManager : MonoBehaviour
             bannerSacrifice.SetActive(true);
             GetComponent<CharacterController>().enabled = false;
 
-            player.transform.position = spawn.transform.position;
+            //player.transform.position = spawn.transform.position;
 
             _health = 3;
 
             //Debug.Log("DED");
+
         }
 
-        else
+        else if(!banner.getHasAnyBanners())
         {
-            Application.Quit();
+            //Application.Quit();
+            PlayerPrefs.DeleteAll();
+            SceneManager.LoadScene("Hub");
         }
 
 

@@ -136,11 +136,12 @@ MonoBehaviour:
   banner: {fileID: 0}
   Auto: {fileID: 0}
   Pistol: {fileID: 0}
-  enemyName: 
+  enemyName: Bear
   hit: 0
   runDistance: 0
   shootingDistance: 5
   hitTime: 3
+  slash: {fileID: 0}
   health: 3
   speed: 5
   bounty: 5

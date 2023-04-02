@@ -55,13 +55,13 @@ public class bannerManager : MonoBehaviour
 
     public bool getHasAnyBanners()
     {
-        if (fireBanner.getLevel() != 0 && waterBanner.getLevel() != 0 && poisonBanner.getLevel() != 0 && lightningBanner.getLevel() != 0)
+        if (fireBanner.getLevel() != 0 || waterBanner.getLevel() != 0 || poisonBanner.getLevel() != 0 || lightningBanner.getLevel() != 0)
         {
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 

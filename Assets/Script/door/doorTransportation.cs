@@ -30,8 +30,8 @@ public class doorTransportation : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayerPrefs.SetInt("PistolloadedAmmo", 1);
-            PlayerPrefs.SetInt("PistolstoredAmmo", 60);
+            //PlayerPrefs.SetInt("PistolloadedAmmo", 1);
+           // PlayerPrefs.SetInt("PistolstoredAmmo", 60);
             //PlayerPrefs.SetInt("Ammo", 5);
             //PlayerPrefs.SetFloat("Kills/banner ", 0.6f);
             //PlayerPrefs.SetString("username", "John Doe");
