@@ -102,7 +102,7 @@ public class bannerManager : MonoBehaviour
 
     }
 
-    public void setBannerAmount(string type, int level)
+    public void setBannerAmount(string type, float level)
     {
         switch (type)
         {

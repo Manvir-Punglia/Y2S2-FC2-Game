@@ -6,7 +6,7 @@ public class banner : MonoBehaviour
 {
     public string bannerType;
 
-    int bannerAmount = 0;
+    float bannerAmount = 0;
 
     int damageIncrease = 0;
     int moveSpeedIncrease = 0;
@@ -195,7 +195,7 @@ public class banner : MonoBehaviour
 
     }
 
-    public void setBannerAmount(int newAmount)
+    public void setBannerAmount(float newAmount)
     {
         bannerAmount = newAmount;
     }

@@ -125,7 +125,14 @@ public class GameManager : MonoBehaviour
                 if(playerCoins >= ammoPrice)
                 {
                     playerCoins = (playerCoins - ammoPrice);
-                    playerAmmo = (playerAmmo + 15);
+                    if (PlayerPrefs.GetInt("CurrentGun") == 0)
+                    {
+                        playerAmmo = (playerAmmo + 30);
+                    }
+                    if (PlayerPrefs.GetInt("CurrentGun") == 1)
+                    {
+                        playerAmmo = (playerAmmo + 15);
+                    }
                 }
                 
                 break;
