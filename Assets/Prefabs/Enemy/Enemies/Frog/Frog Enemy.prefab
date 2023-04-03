@@ -773,7 +773,7 @@ MonoBehaviour:
   speed: 4
   bounty: 15
   canShoot: 0
-  bulletSpeed: 300
+  bulletSpeed: 500
   shootTimer: 4
   dissolve: {fileID: 2259476654279172173}
   type: 1
