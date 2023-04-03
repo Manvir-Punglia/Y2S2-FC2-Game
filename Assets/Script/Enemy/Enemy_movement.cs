@@ -32,6 +32,7 @@ public class Enemy_movement : MonoBehaviour
 
     public float runDistance;
     public float shootingDistance;
+    public float stopDistance;
 
     public float hitTime;
 
@@ -74,8 +75,8 @@ public class Enemy_movement : MonoBehaviour
     }
     private void Update()
     {
-        //transform.localEulerAngles = Vector3.zero;
-        //agent.speed = speed;
+        transform.localEulerAngles = Vector3.zero;
+        agent.speed = speed;
         transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
         float distance = Vector3.Distance(transform.position, target.transform.position);
         
@@ -85,11 +86,12 @@ public class Enemy_movement : MonoBehaviour
             case enemy.MELEE:
                 {
                     animator.SetFloat("Movement", 1);
-                    agent.stoppingDistance = .5f;
+                    agent.stoppingDistance = stopDistance;
                     if (hit)
                     {
+
                         agent.SetDestination(target.transform.position);
-                        
+
                         //Debug.LogError("runs");
                     }
                     if (!hit)
@@ -104,7 +106,9 @@ public class Enemy_movement : MonoBehaviour
                         
                         if (distance < runDistance)
                         {
+
                             agent.SetDestination(-target.transform.position);
+
                         }
                         
                     }
@@ -113,8 +117,18 @@ public class Enemy_movement : MonoBehaviour
                 break;
             case enemy.RANGE:
                 {
-                    animator.SetFloat("Movement", 0);
                     agent.stoppingDistance = shootingDistance;
+                    agent.SetDestination(target.transform.position);
+
+                    if (distance > shootingDistance)
+                    {
+                        animator.SetFloat("Movement", 1);
+                    }
+                    else
+                    {
+                        animator.SetFloat("Movement", 0);
+                    }
+
                     canShootTimer += Time.deltaTime;
                     if (canShoot)
                     {
@@ -124,15 +138,12 @@ public class Enemy_movement : MonoBehaviour
                         canShoot = false;
 
                     }
-                    if (canShootTimer >= shootTimer && (transform.position - target.transform.position).magnitude >= shootingDistance)
+                    if (canShootTimer >= shootTimer)
                     {
                         canShoot = true;
                         canShootTimer = 0;
                     }
-                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("ATK_Range"))
-                    {
-                        agent.isStopped = true;
-                    }
+
                 }
                 break;
         }
@@ -154,7 +165,7 @@ public class Enemy_movement : MonoBehaviour
 
                     case "Frog":
                         //water
-                        player.GetComponent<bannerManager>().increaseKillCount("Water");
+                        //player.GetComponent<bannerManager>().increaseKillCount("Water");
                         break;
 
                     case "Bird":
@@ -184,11 +195,12 @@ public class Enemy_movement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        if (collision.gameObject.tag == ("Player"))
+        if (collision.gameObject.tag == ("Player") && hit)
         {
-            
+            Debug.LogWarning("contact");
             animator.SetTrigger("ATK_Melee");
             StartCoroutine(MeleeAttack(animator.GetCurrentAnimatorStateInfo(0).length * MeleeDelay));
+            
 
         }
         
@@ -211,18 +223,33 @@ public class Enemy_movement : MonoBehaviour
 
     IEnumerator MeleeAttack(float delay)
     {
-        
         yield return new WaitForSeconds(delay);
-        melee.GetComponent<VisualEffect>().Play();
-        //target.GetComponent<PlayerManager>().TakeDamage();
+        if (melee.GetComponent<ParticleSystem>() != null)
+        {
+            melee.GetComponent<ParticleSystem>().Play();
+        }
+        else
+        {
+            melee.GetComponent<VisualEffect>().Play();
+        }
+        
         hit = false;
+        //target.GetComponent<PlayerManager>().TakeDamage();
+        
         Debug.LogError("test");
     }
 
     IEnumerator RangeAttack(float delay)
     {
+        agent.isStopped = true;
         yield return new WaitForSeconds(delay);
+        if (bullet.GetComponent<VisualEffect>() != null)
+        {
+            Debug.LogWarning("shot");
+            bullet.GetComponent<VisualEffect>().Play();
+        }
         var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
         BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+        agent.isStopped = false;
     }
 }

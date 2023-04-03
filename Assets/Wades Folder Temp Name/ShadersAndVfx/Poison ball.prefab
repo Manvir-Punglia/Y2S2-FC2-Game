@@ -55,7 +55,10 @@ VisualEffect:
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0, y: 0.13207549, z: 0.014482756, w: 1}
+        m_Name: Color
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -123,7 +126,7 @@ GameObject:
   - component: {fileID: 6285624054684318827}
   - component: {fileID: 477603058416795760}
   m_Layer: 7
-  m_Name: FireBall 1
+  m_Name: Poison ball
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   maxdamage: 1
-  hit_prefab: {fileID: 7658950784445904806, guid: 4d84768cf893ec847b8f3fb946ca436c, type: 3}
+  hit_prefab: {fileID: 7658950784445904806, guid: 00d6f8aed9a4a194e8bd9bce9e472640, type: 3}
   banner: {fileID: 0}
 --- !u!135 &477603058416795760
 SphereCollider:
@@ -252,7 +255,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 50bed3b8265d0974e9dc4a4cdac1e098, type: 2}
+  - {fileID: 2100000, guid: d0fcb72b07e08fd4fa5a17a68f7736ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

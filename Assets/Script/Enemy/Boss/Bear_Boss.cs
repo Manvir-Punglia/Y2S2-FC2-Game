@@ -184,7 +184,7 @@ public class Bear_Boss : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Bullet"))
         {
-            StartCoroutine(hitAnim.HitAnim());
+            
             health -= collision.gameObject.GetComponent<bullet>().getDamage();
 
         }

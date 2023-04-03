@@ -19,6 +19,7 @@ TagManager:
   - floor
   - auto
   - pistol
+  - Wall
   layers:
   - Default
   - TransparentFX

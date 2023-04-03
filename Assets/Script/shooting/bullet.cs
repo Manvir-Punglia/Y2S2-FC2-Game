@@ -24,13 +24,10 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.tag == "Bullet")
+        if (this.tag == "Bullet" && banner != null)
         {
             damage = maxdamage + banner.getStats(0);
         }
-        
-        
-       
 
         destroyTimer += Time.deltaTime;
         if (destroyTimer >= 3)

@@ -44,18 +44,18 @@ public class Spawn : MonoBehaviour
             {
                 if (pos[i].GetComponent<SpawnType>().type == SpawnType.spawn.MELEE)
                 {
-                    enemyPrefab.GetComponent<Enemy_movement>().type = enemy.MELEE;
+                    enemyPrefab.GetComponentInChildren<Enemy_movement>().type = enemy.MELEE;
                 }
                 else if(pos[i].GetComponent<SpawnType>().type == SpawnType.spawn.RANGE)
                 {
-                    enemyPrefab.GetComponent<Enemy_movement>().type = enemy.RANGE;
+                    enemyPrefab.GetComponentInChildren<Enemy_movement>().type = enemy.RANGE;
                 }
                 GameObject enemies = Instantiate(enemyPrefab, pos[i].transform.position, Random.rotation);
                 enemyList.Add(enemies);
-                enemies.GetComponent<Enemy_movement>().player = player;
-                enemies.GetComponent<Enemy_movement>().banner = banner;
-                enemies.GetComponent<Enemy_movement>().Auto = Auto;
-                enemies.GetComponent<Enemy_movement>().Pistol = Pistol;
+                enemies.GetComponentInChildren<Enemy_movement>().player = player;
+                enemies.GetComponentInChildren<Enemy_movement>().banner = banner;
+                enemies.GetComponentInChildren<Enemy_movement>().Auto = Auto;
+                enemies.GetComponentInChildren<Enemy_movement>().Pistol = Pistol;
             }
             canSpawn = false;
             triggered = true;
