@@ -92,7 +92,6 @@ public class Enemy_movement : MonoBehaviour
 
                         agent.SetDestination(target.transform.position);
 
-                        //Debug.LogError("runs");
                     }
                     if (!hit)
                     {
@@ -165,12 +164,12 @@ public class Enemy_movement : MonoBehaviour
 
                     case "Frog":
                         //water
-                        //player.GetComponent<bannerManager>().increaseKillCount("Water");
+                        player.GetComponent<bannerManager>().increaseKillCount("Water");
                         break;
 
                     case "Bird":
                         //lightning
-                        //player.GetComponent<bannerManager>().increaseKillCount("Lightning");
+                        player.GetComponent<bannerManager>().increaseKillCount("Lightning");
                         break;
 
                     case "Rat":
@@ -234,7 +233,7 @@ public class Enemy_movement : MonoBehaviour
         }
         
         hit = false;
-        //target.GetComponent<PlayerManager>().TakeDamage();
+        target.GetComponent<PlayerManager>().TakeDamage();
         
         Debug.LogError("test");
     }

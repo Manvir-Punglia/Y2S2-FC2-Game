@@ -146,7 +146,7 @@ public class Rat_Boss : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
-            //melee animation;
+            animator.SetTrigger("ATK_Melee");
         }
     }
 }
