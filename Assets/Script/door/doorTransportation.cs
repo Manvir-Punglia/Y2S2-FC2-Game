@@ -18,7 +18,7 @@ public class doorTransportation : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
         Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
-        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
+        //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
     }
         
 
