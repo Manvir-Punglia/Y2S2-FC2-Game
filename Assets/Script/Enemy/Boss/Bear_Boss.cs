@@ -184,7 +184,7 @@ public class Bear_Boss : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Bullet"))
         {
-            if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2"))
             {
                 health -= collision.gameObject.GetComponent<bullet>().getDamage();
             }
@@ -196,6 +196,10 @@ public class Bear_Boss : MonoBehaviour
             target.gameObject.GetComponent<PlayerManager>().TakeDamage();
             time = 0;
         }
+    }
+    public void takeDamage(float dmg)
+    {
+        health -= dmg;
     }
     IEnumerator StompAttack(float delay)
     {

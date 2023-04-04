@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 using UnityEngine.Animations.Rigging;
 using static UnityEditor.PlayerSettings;
 using UnityEngine.SceneManagement;
@@ -35,6 +36,9 @@ public class Frog_Boss : MonoBehaviour
 
     public float bulletSpeed;
     public float shootTimer;
+    float canShootTimer;
+    bool canShoot;
+    public float rangeDelay;
 
     public GameObject dissolve;
 
@@ -44,8 +48,8 @@ public class Frog_Boss : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player");
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-        //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
-        //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
+        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         animator = GetComponent<Animator>();
         
         ground = true;
@@ -56,11 +60,23 @@ public class Frog_Boss : MonoBehaviour
     {
         if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro")))
         {
-            if (ground)
+            
+            StartCoroutine(Jump(jumpTime));
+
+            canShootTimer += Time.deltaTime;
+            if (canShoot)
             {
-                StartCoroutine(Jump(jumpTime));
+                animator.SetTrigger("ATK_Range");
+                StartCoroutine(Range(animator.GetCurrentAnimatorStateInfo(0).length * rangeDelay));
+
+                canShoot = false;
+
             }
-            StartCoroutine(Range(shootTimer));
+            if (canShootTimer >= shootTimer)
+            {
+                canShoot = true;
+                canShootTimer = 0;
+            }
             Die();
             if (!ground)
             {
@@ -74,7 +90,7 @@ public class Frog_Boss : MonoBehaviour
     {
         if (health <= 0)
         {
-            
+            _rb.velocity = Vector3.zero;
             if (!bountyObtain)
             {
                 banner.increaseKillCount("Water");
@@ -117,10 +133,6 @@ public class Frog_Boss : MonoBehaviour
             }
         }
     }
-    public void takeDamage(float dmg)
-    {
-        health -= dmg;
-    }
     void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "floor")
@@ -141,17 +153,32 @@ public class Frog_Boss : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
         }
+        if (collision.gameObject.tag == ("Bullet"))
+        {
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro"))
+            {
+                health -= collision.gameObject.GetComponent<bullet>().damage;
+            }
+        }
     }
     IEnumerator Jump(float delay)
     {
         yield return new WaitForSeconds(delay);
-        _rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+        if (ground)
+        {
+            _rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+        }
     }
     IEnumerator Range(float delay)
     {
         yield return new WaitForSeconds(delay);
+        animator.SetTrigger("ATK_Range");
+        if (bullet.GetComponent<VisualEffect>() != null)
+        {
+            Debug.LogWarning("shot");
+            bullet.GetComponent<VisualEffect>().Play();
+        }
         var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
         BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-        animator.SetTrigger("ATK_Range");
     }
 }

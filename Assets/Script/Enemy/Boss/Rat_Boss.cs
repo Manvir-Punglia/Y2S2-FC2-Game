@@ -139,14 +139,17 @@ public class Rat_Boss : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Bullet"))
         {
-            if (enemyList.Count > 0)
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2"))
             {
-                StartCoroutine(hitAnim.HitAnim());
-                health -= collision.gameObject.GetComponent<bullet>().getDamage();
-            }
-            else
-            {
-                Debug.Log("you need to take down the minions first!");
+                if (enemyList.Count > 0)
+                {
+                    StartCoroutine(hitAnim.HitAnim());
+                    health -= collision.gameObject.GetComponent<bullet>().getDamage();
+                }
+                else
+                {
+                    Debug.Log("you need to take down the minions first!");
+                }
             }
         }
         if (collision.gameObject.tag == ("Player"))

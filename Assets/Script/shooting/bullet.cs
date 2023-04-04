@@ -68,8 +68,6 @@ public class bullet : MonoBehaviour
         if(collision.gameObject.tag == "enemy")
         {
             collision.gameObject.GetComponent<Enemy_movement>().takeDamage(damage);
-            Destroy(this.gameObject);
-            //Debug.Log("HIT!");
         }
 
         Destroy(this.gameObject);

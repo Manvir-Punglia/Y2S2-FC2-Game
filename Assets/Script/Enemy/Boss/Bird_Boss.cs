@@ -44,10 +44,10 @@ public class Bird_Boss : MonoBehaviour
     public void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player");
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        //banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-        //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
-        //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
@@ -58,7 +58,7 @@ public class Bird_Boss : MonoBehaviour
         Die();
 
         transform.LookAt(target.transform.position);
-        if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro"))
         {
             if (!charge)
             {
@@ -88,7 +88,7 @@ public class Bird_Boss : MonoBehaviour
                 hitBox.enabled = false;
                 chargeBox.enabled = true;
                 chargeTime += Time.deltaTime;
-                rb.velocity += transform.forward * speed;
+                rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
                 if (chargeTime >= chargeTimer)
                 {
                     charge = false;
@@ -101,7 +101,7 @@ public class Bird_Boss : MonoBehaviour
             }
             if (wait >= waitTimer)
             {
-                //chargeAnimTriggered = true;
+                chargeAnimTriggered = true;
                 charge = true;
                 wait = 0;
             }
@@ -120,8 +120,8 @@ public class Bird_Boss : MonoBehaviour
         {
             if (!bountyObtain)
             {
-                //banner.increaseKillCount();
-                //player.GetComponent<PlayerManager>().AddMoney(bounty);
+                banner.increaseKillCount("Lightning");
+                player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetBool("Death", true);
                 dissolve.GetComponent<Dissolve>().StartAnim();
 
@@ -163,7 +163,7 @@ public class Bird_Boss : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Bullet"))
         {
-            if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro"))
             {
                 health -= collision.gameObject.GetComponent<bullet>().getDamage();
             }
