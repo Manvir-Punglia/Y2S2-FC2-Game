@@ -41,7 +41,6 @@ public class Bear_Boss : MonoBehaviour
     public int bounty;
     bool bountyObtain;
 
-    public bool canShoot;
     public float bulletSpeed;
     public float shootTimer;
     float canShootTimer;
@@ -54,6 +53,7 @@ public class Bear_Boss : MonoBehaviour
     public float rangeDelay;
     public float stompDelay;
 
+    float distance;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -69,23 +69,21 @@ public class Bear_Boss : MonoBehaviour
     }
     void Update()
     {
-        if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Before Intro State"))
         {
             transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
-            float distance = Vector3.Distance(transform.position, target.transform.position);
+            distance = Vector3.Distance(transform.position, target.transform.position);
             animator.SetFloat("Movement", 1);
             stompTimer += Time.deltaTime;
-            if (stompTimer >= stompTime)
+            canShootTimer += Time.deltaTime;
+
+            if (stompTimer >= stompTime && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 2)
             {
                 agent.isStopped = true;
                 animator.SetTrigger("ATK_AOE");
                 StartCoroutine(StompAttack(animator.GetCurrentAnimatorStateInfo(0).length * stompDelay));
-                if (distance <= stompDistance)
-                {
-                    //target.GetComponent<PlayerManager>().TakeDamage();
-                    //Debug.Log("stomp");
-                }
                 stompTimer = 0;
+
             }
             else
             {
@@ -93,31 +91,30 @@ public class Bear_Boss : MonoBehaviour
             }
             if (health > (maxHealth / 2))
             {
-                if (Vector3.Distance(transform.position, target.transform.position) > shootDistance)
+                agent.stoppingDistance = shootDistance;
+                if (distance > shootDistance)
                 {
-                    agent.SetDestination(target.transform.position);
+                    animator.SetFloat("Movement", 1);
                 }
                 else
                 {
-                    agent.SetDestination(-target.transform.position);
+                    animator.SetFloat("Movement", 0);
                 }
-                canShootTimer += Time.deltaTime;
-                if (canShoot)
+                if (canShootTimer >= shootTimer && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
                 {
                     animator.SetTrigger("ATK_Range");
                     StartCoroutine(RangeAttack(animator.GetCurrentAnimatorStateInfo(0).length * rangeDelay));
-
-                    canShoot = false;
+                    canShootTimer = 0;
 
                 }
-                if (canShootTimer >= shootTimer)
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("ATK_Range"))
                 {
-                    canShoot = true;
-                    canShootTimer = 0;
+                    agent.isStopped = false;
                 }
             }
             else if (health <= (maxHealth / 2))
             {
+                agent.stoppingDistance = 0;
                 if (hit)
                 {
                     agent.SetDestination(target.transform.position);
@@ -147,13 +144,13 @@ public class Bear_Boss : MonoBehaviour
                 banner.increaseKillCount("Fire");
                 player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetTrigger("Death");
-                //dissolve.GetComponent<Dissolve>().StartAnim();
+                dissolve.GetComponent<Dissolve>().StartAnim();
 
                 bountyObtain = true;
             }
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Death")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                //Destroy(dissolve.gameObject);
+                Destroy(dissolve.gameObject);
                 PlayerPrefs.SetInt("PistolloadedAmmo", 1);
                 PlayerPrefs.SetInt("PistolstoredAmmo", 60);
 
@@ -183,11 +180,6 @@ public class Bear_Boss : MonoBehaviour
             }
         }
     }
-
-    public void takeDamage(float dmg)
-    {
-        health -= dmg;
-    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == ("Bullet"))
@@ -210,7 +202,12 @@ public class Bear_Boss : MonoBehaviour
         yield return new WaitForSeconds(delay);
         if (crack != null)
         {
-            var stompCrack = Instantiate(crack, crackPos.position, Quaternion.identity);
+            Instantiate(crack, crackPos.position, Quaternion.identity);
+        }
+        if (distance <= stompDistance)
+        {
+            //target.GetComponent<PlayerManager>().TakeDamage();
+            //Debug.Log("stomp");
         }
     }
     IEnumerator RangeAttack(float delay)
@@ -223,11 +220,6 @@ public class Bear_Boss : MonoBehaviour
         }
         var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
         BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-        agent.isStopped = false;
-    }
-    public void SetHit(bool isHit)
-    {
-        hit = isHit;
     }
 }
 
