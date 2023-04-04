@@ -102382,10 +102382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d66551fde19e134e87e3acfd43b793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 3129466587221116582}
   Auto: {fileID: 5958041815224530020}
   Pistol: {fileID: 3129466586035042564}
-  banner: {fileID: 0}
+  banner: {fileID: 3129466587221116566}
 --- !u!4 &5348659839428566338
 Transform:
   m_ObjectHideFlags: 0

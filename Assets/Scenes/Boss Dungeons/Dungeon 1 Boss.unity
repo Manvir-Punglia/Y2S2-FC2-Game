@@ -25236,8 +25236,8 @@ MonoBehaviour:
   hubMusic: {fileID: 2703824892146710064}
   levelMusic: {fileID: 2703824890902165717}
   tookDamageSound: {fileID: 2703824890257559627}
-  Auto: {fileID: 0}
-  Pistol: {fileID: 0}
+  Auto: {fileID: 6648654836287293546}
+  Pistol: {fileID: 2703824891008075018}
 --- !u!54 &2703824892254698153
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28057,10 +28057,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d66551fde19e134e87e3acfd43b793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 2703824892254698152}
   Auto: {fileID: 6648654836287293546}
   Pistol: {fileID: 2703824891008075018}
-  banner: {fileID: 0}
+  banner: {fileID: 2703824892254698136}
 --- !u!114 &5173981224457700425
 MonoBehaviour:
   m_ObjectHideFlags: 0

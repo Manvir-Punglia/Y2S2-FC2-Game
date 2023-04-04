@@ -88135,10 +88135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d66551fde19e134e87e3acfd43b793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 3257535059137841332}
   Auto: {fileID: 6121580265982638710}
   Pistol: {fileID: 3257535060116289302}
-  banner: {fileID: 0}
+  banner: {fileID: 3257535059137841284}
 --- !u!4 &5845655706574991117
 Transform:
   m_ObjectHideFlags: 0

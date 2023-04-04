@@ -64,7 +64,7 @@ public class gun : MonoBehaviour
         if (currentAmmo == 0 || playerInput.actions["Reload"].triggered)
         {
 
-            if (canReload && storedAmmo != 0)
+            if (canReload && storedAmmo !=0 && currentAmmo != maxAmmo)
             {
                 StartCoroutine(reload(reloadTime));
                 StopCoroutine(reload(reloadTime));

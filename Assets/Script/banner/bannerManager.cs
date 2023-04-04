@@ -51,6 +51,11 @@ public class bannerManager : MonoBehaviour
             enemyCountW += 10;
             //Debug.Log(enemyCountW);
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            enemyCountF += 10;
+            //Debug.Log(enemyCountW);
+        }
     }
 
     public bool getHasAnyBanners()

@@ -174,10 +174,10 @@ public class Enemy_movement : MonoBehaviour
 
                     case "Rat":
                         //poison
-                        //player.GetComponent<bannerManager>().increaseKillCount("Poison");
+                        player.GetComponent<bannerManager>().increaseKillCount("Poison");
                         break;
                 }
-                //target.GetComponent<PlayerManager>().AddMoney(bounty);
+                target.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetTrigger("Death");
                 dissolve.GetComponent<Dissolve>().StartAnim();
 

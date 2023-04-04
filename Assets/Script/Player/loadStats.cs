@@ -30,8 +30,8 @@ public class loadStats : MonoBehaviour
             //float volume = PlayerPrefs.GetFloat("volume");
             //string player = PlayerPrefs.GetString("username");
 
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-            banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+            //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+            //banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
             
 
             player.SetHealth(PlayerPrefs.GetInt("health"));
@@ -69,10 +69,10 @@ public class loadStats : MonoBehaviour
             banner.hardSetKillCount("Poison", PlayerPrefs.GetInt("poisonKills"));
             banner.hardSetKillCount("Lightning", PlayerPrefs.GetInt("lightningKills"));
 
-            banner.setBannerAmount("Fire", PlayerPrefs.GetInt("fireBanner"));
-            banner.setBannerAmount("Water", PlayerPrefs.GetInt("waterBanner"));
-            banner.setBannerAmount("Poison", PlayerPrefs.GetInt("poisonBanner"));
-            banner.setBannerAmount("Lightning", PlayerPrefs.GetInt("lightningBanner"));
+            banner.setBannerAmount("Fire", PlayerPrefs.GetFloat("fireBanner"));
+            banner.setBannerAmount("Water", PlayerPrefs.GetFloat("waterBanner"));
+            banner.setBannerAmount("Poison", PlayerPrefs.GetFloat("poisonBanner"));
+            banner.setBannerAmount("Lightning", PlayerPrefs.GetFloat("lightningBanner"));
 
             Auto.hardSetCurrAmmo(PlayerPrefs.GetInt("AutoloadedAmmo"));
             Auto.hardSetUnloadedAmmo(PlayerPrefs.GetInt("AutostoredAmmo"));

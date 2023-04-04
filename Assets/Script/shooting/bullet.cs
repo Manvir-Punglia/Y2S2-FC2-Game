@@ -71,7 +71,8 @@ public class bullet : MonoBehaviour
             Destroy(this.gameObject);
             //Debug.Log("HIT!");
         }
-        
+
+        Destroy(this.gameObject);
     }
 
     public float getDamage()

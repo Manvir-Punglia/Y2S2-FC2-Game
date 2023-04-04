@@ -75167,10 +75167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d66551fde19e134e87e3acfd43b793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 3782856295982054042}
   Auto: {fileID: 5601996295410108504}
   Pistol: {fileID: 3782856296823932216}
-  banner: {fileID: 0}
+  banner: {fileID: 3782856295982054058}
 --- !u!114 &6212470673067508859
 MonoBehaviour:
   m_ObjectHideFlags: 0

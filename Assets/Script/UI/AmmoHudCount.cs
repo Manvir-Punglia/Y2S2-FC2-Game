@@ -20,7 +20,7 @@ public class AmmoHudCount : MonoBehaviour
     void Start()
     {
         //Gun = GameObject.FindGameObjectWithTag("gun").GetComponent<gun>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<swapWeapons>();
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<swapWeapons>();
 
         currentAmmo = CurrentAmmoObj.GetComponent<Text>();
         reserveAmmo = ReserveAmmoObj.GetComponent<Text>();

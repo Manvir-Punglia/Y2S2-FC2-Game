@@ -6801,10 +6801,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d66551fde19e134e87e3acfd43b793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 5407579195554333490}
   Auto: {fileID: 3659942782336397808}
   Pistol: {fileID: 5407579196716842128}
-  banner: {fileID: 0}
+  banner: {fileID: 5407579195554333442}
 --- !u!4 &3053383571899368726
 Transform:
   m_ObjectHideFlags: 0
@@ -12694,8 +12694,8 @@ MonoBehaviour:
   hubMusic: {fileID: 5407579195712688042}
   levelMusic: {fileID: 5407579196352954703}
   tookDamageSound: {fileID: 5407579195974183377}
-  Auto: {fileID: 0}
-  Pistol: {fileID: 0}
+  Auto: {fileID: 3659942782336397808}
+  Pistol: {fileID: 5407579196716842128}
 --- !u!54 &5407579195554333491
 Rigidbody:
   m_ObjectHideFlags: 0
