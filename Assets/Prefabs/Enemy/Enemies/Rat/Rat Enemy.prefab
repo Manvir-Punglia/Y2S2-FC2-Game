@@ -2012,7 +2012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0222ae9d23213c44693d741b91624e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5099728001248175888, guid: b370e84cd634ea14a91f591fa499dfe5, type: 3}
+  bullet: {fileID: 3614978531523126095, guid: 9a33d90817ac4144ca9946675dc0ace7, type: 3}
   shootingPos: {fileID: 3864403201500857729}
   player: {fileID: 0}
   banner: {fileID: 0}
