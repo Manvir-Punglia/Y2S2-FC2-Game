@@ -29,6 +29,7 @@ public class Enemy_movement : MonoBehaviour
     //public ParticleSystem fireballParticles;
 
     public bool hit;
+    public bool contacting;
 
     public float runDistance;
     public float shootingDistance;
@@ -79,13 +80,12 @@ public class Enemy_movement : MonoBehaviour
         agent.speed = speed;
         transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
         float distance = Vector3.Distance(transform.position, target.transform.position);
-        
         Die();
         switch (type)
         {
             case enemy.MELEE:
                 {
-                    animator.SetFloat("Movement", 1);
+                    animator.SetFloat("Movement", 0);
                     agent.stoppingDistance = stopDistance;
                     if (hit)
                     {
@@ -110,6 +110,14 @@ public class Enemy_movement : MonoBehaviour
 
                         }
                         
+                    }
+                    if (contacting)
+                    {
+                        agent.isStopped = true;
+                    }
+                    else
+                    {
+                        agent.isStopped = false;
                     }
 
                 }
@@ -196,13 +204,25 @@ public class Enemy_movement : MonoBehaviour
         
         if (collision.gameObject.tag == ("Player") && hit)
         {
+            hit = false;
             Debug.LogWarning("contact");
             animator.SetTrigger("ATK_Melee");
             StartCoroutine(MeleeAttack(animator.GetCurrentAnimatorStateInfo(0).length * MeleeDelay));
-            
-
         }
-        
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == ("Player"))
+        {
+            contacting = true;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == ("Player"))
+        {
+            contacting = false;
+        }
     }
     //public void ShootFireBall()
     //{
@@ -231,10 +251,10 @@ public class Enemy_movement : MonoBehaviour
         {
             melee.GetComponent<VisualEffect>().Play();
         }
-        
-        hit = false;
-        target.GetComponent<PlayerManager>().TakeDamage();
-        
+        if (contacting)
+        {
+            target.GetComponent<PlayerManager>().TakeDamage();
+        }
         Debug.LogError("test");
     }
 

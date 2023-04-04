@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 using UnityEngine.Animations.Rigging;
 using static UnityEditor.PlayerSettings;
 using UnityEngine.SceneManagement;
@@ -20,8 +21,6 @@ public class Bear_Boss : MonoBehaviour
     PlayerManager player;
     bannerManager banner;
     gun Auto, Pistol;
-
-    HitAnimation hitAnim;
 
     public ParticleSystem fireballParticles;
 
@@ -48,9 +47,17 @@ public class Bear_Boss : MonoBehaviour
     float canShootTimer;
 
     public GameObject dissolve;
+    public GameObject crack;
+    public Transform crackPos;
 
-    void Start()
+    public float meleeDelay;
+    public float rangeDelay;
+    public float stompDelay;
+
+    private void Awake()
     {
+        agent = GetComponent<NavMeshAgent>();
+        health = maxHealth;
         hit = false;
         animator = GetComponent<Animator>();
         animator.SetTrigger("Intro");
@@ -59,12 +66,6 @@ public class Bear_Boss : MonoBehaviour
         //banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
         //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
         //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
-        //hitAnim = FindObjectOfType<HitAnimation>().GetComponent<HitAnimation>();
-    }
-    private void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        health = maxHealth;
     }
     void Update()
     {
@@ -72,16 +73,17 @@ public class Bear_Boss : MonoBehaviour
         {
             transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
             float distance = Vector3.Distance(transform.position, target.transform.position);
-
+            animator.SetFloat("Movement", 1);
             stompTimer += Time.deltaTime;
             if (stompTimer >= stompTime)
             {
                 agent.isStopped = true;
                 animator.SetTrigger("ATK_AOE");
+                StartCoroutine(StompAttack(animator.GetCurrentAnimatorStateInfo(0).length * stompDelay));
                 if (distance <= stompDistance)
                 {
-                    target.GetComponent<PlayerManager>().TakeDamage();
-                    Debug.Log("stomp");
+                    //target.GetComponent<PlayerManager>().TakeDamage();
+                    //Debug.Log("stomp");
                 }
                 stompTimer = 0;
             }
@@ -100,11 +102,17 @@ public class Bear_Boss : MonoBehaviour
                     agent.SetDestination(-target.transform.position);
                 }
                 canShootTimer += Time.deltaTime;
+                if (canShoot)
+                {
+                    animator.SetTrigger("ATK_Range");
+                    StartCoroutine(RangeAttack(animator.GetCurrentAnimatorStateInfo(0).length * rangeDelay));
+
+                    canShoot = false;
+
+                }
                 if (canShootTimer >= shootTimer)
                 {
-                    var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-                    BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-                    animator.SetTrigger("ATK_Range");
+                    canShoot = true;
                     canShootTimer = 0;
                 }
             }
@@ -136,16 +144,16 @@ public class Bear_Boss : MonoBehaviour
             hit = false;
             if (!bountyObtain)
             {
-                //banner.increaseKillCount();
-                //player.GetComponent<PlayerManager>().AddMoney(bounty);
+                banner.increaseKillCount("Fire");
+                player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetTrigger("Death");
-                dissolve.GetComponent<Dissolve>().StartAnim();
+                //dissolve.GetComponent<Dissolve>().StartAnim();
 
                 bountyObtain = true;
             }
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Death")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                Destroy(dissolve.gameObject);
+                //Destroy(dissolve.gameObject);
                 PlayerPrefs.SetInt("PistolloadedAmmo", 1);
                 PlayerPrefs.SetInt("PistolstoredAmmo", 60);
 
@@ -184,8 +192,10 @@ public class Bear_Boss : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Bullet"))
         {
-            
-            health -= collision.gameObject.GetComponent<bullet>().getDamage();
+            if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                health -= collision.gameObject.GetComponent<bullet>().getDamage();
+            }
 
         }
         if (collision.gameObject == target)
@@ -194,6 +204,26 @@ public class Bear_Boss : MonoBehaviour
             target.gameObject.GetComponent<PlayerManager>().TakeDamage();
             time = 0;
         }
+    }
+    IEnumerator StompAttack(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (crack != null)
+        {
+            var stompCrack = Instantiate(crack, crackPos.position, Quaternion.identity);
+        }
+    }
+    IEnumerator RangeAttack(float delay)
+    {
+        agent.isStopped = true;
+        yield return new WaitForSeconds(delay);
+        if (bullet.GetComponent<VisualEffect>() != null)
+        {
+            bullet.GetComponent<VisualEffect>().Play();
+        }
+        var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
+        BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
+        agent.isStopped = false;
     }
     public void SetHit(bool isHit)
     {

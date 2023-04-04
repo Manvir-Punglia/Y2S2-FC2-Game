@@ -1976,8 +1976,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 4, z: 8}
-  m_Center: {x: 0, y: 2, z: 1}
+  m_Size: {x: 4, y: 10, z: 12}
+  m_Center: {x: 0, y: 5, z: 1}
 --- !u!195 &675722372037467175
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2020,6 +2020,7 @@ MonoBehaviour:
   Pistol: {fileID: 0}
   enemyName: Rat
   hit: 0
+  contacting: 0
   runDistance: 8
   shootingDistance: 15
   stopDistance: 0
