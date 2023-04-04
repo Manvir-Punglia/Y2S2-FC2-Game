@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 using UnityEngine.Animations.Rigging;
 using static UnityEditor.PlayerSettings;
 using static Enemy_movement;
@@ -34,20 +35,25 @@ public class Rat_Boss : MonoBehaviour
     public float summonTimer;
     float timer;
 
+    bool contacting;
+    public float meleeDelay;
+
     public GameObject dissolve;
+    public GameObject melee;
 
     public void Awake()
     {
+        canSummon = true;
         target = GameObject.FindGameObjectWithTag("Player");
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        //banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-        //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
-        //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
         animator = GetComponent<Animator>();
     }
     void Update()
     {
-        if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") || !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro 2"))
         {
             transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
             Die();
@@ -64,11 +70,11 @@ public class Rat_Boss : MonoBehaviour
                 {
                     if (summonPos[i].GetComponent<SpawnType>().type == SpawnType.spawn.MELEE)
                     {
-                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.MELEE;
+                        enemyPrefab.GetComponentInChildren<Enemy_movement>().type = enemy.MELEE;
                     }
                     else if (summonPos[i].GetComponent<SpawnType>().type == SpawnType.spawn.RANGE)
                     {
-                        enemyPrefab.GetComponent<Enemy_movement>().type = enemy.RANGE;
+                        enemyPrefab.GetComponentInChildren<Enemy_movement>().type = enemy.RANGE;
                     }
                     GameObject enemies = Instantiate(enemyPrefab, summonPos[i].transform.position, Random.rotation);
                     enemyList.Add(enemies);
@@ -143,10 +149,42 @@ public class Rat_Boss : MonoBehaviour
                 Debug.Log("you need to take down the minions first!");
             }
         }
-        if (collision.collider.CompareTag("Player"))
+        if (collision.gameObject.tag == ("Player"))
         {
-            collision.gameObject.GetComponent<PlayerManager>().TakeDamage();
             animator.SetTrigger("ATK_Melee");
+            StartCoroutine(MeleeAttack(animator.GetCurrentAnimatorStateInfo(0).length * meleeDelay));
         }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == ("Player"))
+        {
+            contacting = true;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == ("Player"))
+        {
+            contacting = false;
+        }
+    }
+    IEnumerator MeleeAttack(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (melee.GetComponent<ParticleSystem>() != null)
+        {
+            melee.GetComponent<ParticleSystem>().Play();
+        }
+        else
+        {
+            melee.GetComponent<VisualEffect>().Play();
+        }
+        if (contacting)
+        {
+            //target.GetComponent<PlayerManager>().TakeDamage();
+        }
+        Debug.LogError("test");
     }
 }

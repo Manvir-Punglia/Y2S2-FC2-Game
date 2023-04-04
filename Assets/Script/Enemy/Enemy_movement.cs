@@ -224,21 +224,6 @@ public class Enemy_movement : MonoBehaviour
             contacting = false;
         }
     }
-    //public void ShootFireBall()
-    //{
-
-    //    var BulletClone = Instantiate(bullet, shootingPos.transform.position, Quaternion.identity);
-    //    var FireballClone = Instantiate(fireballParticles, BulletClone.transform.position, Quaternion.identity);
-    //    FireballClone.transform.parent = BulletClone.transform;
-
-    //    BulletClone.GetComponent<Rigidbody>().AddForce((player.transform.position - shootingPos.transform.position).normalized * bulletSpeed);
-    //    fireballParticles.Play();
-
-    //}
-    public void SetHit(bool isHit)
-    {
-        hit = isHit;
-    }
 
     IEnumerator MeleeAttack(float delay)
     {
