@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PauseGame : MonoBehaviour
 {
+
     [SerializeField, Tooltip("Button to press to trigger pause")]
     private InputAction pauseButton;
     [SerializeField, Tooltip("Canvas for the pause menu that will be set action when paused.")]
@@ -34,6 +35,9 @@ public class PauseGame : MonoBehaviour
     private void Start()
     {
         pauseButton.performed += _ => Pause();
+        Time.timeScale = 1;
+
+        
         //playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
     }
