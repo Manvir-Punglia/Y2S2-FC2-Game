@@ -78,6 +78,10 @@ public class Rat_Boss : MonoBehaviour
                     }
                     GameObject enemies = Instantiate(enemyPrefab, summonPos[i].transform.position, Random.rotation);
                     enemyList.Add(enemies);
+                    enemies.GetComponentInChildren<Enemy_movement>().player = player;
+                    enemies.GetComponentInChildren<Enemy_movement>().banner = banner;
+                    enemies.GetComponentInChildren<Enemy_movement>().Auto = Auto;
+                    enemies.GetComponentInChildren<Enemy_movement>().Pistol = Pistol;
                 }
                 canSummon = false;
             }
@@ -96,8 +100,8 @@ public class Rat_Boss : MonoBehaviour
         {
             if (!bountyObtain)
             {
-                //banner.increaseKillCount();
-                //player.GetComponent<PlayerManager>().AddMoney(bounty);
+                banner.increaseKillCount("Poison");
+                player.GetComponent<PlayerManager>().AddMoney(bounty);
                 animator.SetBool("Death", true);
                 dissolve.GetComponent<Dissolve>().StartAnim();
 
@@ -143,7 +147,6 @@ public class Rat_Boss : MonoBehaviour
             {
                 if (enemyList.Count > 0)
                 {
-                    StartCoroutine(hitAnim.HitAnim());
                     health -= collision.gameObject.GetComponent<bullet>().getDamage();
                 }
                 else
