@@ -8,7 +8,6 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.VFX;
 using UnityEngine.Animations.Rigging;
-using static UnityEditor.PlayerSettings;
 using static Enemy_movement;
 using UnityEngine.SceneManagement;
 

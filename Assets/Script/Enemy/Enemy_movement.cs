@@ -9,7 +9,6 @@ using UnityEngine.UI;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.VFX;
 using static Enemy_movement;
-using static UnityEditor.PlayerSettings;
 
 public class Enemy_movement : MonoBehaviour
 {
