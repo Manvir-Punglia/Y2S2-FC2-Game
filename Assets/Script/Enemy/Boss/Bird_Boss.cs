@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using UnityEngine.SceneManagement;
 
 public class Bird_Boss : MonoBehaviour
@@ -40,6 +41,11 @@ public class Bird_Boss : MonoBehaviour
     bool chargeAnimTriggered;
 
     public GameObject dissolve;
+
+    public GameObject meleeAttack;
+
+    public float rangeDelay;
+    public float meleeDelay;
     // Start is called before the first frame update
     public void Awake()
     {
@@ -74,17 +80,19 @@ public class Bird_Boss : MonoBehaviour
                 }
                 if (canShootTimer >= shootTimer && timer < teleportT)
                 {
-                    Shooting();
+                    animator.SetTrigger("ATK_Range");
+                    StartCoroutine(RangeAttack(rangeDelay));
                     canShootTimer = 0;
                 }
             }
             else if (charge)
             {
-                //if (chargeAnimTriggered)
-                //{
-                //    animator.SetTrigger("ATK_Melee");
-                //    chargeAnimTriggered = false;
-                //}
+                if (chargeAnimTriggered)
+                {
+                    animator.SetTrigger("ATK_Melee");
+                    StartCoroutine(MeleeAttack(meleeDelay));
+                    chargeAnimTriggered = false;
+                }
                 hitBox.enabled = false;
                 chargeBox.enabled = true;
                 chargeTime += Time.deltaTime;
@@ -122,7 +130,7 @@ public class Bird_Boss : MonoBehaviour
             {
                 banner.increaseKillCount("Lightning");
                 player.GetComponent<PlayerManager>().AddMoney(bounty);
-                animator.SetBool("Death", true);
+                animator.SetTrigger("Death");
                 dissolve.GetComponent<Dissolve>().StartAnim();
 
                 bountyObtain = true;
@@ -176,5 +184,25 @@ public class Bird_Boss : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerManager>().TakeDamage();
         }
+    }
+    IEnumerator MeleeAttack(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (meleeAttack.GetComponent<VisualEffect>() != null)
+        {
+            meleeAttack.GetComponent<VisualEffect>().Play();
+        }
+
+    }
+    IEnumerator RangeAttack(float delay)
+    {
+        
+        yield return new WaitForSeconds(delay);
+        if (bullet.GetComponent<VisualEffect>() != null)
+        {
+            bullet.GetComponent<VisualEffect>().Play();
+        }
+        Shooting();
+
     }
 }

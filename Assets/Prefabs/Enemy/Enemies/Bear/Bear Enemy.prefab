@@ -2087,7 +2087,7 @@ MonoBehaviour:
   shootingDistance: 10
   stopDistance: 0
   hitTime: 3
-  MeleeDelay: 0.85
+  MeleeDelay: 0.6
   RangeDelay: 0.65
   melee: {fileID: 8001416998769789353}
   health: 6

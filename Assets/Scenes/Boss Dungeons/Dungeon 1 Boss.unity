@@ -16730,6 +16730,7 @@ Transform:
   m_Children:
   - {fileID: 2415312431368893073}
   - {fileID: 258546826760601408}
+  - {fileID: 7600875314107121142}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 150, z: 0}
@@ -22923,7 +22924,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2505828983857274836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 125, y: 0, z: -117.1}
+  m_LocalPosition: {x: 125, y: 4.1, z: -117.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25439,8 +25440,11 @@ MonoBehaviour:
       m_Action: Pause Button
       m_Flags: 0
     m_Flags: 0
-  canvas: {fileID: 4040551251954808219}
   menuCamLight: {fileID: 7169713083306761060}
+  pause: {fileID: 0}
+  banners: {fileID: 0}
+  options: {fileID: 0}
+  bannerDeathM: {fileID: 0}
   playerScript: {fileID: 8921072544988505589}
   paused: 0
 --- !u!1 &6269177590191540288
@@ -28012,6 +28016,8 @@ MonoBehaviour:
     m_Bits: 2048
   camera: {fileID: 2493969821957221578}
   E: {fileID: 6269177591877919244}
+  ShopkeepText: {fileID: 0}
+  DoorText: {fileID: 0}
 --- !u!114 &6269177590999175654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37503,13 +37509,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7600875314107121033}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.9659258, z: -0, w: 0.2588191}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 2415312431892771285}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!2083052967 &7600875314107121143
 VisualEffect:
@@ -39149,7 +39155,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8921072544988505597}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

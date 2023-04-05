@@ -92,6 +92,7 @@ public class PlayerManager : MonoBehaviour
         {
             Die();
             
+            
         }
     }
 

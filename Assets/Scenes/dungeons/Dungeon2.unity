@@ -66666,6 +66666,18 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 1003432840}
+    - target: {fileID: 6259867150269580805, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259867150269580805, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795837912998179364, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8795837912998179366, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.22
