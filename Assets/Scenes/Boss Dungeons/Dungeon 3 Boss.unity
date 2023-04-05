@@ -266,6 +266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterFallV8 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7165762212039981732, guid: 9346e8fb79157604d895e8d8a1b3e0f7, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7510375151100174366, guid: 9346e8fb79157604d895e8d8a1b3e0f7, type: 3}
       propertyPath: m_RootOrder
       value: 80
@@ -457,6 +461,10 @@ PrefabInstance:
     - target: {fileID: 7165762212039981732, guid: 9346e8fb79157604d895e8d8a1b3e0f7, type: 3}
       propertyPath: m_Name
       value: WaterFallV8 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165762212039981732, guid: 9346e8fb79157604d895e8d8a1b3e0f7, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7510375151100174366, guid: 9346e8fb79157604d895e8d8a1b3e0f7, type: 3}
       propertyPath: m_RootOrder
@@ -1179,6 +1187,10 @@ PrefabInstance:
       value: CircleV2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9c8df724afc9985469b93e0834d70f18, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9c8df724afc9985469b93e0834d70f18, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1250,6 +1262,10 @@ PrefabInstance:
     - target: {fileID: 7165762212039981732, guid: 9346e8fb79157604d895e8d8a1b3e0f7, type: 3}
       propertyPath: m_Name
       value: WaterFallV8 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165762212039981732, guid: 9346e8fb79157604d895e8d8a1b3e0f7, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7510375151100174366, guid: 9346e8fb79157604d895e8d8a1b3e0f7, type: 3}
       propertyPath: m_RootOrder
@@ -1560,6 +1576,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3198981804728719580, guid: cc49f6b8f6b69cd4cac371fdb2193548, type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.x
+      value: -1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3198981804728719580, guid: cc49f6b8f6b69cd4cac371fdb2193548, type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.y
+      value: 27.346106
+      objectReference: {fileID: 0}
+    - target: {fileID: 3198981804728719580, guid: cc49f6b8f6b69cd4cac371fdb2193548, type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.z
+      value: -9.705
+      objectReference: {fileID: 0}
     - target: {fileID: 3738081571185810891, guid: cc49f6b8f6b69cd4cac371fdb2193548, type: 3}
       propertyPath: bounty
       value: 300

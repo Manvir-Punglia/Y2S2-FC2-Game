@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   maxdamage: 1
-  destroyTime: 3
+  destroyTime: 10
   hit_prefab: {fileID: 0}
   banner: {fileID: 0}
 --- !u!1 &5960910761298362343

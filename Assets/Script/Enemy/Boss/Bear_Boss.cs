@@ -23,7 +23,8 @@ public class Bear_Boss : MonoBehaviour
 
     public ParticleSystem fireballParticles;
 
-    public bool hit;
+    bool hit;
+    public float animSpeed;
 
     public float shootDistance;
 
@@ -68,6 +69,7 @@ public class Bear_Boss : MonoBehaviour
     }
     void Update()
     {
+        animator.speed = animSpeed;
         Die();
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Before Intro State"))
         {
@@ -98,7 +100,7 @@ public class Bear_Boss : MonoBehaviour
             }
             if (health > (maxHealth / 2))
             {
-                agent.stoppingDistance = shootDistance;
+                agent.stoppingDistance = 0;
                 if (distance > shootDistance)
                 {
                     animator.SetFloat("Movement", 1);
