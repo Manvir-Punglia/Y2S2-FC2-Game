@@ -147,6 +147,7 @@ public class Bear_Boss : MonoBehaviour
         if (health <= 0)
         {
             hit = false;
+            agent.isStopped = true;
             if (!bountyObtain)
             {
                 banner.increaseKillCount("Fire");
