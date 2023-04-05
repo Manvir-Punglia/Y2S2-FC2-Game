@@ -13,8 +13,11 @@ public class PauseGame : MonoBehaviour
     private InputAction pauseButton;
     [SerializeField, Tooltip("Canvas for the pause menu that will be set action when paused.")]
     //private Canvas canvas;
-    private GameObject canvas;
     public GameObject menuCamLight;
+    public GameObject pause;
+    public GameObject banners;
+    public GameObject options;
+    public GameObject bannerDeathM;
     //public GameObject hubEventsystem;
 
     public PlayerController playerScript;
@@ -56,7 +59,7 @@ public class PauseGame : MonoBehaviour
             //Debug.Log("stoping time");
             Time.timeScale = 0;
             //canvas.enabled = true;
-            canvas.SetActive(true);
+            pause.SetActive(true);
             menuCamLight.SetActive(true);
             //hubEventsystem.SetActive(false);
             //Cursor.lockState = CursorLockMode.None;
@@ -68,9 +71,11 @@ public class PauseGame : MonoBehaviour
             //Debug.LogError(Time.timeScale);
             Time.timeScale = 1;
             //hubEventsystem.SetActive(true);
-
+            pause.SetActive(false);
+            banners.SetActive(false);
+            bannerDeathM.SetActive(false);
+            options.SetActive(false);
             //canvas.enabled = false;
-            canvas.SetActive(false);
             menuCamLight.SetActive(false);
             //Cursor.lockState = CursorLockMode.Locked;
             playerScript.setNoLooking(true);

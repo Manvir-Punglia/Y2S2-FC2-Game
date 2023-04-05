@@ -48,7 +48,7 @@ public class bannerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            enemyCountW += 10;
+            enemyCountL += 10;
             //Debug.Log(enemyCountW);
         }
         if (Input.GetKeyDown(KeyCode.F))

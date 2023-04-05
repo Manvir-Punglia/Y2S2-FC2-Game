@@ -10,8 +10,7 @@ public class TextTrigger : MonoBehaviour
 
     public Transform camera;
     PlayerInput playerInput;
-    public GameObject ShopkeepText;
-    public GameObject DoorText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,28 +20,28 @@ public class TextTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray look = new Ray(camera.position, camera.forward);
-        RaycastHit lookingAt;
+        //Ray look = new Ray(camera.position, camera.forward);
+        //RaycastHit lookingAt;
 
-        if (Physics.Raycast(look, out lookingAt, 30, shopkeeper))
-        {
-            ShopkeepText.SetActive(true);
-        }
-        else
-        {
-            //StartCoroutine(ShopTimer());
-            ShopkeepText.SetActive(false);
-        }
+        //if (Physics.Raycast(look, out lookingAt, 30, shopkeeper))
+        //{
+        //    ShopkeepText.SetActive(true);
+        //}
+        //else
+        //{
+        //    //StartCoroutine(ShopTimer());
+        //    ShopkeepText.SetActive(false);
+        //}
 
-        if (Physics.Raycast(look, out lookingAt, 25, Door))
-        {
-            DoorText.SetActive(true);
-        }
-        else
-        {
-            //StartCoroutine(DoorTimer());
-            DoorText.SetActive(false);
-        }
+        //if (Physics.Raycast(look, out lookingAt, 25, Door))
+        //{
+        //    DoorText.SetActive(true);
+        //}
+        //else
+        //{
+        //    //StartCoroutine(DoorTimer());
+        //    DoorText.SetActive(false);
+        //}
     }
 
     //private void TextTimeTest()

@@ -7075,7 +7075,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362060060}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 22.88, y: 14.78, z: 24.3}
@@ -9385,7 +9385,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728273996}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 46.6, y: 23.9, z: 55.2}
@@ -29815,7 +29815,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057645224}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 22.88, y: 14.78, z: 24.3}
@@ -40205,8 +40205,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to BannerFall Explore the Hub Using WASD to find out more about
-    our game
+  m_text: Welcome to BannerFall Explore the Hub Using WASD, to switch weapons use
+    1 and 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -68582,7 +68582,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005895286}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 22.88, y: 14.78, z: 24.3}
@@ -102341,8 +102341,11 @@ MonoBehaviour:
       m_Action: Pause Button
       m_Flags: 0
     m_Flags: 0
-  canvas: {fileID: 6237759167652463070}
   menuCamLight: {fileID: 1008211561206148897}
+  pause: {fileID: 6237759167652463070}
+  banners: {fileID: 6237759167156223491}
+  options: {fileID: 6237759166087085964}
+  bannerDeathM: {fileID: 4144020640273491724}
   playerScript: {fileID: 1534627050644410800}
   paused: 0
 --- !u!4 &4144020639292783739
@@ -105194,6 +105197,8 @@ MonoBehaviour:
     m_Bits: 2048
   camera: {fileID: 5484908582503176335}
   E: {fileID: 4144020638813836873}
+  ShopkeepText: {fileID: 247780523}
+  DoorText: {fileID: 307843160}
 --- !u!114 &4144020640090973603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118959,8 +118964,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   camera: {fileID: 5484908582503176335}
-  ShopkeepText: {fileID: 247780523}
-  DoorText: {fileID: 307843160}
 --- !u!1 &6664488283190223750
 GameObject:
   m_ObjectHideFlags: 0

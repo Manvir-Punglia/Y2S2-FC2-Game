@@ -12,6 +12,8 @@ public class doorInteraction : MonoBehaviour
     public Transform camera;
     PlayerInput playerInput;
     public GameObject E;
+    public GameObject ShopkeepText;
+    public GameObject DoorText;
 
     private void Start()
     {
@@ -24,7 +26,7 @@ public class doorInteraction : MonoBehaviour
         
         Ray look = new Ray(camera.position, camera.forward);
         RaycastHit lookingAt;
-        
+
         //if (Physics.Raycast(look, out lookingAt, 20, door))
         //{
         //    if (playerInput.actions["Interact"].triggered)
@@ -33,19 +35,46 @@ public class doorInteraction : MonoBehaviour
         //        lookingAt.collider.gameObject.GetComponent<door>().open();
         //    }
 
-            
+
         //}
-
-        if (Physics.Raycast(look, out lookingAt, 20, shopkeeper))
+        if (Physics.Raycast(look, out lookingAt, 30, shopkeeper))
         {
-            if (playerInput.actions["Interact"].triggered)
+            ShopkeepText.SetActive(true);
+            if (Physics.Raycast(look, out lookingAt, 20, shopkeeper))
             {
-                lookingAt.collider.gameObject.GetComponent<LittleMen>().talk();
-            }
+                if (playerInput.actions["Interact"].triggered)
+                {
+                    lookingAt.collider.gameObject.GetComponent<LittleMen>().talk();
+                }
 
-            
+
+            }
         }
-        if(Physics.Raycast(look, out lookingAt, 20, interactable))
+        else
+        {
+            //StartCoroutine(ShopTimer());
+            ShopkeepText.SetActive(false);
+        }
+        //if (Physics.Raycast(look, out lookingAt, 20, shopkeeper))
+        //{
+        //    if (playerInput.actions["Interact"].triggered)
+        //    {
+        //        lookingAt.collider.gameObject.GetComponent<LittleMen>().talk();
+        //    }
+
+
+        //}
+        if (Physics.Raycast(look, out lookingAt, 25, door))
+        {
+            DoorText.SetActive(true);
+        }
+        else
+        {
+            //StartCoroutine(DoorTimer());
+            DoorText.SetActive(false);
+        }
+
+        if (Physics.Raycast(look, out lookingAt, 20, interactable))
         {
             E.SetActive(true);
             if (playerInput.actions["Interact"].triggered)
