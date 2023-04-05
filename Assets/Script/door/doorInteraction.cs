@@ -25,16 +25,16 @@ public class doorInteraction : MonoBehaviour
         Ray look = new Ray(camera.position, camera.forward);
         RaycastHit lookingAt;
         
-        if (Physics.Raycast(look, out lookingAt, 20, door))
-        {
-            if (playerInput.actions["Interact"].triggered)
-            {
-                //Debug.LogError("Door");
-                lookingAt.collider.gameObject.GetComponent<door>().open();
-            }
+        //if (Physics.Raycast(look, out lookingAt, 20, door))
+        //{
+        //    if (playerInput.actions["Interact"].triggered)
+        //    {
+        //        //Debug.LogError("Door");
+        //        lookingAt.collider.gameObject.GetComponent<door>().open();
+        //    }
 
             
-        }
+        //}
 
         if (Physics.Raycast(look, out lookingAt, 20, shopkeeper))
         {
