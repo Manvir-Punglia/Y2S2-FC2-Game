@@ -74,9 +74,16 @@ public class Bear_Boss : MonoBehaviour
         {
             transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
             distance = Vector3.Distance(transform.position, target.transform.position);
-            animator.SetFloat("Movement", 1);
             stompTimer += Time.deltaTime;
             canShootTimer += Time.deltaTime;
+            if (distance > agent.stoppingDistance)
+            {
+                animator.SetFloat("Movement", 1);
+            }
+            else
+            {
+                animator.SetFloat("Movement", 0);
+            }
 
             if (stompTimer >= stompTime && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 2)
             {
