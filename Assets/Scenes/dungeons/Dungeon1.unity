@@ -761,15 +761,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 8001416997324145792, guid: ee70b09dbf017b149b765a135bf35249, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 833536248}
-  - {fileID: 151988630}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &568826926
 MonoBehaviour:
@@ -887,15 +884,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 8001416997324145792, guid: ee70b09dbf017b149b765a135bf35249, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 543466910}
-  - {fileID: 1713393613}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &649756828
 MonoBehaviour:
@@ -1327,6 +1321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965912626}
+  - component: {fileID: 965912627}
   m_Layer: 0
   m_Name: starter
   m_TagString: Untagged
@@ -1356,6 +1351,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &965912627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965912625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7861ad983ea744596f72f544f44e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner:
+  - {fileID: 1986049542}
+  - {fileID: 649756826}
+  - {fileID: 2024187837}
+  - {fileID: 568826922}
+  - {fileID: 1756274587}
+  - {fileID: 1361316213}
+  - {fileID: 1748448219}
+  wall:
+  - {fileID: 77500460}
+  - {fileID: 864889842}
+  - {fileID: 543466910}
+  - {fileID: 1713393613}
+  - {fileID: 1686581653}
+  - {fileID: 602512400}
+  - {fileID: 344411385}
+  - {fileID: 151988630}
+  - {fileID: 833536248}
+  - {fileID: 126229490}
+  - {fileID: 2111576367}
+  - {fileID: 2095615549}
+  - {fileID: 729005503}
+  - {fileID: 696939851}
+  - {fileID: 1692187938}
+  - {fileID: 899435030}
+  - {fileID: 1737273075}
 --- !u!1 &1124807870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,16 +1514,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 8001416997324145792, guid: ee70b09dbf017b149b765a135bf35249, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 126229490}
-  - {fileID: 2111576367}
-  - {fileID: 729005503}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &1361316218
 MonoBehaviour:
@@ -2166,15 +2195,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 8001416997324145792, guid: ee70b09dbf017b149b765a135bf35249, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 899435030}
-  - {fileID: 1737273075}
   canSpawn: 0
   triggered: 0
   wave: 1
   waveCount: 0
   key: 1
-  _out: 0
+  playing: 0
   checkVariable: dungeon1
 --- !u!114 &1748448223
 MonoBehaviour:
@@ -2275,16 +2301,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 8001416997324145792, guid: ee70b09dbf017b149b765a135bf35249, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 2095615549}
-  - {fileID: 696939851}
-  - {fileID: 1692187938}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &1756274592
 MonoBehaviour:
@@ -2478,15 +2500,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 8001416997324145792, guid: ee70b09dbf017b149b765a135bf35249, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 77500460}
-  - {fileID: 864889842}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &1986049544
 MonoBehaviour:
@@ -2660,16 +2679,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 8001416997324145792, guid: ee70b09dbf017b149b765a135bf35249, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 1686581653}
-  - {fileID: 602512400}
-  - {fileID: 344411385}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &2024187842
 MonoBehaviour:
@@ -65846,6 +65861,10 @@ PrefabInstance:
     - target: {fileID: 2529173488730376198, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2540962140292987672, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6950004
       objectReference: {fileID: 0}
     - target: {fileID: 5852918835976695924, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
       propertyPath: m_RootOrder

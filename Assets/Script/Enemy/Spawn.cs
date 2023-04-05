@@ -14,7 +14,6 @@ public class Spawn : MonoBehaviour
     [SerializeField] TMP_Text enemyRemaining;
     [SerializeField] GameObject enemyPrefab;
     public List<GameObject> enemyList;
-    public List<GameObject> wall;
     public bool canSpawn = false;
     public bool triggered = false;
     public int wave;
@@ -23,7 +22,7 @@ public class Spawn : MonoBehaviour
     PlayerManager player;
     bannerManager banner;
     gun Auto, Pistol;
-    public bool _out;
+    public bool playing;
     public string checkVariable;
     //public GameObject keyPrefab;
     //public GameObject keyPos;
@@ -77,17 +76,11 @@ public class Spawn : MonoBehaviour
         }
         if (enemyList.Count > 0)
         {
-            for (int i = 0; i < wall.Count; i++)
-            {
-                wall[i].SetActive(true);
-            }
+            playing = true;
         }
         else
         {
-            for (int i = 0; i < wall.Count; i++)
-            {
-                wall[i].SetActive(false);
-            }
+            playing = false;
         }
         if (key && triggered && enemyList.Count == 0 && waveCount == wave)
         {

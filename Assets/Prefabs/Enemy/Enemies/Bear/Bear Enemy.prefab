@@ -2082,13 +2082,15 @@ MonoBehaviour:
   Pistol: {fileID: 0}
   enemyName: Bear
   hit: 0
+  contacting: 0
   runDistance: 5
   shootingDistance: 10
+  stopDistance: 0
   hitTime: 3
   MeleeDelay: 0.85
   RangeDelay: 0.65
   melee: {fileID: 8001416998769789353}
-  health: 3
+  health: 6
   speed: 5
   bounty: 5
   canShoot: 0

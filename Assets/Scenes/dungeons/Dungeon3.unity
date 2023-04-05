@@ -5015,14 +5015,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 675722371409945382, guid: 3247a64dcffbc8d499bd4e8628b5e8f7, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 1104406226}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &268119732
 MonoBehaviour:
@@ -5577,14 +5575,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 675722371409945382, guid: 3247a64dcffbc8d499bd4e8628b5e8f7, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 1104406226}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &290030819
 MonoBehaviour:
@@ -58605,14 +58601,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 675722371409945382, guid: 3247a64dcffbc8d499bd4e8628b5e8f7, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 1104406226}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 1
-  _out: 0
+  playing: 0
   checkVariable: dungeon3
 --- !u!114 &1637434626
 MonoBehaviour:
@@ -62808,6 +62802,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1851884051}
+  - component: {fileID: 1851884052}
   m_Layer: 0
   m_Name: game_start
   m_TagString: Untagged
@@ -62837,6 +62832,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1851884052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851884050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7861ad983ea744596f72f544f44e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner:
+  - {fileID: 2080082289}
+  - {fileID: 1935764666}
+  - {fileID: 1637434624}
+  - {fileID: 268119730}
+  - {fileID: 1896438228}
+  - {fileID: 1895948752}
+  - {fileID: 290030817}
+  wall:
+  - {fileID: 1104406226}
 --- !u!65 &1852717440
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63748,14 +63765,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 675722371409945382, guid: 3247a64dcffbc8d499bd4e8628b5e8f7, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 1104406226}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &1895948754
 MonoBehaviour:
@@ -63855,14 +63870,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 675722371409945382, guid: 3247a64dcffbc8d499bd4e8628b5e8f7, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 1104406226}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &1896438230
 MonoBehaviour:
@@ -64775,14 +64788,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 675722371409945382, guid: 3247a64dcffbc8d499bd4e8628b5e8f7, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 1104406226}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &1935764668
 MonoBehaviour:
@@ -67662,14 +67673,12 @@ MonoBehaviour:
   enemyRemaining: {fileID: 0}
   enemyPrefab: {fileID: 675722371409945382, guid: 3247a64dcffbc8d499bd4e8628b5e8f7, type: 3}
   enemyList: []
-  wall:
-  - {fileID: 1104406226}
   canSpawn: 0
   triggered: 0
   wave: 0
   waveCount: 0
   key: 0
-  _out: 0
+  playing: 0
   checkVariable: 
 --- !u!114 &2080082291
 MonoBehaviour:

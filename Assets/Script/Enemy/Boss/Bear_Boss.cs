@@ -62,13 +62,14 @@ public class Bear_Boss : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetTrigger("Intro");
         target = GameObject.FindGameObjectWithTag("Player");
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        //banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
-        //Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
-        //Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        banner = GameObject.FindGameObjectWithTag("Player").GetComponent<bannerManager>();
+        Auto = GameObject.FindGameObjectWithTag("auto").GetComponent<gun>();
+        Pistol = GameObject.FindGameObjectWithTag("pistol").GetComponent<gun>();
     }
     void Update()
     {
+        Die();
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro1") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Intro2") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Before Intro State"))
         {
             transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
@@ -112,7 +113,7 @@ public class Bear_Boss : MonoBehaviour
                     agent.isStopped = false;
                 }
             }
-            else if (health <= (maxHealth / 2))
+            else if (health <= (maxHealth / 2) && health > 0)
             {
                 agent.stoppingDistance = 0;
                 if (hit)
@@ -132,7 +133,6 @@ public class Bear_Boss : MonoBehaviour
                 }
             }
         }
-        Die();
     }
     public void Die()
     {

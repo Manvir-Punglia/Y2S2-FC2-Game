@@ -108558,7 +108558,7 @@ MonoBehaviour:
   currentAmmo: {fileID: 0}
   reserveAmmo: {fileID: 0}
   curAmmo: 14
-  resAmmo: 123
+  resAmmo: 1000000000
   player: {fileID: 6614312564382161789}
 --- !u!4 &4612766523169518066
 Transform:

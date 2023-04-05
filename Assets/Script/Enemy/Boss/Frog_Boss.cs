@@ -93,9 +93,9 @@ public class Frog_Boss : MonoBehaviour
             _rb.velocity = Vector3.zero;
             if (!bountyObtain)
             {
+                animator.SetTrigger("Death");
                 banner.increaseKillCount("Water");
                 target.GetComponent<PlayerManager>().AddMoney(bounty);
-                animator.SetTrigger("Death");
                 dissolve.GetComponent<Dissolve>().StartAnim();
 
                 bountyObtain = true;
@@ -158,6 +158,7 @@ public class Frog_Boss : MonoBehaviour
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Intro"))
             {
                 health -= collision.gameObject.GetComponent<bullet>().damage;
+                _rb.velocity = Vector3.zero;
             }
         }
     }

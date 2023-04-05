@@ -552,14 +552,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 2215956712502486920, guid: a100736fd96541248ae32e839866ca5c, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215956712502486920, guid: a100736fd96541248ae32e839866ca5c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215956712502486921, guid: a100736fd96541248ae32e839866ca5c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2215956712502486922, guid: a100736fd96541248ae32e839866ca5c, type: 3}
       propertyPath: speed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2215956712502486922, guid: a100736fd96541248ae32e839866ca5c, type: 3}
+      propertyPath: bounty
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215956712502486922, guid: a100736fd96541248ae32e839866ca5c, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 5099728001248175888, guid: 47bce25783ef50b45b6c6066371a5b6c, type: 3}
+      objectReference: {fileID: 3042449137676944960, guid: 334110856010881429d12a399fd584c3, type: 3}
+    - target: {fileID: 2215956712502486922, guid: a100736fd96541248ae32e839866ca5c, type: 3}
+      propertyPath: health
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215956712502486922, guid: a100736fd96541248ae32e839866ca5c, type: 3}
+      propertyPath: bulletSpeed
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215956712502486922, guid: a100736fd96541248ae32e839866ca5c, type: 3}
+      propertyPath: shootingPos
+      value: 
+      objectReference: {fileID: 1277448027}
     - target: {fileID: 2215956712502486922, guid: a100736fd96541248ae32e839866ca5c, type: 3}
       propertyPath: pos.Array.size
       value: 13
@@ -712,6 +740,11 @@ Transform:
   m_Father: {fileID: 228247079}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1277448027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 140907789690615502, guid: a100736fd96541248ae32e839866ca5c, type: 3}
+  m_PrefabInstance: {fileID: 646198058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1471739222
 GameObject:
   m_ObjectHideFlags: 0

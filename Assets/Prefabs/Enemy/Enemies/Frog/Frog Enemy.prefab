@@ -770,7 +770,7 @@ MonoBehaviour:
   MeleeDelay: 0.7
   RangeDelay: 0.45
   melee: {fileID: 193966307640485709}
-  health: 5
+  health: 6
   speed: 4
   bounty: 15
   canShoot: 0

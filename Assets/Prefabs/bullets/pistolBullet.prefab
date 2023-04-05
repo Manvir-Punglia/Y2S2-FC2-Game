@@ -127,5 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efec6d1d12c063040b13b92308090e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet_prefab: {fileID: 6937317632471841382}
   damage: 1
+  maxdamage: 1
+  destroyTime: 3
+  hit_prefab: {fileID: 0}
+  banner: {fileID: 0}

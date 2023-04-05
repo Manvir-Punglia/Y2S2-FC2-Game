@@ -9,6 +9,7 @@ public class bullet : MonoBehaviour
     public float maxdamage = 1;
 
     float destroyTimer = 0f;
+    public float destroyTime = 3f;
     public GameObject hit_prefab;
     public bannerManager banner;
 
@@ -30,7 +31,7 @@ public class bullet : MonoBehaviour
         }
 
         destroyTimer += Time.deltaTime;
-        if (destroyTimer >= 3)
+        if (destroyTimer >= destroyTime)
         {
             DestroyImmediate(this.gameObject, true);
             //Destroy(bullet_prefab);
