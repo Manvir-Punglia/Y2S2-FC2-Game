@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
 
     public Scene Dungeon1;
 
+    PlayerController playerCont;
+
     int _health = 3;
     int _maxHealth = 3;
     public int _money = 0;
@@ -51,7 +53,7 @@ public class PlayerManager : MonoBehaviour
     {
         newMoneyDisplay.gameObject.SetActive(false);
         banner = GetComponent<bannerManager>();
-        
+        playerCont = GetComponent<PlayerController>();
         
     }
 
@@ -63,17 +65,28 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            GetComponent<PlayerController>().setNoLooking(false);
-            SceneManager.LoadScene("Hub");
+            PlayerPrefs.SetInt("BearBossDone", 1);
+            PlayerPrefs.SetInt("FrogBossDone", 1);
+            PlayerPrefs.SetInt("RatBossDone", 1);
+            PlayerPrefs.SetInt("BirdBossDone", 1);
         }
         DisplayMoney();
 
+
+
+        if(PlayerPrefs.GetInt("BearBossDone") == 1 && PlayerPrefs.GetInt("FrogBossDone") == 1 )
+        {
+            playerCont.setNoLooking(false);
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Win Screen");
+            
+        }
         CheckIfDead();
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            _health--;
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    _health--;
+        //}
         
     }
 

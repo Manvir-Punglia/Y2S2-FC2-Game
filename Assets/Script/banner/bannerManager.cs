@@ -46,16 +46,16 @@ public class bannerManager : MonoBehaviour
         poisonBanner.bannerUpgrade(enemyCountP, "Poison");
         lightningBanner.bannerUpgrade(enemyCountL, "Lightning");
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            enemyCountL += 10;
-            //Debug.Log(enemyCountW);
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            enemyCountF += 10;
-            //Debug.Log(enemyCountW);
-        }
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    enemyCountL += 10;
+        //    //Debug.Log(enemyCountW);
+        //}
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    enemyCountF += 10;
+        //    //Debug.Log(enemyCountW);
+        //}
     }
 
     public bool getHasAnyBanners()
