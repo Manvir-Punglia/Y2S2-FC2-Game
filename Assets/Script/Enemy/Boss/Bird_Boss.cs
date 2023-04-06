@@ -11,7 +11,6 @@ public class Bird_Boss : MonoBehaviour
     public GameObject[] pos;
     Animator animator;
     Rigidbody rb;
-    public Collider hitBox;
     public Collider chargeBox;
 
     PlayerManager player;
@@ -27,7 +26,6 @@ public class Bird_Boss : MonoBehaviour
     public int bounty;
     bool bountyObtain;
 
-    bool canShoot;
     public float bulletSpeed;
     public float shootTimer;
     float canShootTimer;
@@ -37,6 +35,8 @@ public class Bird_Boss : MonoBehaviour
     float chargeTime;
     public float waitTimer;
     float wait;
+    public float AOETimer;
+    float AOE;
     public float speed;
     bool chargeAnimTriggered;
 
@@ -68,11 +68,11 @@ public class Bird_Boss : MonoBehaviour
         {
             if (!charge)
             {
-                hitBox.enabled = true;
                 chargeBox.enabled = false;
                 rb.velocity = Vector3.zero;
                 timer += Time.deltaTime;
                 canShootTimer += Time.deltaTime;
+                AOE += Time.deltaTime;
                 if (timer >= teleportT)
                 {
                     timer = 0;
@@ -84,6 +84,16 @@ public class Bird_Boss : MonoBehaviour
                     StartCoroutine(RangeAttack(rangeDelay));
                     canShootTimer = 0;
                 }
+                if (AOE >= AOETimer)
+                {
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        Vector3 AOEAttack = pos[Random.Range(0, pos.Length)].transform.position;
+                        var BulletClone = Instantiate(bullet, pos[i].transform.position, Quaternion.identity);
+                        BulletClone.GetComponent<Rigidbody>().AddForce((target.transform.position - pos[i].transform.position).normalized * bulletSpeed);
+                    }
+                    AOE = 0;
+                }
             }
             else if (charge)
             {
@@ -93,7 +103,6 @@ public class Bird_Boss : MonoBehaviour
                     StartCoroutine(MeleeAttack(meleeDelay));
                     chargeAnimTriggered = false;
                 }
-                hitBox.enabled = false;
                 chargeBox.enabled = true;
                 chargeTime += Time.deltaTime;
                 rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);

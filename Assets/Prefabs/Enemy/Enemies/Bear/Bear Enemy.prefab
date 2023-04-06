@@ -2080,6 +2080,7 @@ MonoBehaviour:
   banner: {fileID: 0}
   Auto: {fileID: 0}
   Pistol: {fileID: 0}
+  animSpeed: 2
   enemyName: Bear
   hit: 0
   contacting: 0
@@ -2091,7 +2092,7 @@ MonoBehaviour:
   RangeDelay: 0.65
   melee: {fileID: 8001416998769789353}
   health: 6
-  speed: 5
+  speed: 7
   bounty: 5
   canShoot: 0
   bulletSpeed: 1000

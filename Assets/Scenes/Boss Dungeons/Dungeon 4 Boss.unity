@@ -2441,7 +2441,6 @@ MonoBehaviour:
   - {fileID: 1644753956}
   - {fileID: 600805150}
   - {fileID: 1843512339}
-  hitBox: {fileID: 2215956711873598627}
   chargeBox: {fileID: 2215956711873598626}
   teleportT: 3
   health: 1
@@ -2450,6 +2449,7 @@ MonoBehaviour:
   shootTimer: 2
   chargeTimer: 5
   waitTimer: 10
+  AOETimer: 3
   speed: 2
   dissolve: {fileID: 2215956712724465424}
   meleeAttack: {fileID: 7705116984715961716, guid: 1d43f74f94fe3a041960167c68498183, type: 3}

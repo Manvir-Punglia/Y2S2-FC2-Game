@@ -10709,6 +10709,7 @@ MonoBehaviour:
   banner: {fileID: 0}
   Auto: {fileID: 0}
   Pistol: {fileID: 0}
+  animSpeed: 1
   enemyName: Bird
   hit: 0
   contacting: 0
@@ -10719,7 +10720,7 @@ MonoBehaviour:
   MeleeDelay: 0.45
   RangeDelay: 0.6
   melee: {fileID: 1300903139757246942}
-  health: 12
+  health: 10
   speed: 10
   bounty: 60
   canShoot: 0

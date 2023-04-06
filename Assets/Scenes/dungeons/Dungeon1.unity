@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!1 &126229490
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568826922}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -69.9, y: -4, z: -47.63}
+  m_LocalPosition: {x: -69.9, y: -4, z: -50.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -818,7 +818,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 12, y: 16, z: 1}
-  m_Center: {x: 23, y: 5, z: -22}
+  m_Center: {x: 20, y: 5, z: -20}
 --- !u!114 &568826925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,7 +840,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -963,7 +962,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -1328,7 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!1 &864889842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,7 +1743,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -1965,7 +1962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!1 &1657152957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,8 +2498,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 1
-  waveCount: 0
+  wave: 2
   key: 1
   playing: 0
   checkVariable: dungeon1
@@ -2573,7 +2569,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 12, y: 16, z: 1}
-  m_Center: {x: 10, y: 5, z: -22}
+  m_Center: {x: 10, y: 5, z: -20}
 --- !u!65 &1756274590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2586,7 +2582,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 12, y: 16, z: 1}
-  m_Center: {x: 23, y: 5, z: 22}
+  m_Center: {x: 22, y: 5, z: 20}
 --- !u!114 &1756274591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,7 +2604,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -2645,7 +2640,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.1589661, y: 16.153122, z: 10.611239}
-  m_Center: {x: 0.07948303, y: 4.473734, z: -0.053051233}
+  m_Center: {x: 2, y: 4, z: 0}
 --- !u!1 &1773847875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,7 +2952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!1 &1986049542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,7 +2993,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -3093,7 +3087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!1 &2024187837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,7 +3171,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -3349,7 +3342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!1 &2111576367
 GameObject:
   m_ObjectHideFlags: 0
@@ -41448,8 +41441,11 @@ MonoBehaviour:
       m_Action: Pause Button
       m_Flags: 0
     m_Flags: 0
-  canvas: {fileID: 6587952595745300183}
   menuCamLight: {fileID: 1895575592}
+  pause: {fileID: 0}
+  banners: {fileID: 0}
+  options: {fileID: 0}
+  bannerDeathM: {fileID: 0}
   playerScript: {fileID: 1779471854319423161}
   paused: 0
 --- !u!114 &3782856295242429617
@@ -44608,6 +44604,8 @@ MonoBehaviour:
     m_Bits: 2048
   camera: {fileID: 4747827932197128070}
   E: {fileID: 3782856296726563136}
+  ShopkeepText: {fileID: 0}
+  DoorText: {fileID: 0}
 --- !u!114 &3782856295982054042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60215,7 +60213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4747827932197128065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.69500035, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6950004, z: 0}
   m_LocalScale: {x: 0.30674848, y: 0.30674848, z: 0.30674848}
   m_ConstrainProportionsScale: 0
   m_Children:

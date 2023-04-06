@@ -2513,7 +2513,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -3517,7 +3516,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -4305,8 +4303,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 2
   key: 1
   playing: 0
   checkVariable: dungeon2
@@ -8434,7 +8431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &350111482
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11417,7 +11414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &479924475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12916,8 +12913,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 1
   key: 0
   playing: 0
   checkVariable: 
@@ -20450,7 +20446,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -21433,8 +21428,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 1
   key: 0
   playing: 0
   checkVariable: 
@@ -60113,7 +60107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &1079872573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60496,7 +60490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &1095743095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63531,7 +63525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &1223289306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64317,7 +64311,6 @@ MonoBehaviour:
   canSpawn: 0
   triggered: 0
   wave: 0
-  waveCount: 0
   key: 0
   playing: 0
   checkVariable: 
@@ -68275,7 +68268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &1411816102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77152,8 +77145,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 1
   key: 0
   playing: 0
   checkVariable: 
@@ -83910,7 +83902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &2091460320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84332,7 +84324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &2105394372
 BoxCollider:
   m_ObjectHideFlags: 0

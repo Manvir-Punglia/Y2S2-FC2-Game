@@ -760,6 +760,7 @@ MonoBehaviour:
   banner: {fileID: 0}
   Auto: {fileID: 0}
   Pistol: {fileID: 0}
+  animSpeed: 1
   enemyName: 
   hit: 0
   contacting: 0

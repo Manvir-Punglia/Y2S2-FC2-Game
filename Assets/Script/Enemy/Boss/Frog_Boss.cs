@@ -79,7 +79,6 @@ public class Frog_Boss : MonoBehaviour
             Die();
             if (!ground)
             {
-                animator.SetTrigger("ATK_AOE");
                 transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
                 _rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
             }
@@ -137,6 +136,7 @@ public class Frog_Boss : MonoBehaviour
         if (collision.gameObject.tag == "floor")
         {
             ground = true;
+            _rb.velocity = Vector3.zero;
         }
     }
     void OnCollisionExit(Collision collision)
@@ -163,6 +163,7 @@ public class Frog_Boss : MonoBehaviour
     }
     IEnumerator Jump(float delay)
     {
+        animator.SetTrigger("ATK_AOE");
         yield return new WaitForSeconds(delay);
         if (ground)
         {

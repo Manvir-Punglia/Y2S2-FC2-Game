@@ -21,7 +21,7 @@ public class Enemy_movement : MonoBehaviour
     public bannerManager banner;
     public gun Auto, Pistol;
 
-    HitAnimation hitAnim;
+    public float animSpeed;
 
     public string enemyName;
 
@@ -75,6 +75,7 @@ public class Enemy_movement : MonoBehaviour
     }
     private void Update()
     {
+        animator.speed = animSpeed;
         transform.localEulerAngles = Vector3.zero;
         agent.speed = speed;
         transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
@@ -84,7 +85,7 @@ public class Enemy_movement : MonoBehaviour
         {
             case enemy.MELEE:
                 {
-                    animator.SetFloat("Movement", 0);
+                    animator.SetFloat("Movement", 1);
                     agent.stoppingDistance = stopDistance;
                     if (hit)
                     {
@@ -159,6 +160,7 @@ public class Enemy_movement : MonoBehaviour
 
         if (health <= 0)
         {
+            hit = false;
             agent.isStopped = true;
             if (!bountyObtain)
             {

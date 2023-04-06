@@ -2978,7 +2978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &170106350
 Transform:
   m_ObjectHideFlags: 0
@@ -5022,8 +5022,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 1
   key: 0
   playing: 0
   checkVariable: 
@@ -5582,8 +5581,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 1
   key: 0
   playing: 0
   checkVariable: 
@@ -6976,7 +6974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &359754403
 Transform:
   m_ObjectHideFlags: 0
@@ -45268,7 +45266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &948809072
 Transform:
   m_ObjectHideFlags: 0
@@ -45848,7 +45846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &972583513
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47503,7 +47501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &1068847202
 Transform:
   m_ObjectHideFlags: 0
@@ -51601,7 +51599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!65 &1273629629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58402,8 +58400,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 2
   key: 1
   playing: 0
   checkVariable: dungeon3
@@ -63566,8 +63563,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 1
   key: 0
   playing: 0
   checkVariable: 
@@ -63671,8 +63667,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 1
   key: 0
   playing: 0
   checkVariable: 
@@ -64589,8 +64584,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 1
   key: 0
   playing: 0
   checkVariable: 
@@ -65160,7 +65154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2540962140292987672, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6950016
+      value: 0.69500154
       objectReference: {fileID: 0}
     - target: {fileID: 2540962140292987672, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
       propertyPath: m_LocalPosition.z
@@ -67555,8 +67549,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
-  waveCount: 0
+  wave: 1
   key: 0
   playing: 0
   checkVariable: 

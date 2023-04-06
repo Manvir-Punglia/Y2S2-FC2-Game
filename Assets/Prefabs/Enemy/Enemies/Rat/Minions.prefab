@@ -2018,6 +2018,7 @@ MonoBehaviour:
   banner: {fileID: 0}
   Auto: {fileID: 0}
   Pistol: {fileID: 0}
+  animSpeed: 1.5
   enemyName: Rat
   hit: 0
   contacting: 0

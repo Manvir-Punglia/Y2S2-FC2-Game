@@ -4733,7 +4733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &223809414
 Transform:
   m_ObjectHideFlags: 0
@@ -6852,7 +6852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &330811779
 Transform:
   m_ObjectHideFlags: 0
@@ -8470,7 +8470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &409736886
 Transform:
   m_ObjectHideFlags: 0
@@ -9035,7 +9035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &432263988
 Transform:
   m_ObjectHideFlags: 0
@@ -27140,7 +27140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &1295349066
 Transform:
   m_ObjectHideFlags: 0
@@ -28173,7 +28173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &1335580334
 Transform:
   m_ObjectHideFlags: 0
@@ -35460,7 +35460,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
+  wave: 2
   waveCount: 0
   key: 0
   playing: 0
@@ -35732,7 +35732,7 @@ MonoBehaviour:
   enemyList: []
   canSpawn: 0
   triggered: 0
-  wave: 0
+  wave: 2
   waveCount: 0
   key: 0
   playing: 0
@@ -80967,7 +80967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8940dc782adcbe34d8ebe5c013e55dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!4 &1977911141
 Transform:
   m_ObjectHideFlags: 0

@@ -863,39 +863,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8551654070373378105, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: -7271449666460269675, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: -6763858364670572316, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: -4133703932355585839, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: -1891630423312683343, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: -1599826595754709761, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: -516098083770646512, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 26844662620191305, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 281855664364225751, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_Name
@@ -903,35 +903,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1835210009659533079, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3455292422214010178, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5472581396878834993, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6248574976466802116, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7045030354117346258, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7103153012782714218, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7975042476016782316, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8416272007918961125, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
@@ -939,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8578709097331664583, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
       propertyPath: m_TagString
-      value: floor
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077c75013770bca44afdacf2d097fd6f, type: 3}
@@ -4631,12 +4631,12 @@ MonoBehaviour:
   bullet: {fileID: 421999337351832394, guid: dfb04f5d33114514f99d401c0971f5b9, type: 3}
   shootingPos: {fileID: 2503573358230188710}
   jumpTime: 3
-  jumpHeight: 2
-  speed: 2
+  jumpHeight: 2.5
+  speed: 3
   health: 20
   bounty: 600
-  bulletSpeed: 1000
-  shootTimer: 4
+  bulletSpeed: 1500
+  shootTimer: 2
   rangeDelay: 0
   dissolve: {fileID: 2912388831983284248}
 --- !u!65 &8871654919689097147

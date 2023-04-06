@@ -17,7 +17,7 @@ public class Spawn : MonoBehaviour
     public bool canSpawn = false;
     public bool triggered = false;
     public int wave;
-    public int waveCount = 0;
+    int waveCount = 0;
     public bool key;
     PlayerManager player;
     bannerManager banner;
