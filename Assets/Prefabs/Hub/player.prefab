@@ -2880,7 +2880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2540962140292987679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.69500035, z: 0}
+  m_LocalPosition: {x: -64.92944, y: 0.5157985, z: 55.358894}
   m_LocalScale: {x: 0.30674848, y: 0.30674848, z: 0.30674848}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19217,8 +19217,11 @@ MonoBehaviour:
       m_Action: Pause Button
       m_Flags: 0
     m_Flags: 0
-  canvas: {fileID: 4165258153214763593}
   menuCamLight: {fileID: 7106930640902458550}
+  pause: {fileID: 4165258153214763593}
+  banners: {fileID: 4165258153593576852}
+  options: {fileID: 4165258152532007963}
+  bannerDeathM: {fileID: 6259867150238188699}
   playerScript: {fileID: 8795837912998179367}
   paused: 0
 --- !u!114 &6259867151068831727
@@ -22726,6 +22729,8 @@ MonoBehaviour:
     m_Bits: 2048
   camera: {fileID: 2540962140292987672}
   E: {fileID: 6259867149516682718}
+  ShopkeepText: {fileID: 0}
+  DoorText: {fileID: 0}
 --- !u!114 &3789711924066793707
 MonoBehaviour:
   m_ObjectHideFlags: 0

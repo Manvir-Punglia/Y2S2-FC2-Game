@@ -66667,6 +66667,22 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6259867151068831725, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 1349510014}
+    - target: {fileID: 6259867151068831725, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+      propertyPath: banners
+      value: 
+      objectReference: {fileID: 1349510019}
+    - target: {fileID: 6259867151068831725, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+      propertyPath: options
+      value: 
+      objectReference: {fileID: 1349510018}
+    - target: {fileID: 6259867151068831725, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+      propertyPath: bannerDeathM
+      value: 
+      objectReference: {fileID: 1349510020}
     - target: {fileID: 8795837912998179364, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -66734,6 +66750,21 @@ MonoBehaviour:
 --- !u!1 &1349510017 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7106930640902458550, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+  m_PrefabInstance: {fileID: 1349510013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1349510018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4165258152532007963, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+  m_PrefabInstance: {fileID: 1349510013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1349510019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4165258153593576852, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
+  m_PrefabInstance: {fileID: 1349510013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1349510020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6259867150238188699, guid: b914ba43553f2c147b29752c9bd48591, type: 3}
   m_PrefabInstance: {fileID: 1349510013}
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &1349677871

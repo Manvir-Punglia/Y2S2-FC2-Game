@@ -16839,7 +16839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2493969821957221581}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6950004, z: -0.0000011701526}
+  m_LocalPosition: {x: 0, y: 0.69500035, z: -0.0000011701525}
   m_LocalScale: {x: 0.30674848, y: 0.30674848, z: 0.30674848}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25441,10 +25441,10 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   menuCamLight: {fileID: 7169713083306761060}
-  pause: {fileID: 0}
-  banners: {fileID: 0}
-  options: {fileID: 0}
-  bannerDeathM: {fileID: 0}
+  pause: {fileID: 4040551251954808219}
+  banners: {fileID: 4040551251510970950}
+  options: {fileID: 4040551252580666313}
+  bannerDeathM: {fileID: 6269177591223636809}
   playerScript: {fileID: 8921072544988505589}
   paused: 0
 --- !u!1 &6269177590191540288

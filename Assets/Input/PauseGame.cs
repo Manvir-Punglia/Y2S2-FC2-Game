@@ -40,7 +40,13 @@ public class PauseGame : MonoBehaviour
         pauseButton.performed += _ => Pause();
         Time.timeScale = 1;
 
-        
+        //menuCamLight = GameObject.FindGameObjectWithTag("menu cam lgith");
+        //pause = GameObject.FindGameObjectWithTag("Pause Menu");
+        //banners = GameObject.FindGameObjectWithTag("Banner Menu");
+        //options = GameObject.FindGameObjectWithTag("Options Menu");
+        //bannerDeathM = GameObject.FindGameObjectWithTag("Banner Death Menu");
+
+
         //playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
     }
