@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class doorInteraction : MonoBehaviour
 {
@@ -37,58 +38,62 @@ public class doorInteraction : MonoBehaviour
 
 
         //}
-        if (Physics.Raycast(look, out lookingAt, 30, shopkeeper))
+        if (SceneManager.GetActiveScene().name == "Hub")
         {
-            ShopkeepText.SetActive(true);
-            if (Physics.Raycast(look, out lookingAt, 20, shopkeeper))
+            if (Physics.Raycast(look, out lookingAt, 30, shopkeeper))
             {
+                ShopkeepText.SetActive(true);
+                if (Physics.Raycast(look, out lookingAt, 20, shopkeeper))
+                {
+                    if (playerInput.actions["Interact"].triggered)
+                    {
+                        lookingAt.collider.gameObject.GetComponent<LittleMen>().talk();
+                    }
+
+
+                }
+            }
+            else
+            {
+                //StartCoroutine(ShopTimer());
+                ShopkeepText.SetActive(false);
+            }
+            //if (Physics.Raycast(look, out lookingAt, 20, shopkeeper))
+            //{
+            //    if (playerInput.actions["Interact"].triggered)
+            //    {
+            //        lookingAt.collider.gameObject.GetComponent<LittleMen>().talk();
+            //    }
+
+
+            //}
+            if (Physics.Raycast(look, out lookingAt, 25, door))
+            {
+                DoorText.SetActive(true);
+            }
+            else
+            {
+                //StartCoroutine(DoorTimer());
+                DoorText.SetActive(false);
+            }
+
+            if (Physics.Raycast(look, out lookingAt, 20, interactable))
+            {
+                E.SetActive(true);
                 if (playerInput.actions["Interact"].triggered)
                 {
-                    lookingAt.collider.gameObject.GetComponent<LittleMen>().talk();
+                    //Debug.LogError("Door");
+                    if (lookingAt.collider.gameObject.tag == "normal door")
+                    {
+                        lookingAt.collider.gameObject.GetComponent<door>().open();
+                    }
                 }
-
-
             }
-        }
-        else
-        {
-            //StartCoroutine(ShopTimer());
-            ShopkeepText.SetActive(false);
-        }
-        //if (Physics.Raycast(look, out lookingAt, 20, shopkeeper))
-        //{
-        //    if (playerInput.actions["Interact"].triggered)
-        //    {
-        //        lookingAt.collider.gameObject.GetComponent<LittleMen>().talk();
-        //    }
-
-
-        //}
-        if (Physics.Raycast(look, out lookingAt, 25, door))
-        {
-            DoorText.SetActive(true);
-        }
-        else
-        {
-            //StartCoroutine(DoorTimer());
-            DoorText.SetActive(false);
-        }
-
-        if (Physics.Raycast(look, out lookingAt, 20, interactable))
-        {
-            E.SetActive(true);
-            if (playerInput.actions["Interact"].triggered)
+            else
             {
-                //Debug.LogError("Door");
-                if(lookingAt.collider.gameObject.tag == "normal door")
-                {
-                    lookingAt.collider.gameObject.GetComponent<door>().open();
-                }
+                E.SetActive(false);
             }
         }
-        else
-        {
-            E.SetActive(false);
-        }
+       
     }
 }

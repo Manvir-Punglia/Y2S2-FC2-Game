@@ -120,7 +120,8 @@ public class gun : MonoBehaviour
                         StopCoroutine(shootAnimation());
                     }
                 }
-                
+                RecoilShake.Instance.triggerRecoil(true);
+
 
             }
         }

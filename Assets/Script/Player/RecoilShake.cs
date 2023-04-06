@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class RecoilShake : MonoBehaviour
 {
+    
     public static RecoilShake Instance { get; private set; }
     private bool addRecoil = false;
 
@@ -16,15 +17,25 @@ public class RecoilShake : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
     }
 
     private void Update()
     {
         if (addRecoil)
         {
-            GetComponent<CinemachineImpulseSource>().GenerateImpulse(Camera.main.transform.forward);
+            if (PlayerPrefs.GetInt("CurrentGun") == 1)
+            {
+                GetComponent<CinemachineImpulseSource>().GenerateImpulse(Camera.main.transform.forward);
 
-            addRecoil = false;
+                addRecoil = false;
+            }
+            if (PlayerPrefs.GetInt("CurrentGun") == 0)
+            {
+                GetComponent<CinemachineImpulseSource>().GenerateImpulseWithVelocity(new Vector3 (0.0f, 0.2f, 0.0f));
+                addRecoil = false;
+            }
         }
+        
     }
 }
